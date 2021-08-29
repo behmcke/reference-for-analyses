@@ -1,0 +1,329 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+Grade point average. The director of admissions of a small college selected 120 
+students at random from the new freshman class in a study to determine whether 
+a student’s grade point average (GPA) at the end of freshman year (Y) can be 
+predicted from the ACT test score (X). The results of the study follow. Assume 
+that first-order regression model (1.1) is appropriate.
+
+```{r Simple Linear Regression}
+
+# read data
+gpa <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 20/6450/Assignment_1/gpa.txt", header = TRUE)
+
+# fit linear model + print summary
+gfit <- lm(GPA ~ ACT, data=gpa)
+summary(gfit)
+
+# plot data with fitted regression line
+plot(gpa$ACT, gpa$GPA, cex=.5, main="Data and Fitted Regression Model", ylab="Freshman GPA", xlab="ACT Score")
+abline(gfit,lwd = 3)
+
+# produce confidence interval for B_1
+confint(gfit, 'ACT', level = 0.99)
+
+# t-test for relationship
+beta0 <- coef(gfit)[1] #coefficient b_0
+beta1 <- coef(gfit)[2] #coefficient b_1
+fitted_values <- beta0 + beta1 * gpa$ACT #y_hat values
+
+sse <- sum((gpa$GPA - fitted_values) ^2) #sse
+mse <- sse / (nrow(gpa)-2) #mse
+sigma.hat<-sqrt(mse) #estimated standard dev
+sxx <- sum((gpa$ACT - mean(gpa$ACT))^2) #msr
+se.beta.hat.1 <- sqrt(mse / sxx) #standard error
+T.statistic <- beta1 / se.beta.hat.1 #t statistic
+p_value <- 2*pt(T.statistic, df=nrow(gpa)-2, lower.tail=FALSE)
+t.star <- qt(.995, nrow(gpa)-2) #t*
+
+# estimate mean y value
+newdata <- data.frame(ACT = c(28))
+ci <- predict(gfit, newdata, interval = "confidence", level = .95)
+
+# predict y for known x value
+pi <- predict(gfit,newdata,interval = "predict", level = .95)
+
+
+# ////////////////////////////////// Answers //////////////////////////////////
+# Least Squares Estimates
+# $\hat{\beta}_{0} = 2.11405$
+# $\hat{\beta}_{1}=0.03883$
+# 
+# Equation of a Line
+# $\hat{Y} = 2.11405 + 0.03883X$
+# 
+# Describe Plot
+# The estimated regression function appears to fit the data poorly. The 
+# majority of the data appears to show a stronger relationship between ACT 
+# score and freshman GPA; however, points (29, 0.5) and (31, 1.486) among a 
+# handful of others prevent the regression function from having a steeper slope.
+# 
+# Interpret Confidence Interval
+# If the observational study were repeated again and again, the coefficient for 
+# B_1 is expected to be in theconfidence interval, calculated with this method, 
+# 99% of the time.
+# If the CI included 0, the director of admissions could ignore ACT score as a 
+# predictor of Freshman GPA since the results would suggest the observed 
+# relationship may be due to error.
+#
+# Hypothesis Test for Relationship
+# H_0: B_1=0 
+# H_a:B_1 \neq 0
+#
+# I will be able to reject the null hypothesis if T < -2.618137 or T > 2.618137
+# The t-statistic is 3.04; therefore, I can reject the null hypothesis.
+# 
+# The P-value is 0.002. The probability of getting a T-statistic of 3.04 would 
+# be less than .01 if the null hypothesis were true, satisfying the 99% 
+# confidence interval. I can conclude there is a linear association between ACT 
+# score and freshman GPA.
+#
+# Estimate Mean Y
+# If the observational study were conducted again and again, the mean freshman 
+# GPA for a student scoring 28 on the ACT is expected to be in the created 
+# confidence interval 95% of the time.
+#
+# Predict Y
+# The prediction interval when calculated with this method will contain the 
+# student's actual Freshman GPA 95% of the time.
+# 
+# Note on Difference
+# The prediction interval includes the prediction of error and will always be 
+# wider than the confidence interval, which predicts the mean exclusively.
+# 
+# Additional - Relationship test
+# If there were no linear association between Y and X, 0 would be included in 
+# the confidence interval for slope. However, 0 is not included in the 
+# confidence interval, so this conclusion is valid with a significance of 0.05.
+# 
+# ////////////////////////////////////////////////////////////////////////////
+```
+
+
+```{r Check Assumptions}
+
+# /////////////////////////// Assumptions /////////////////////////////////////
+# 1. Normality
+# 2. Constant Variance
+# 3. Independence
+# 4. Outliers
+# /////////////////////////////////////////////////////////////////////////////
+
+# read data
+gpa <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 20/6450/Assignment_2/data/CH03PR03.txt", header=TRUE)
+
+# plot data
+plot(gpa$X,gpa$Y, ylab="Freshman GPA", xlab="ACT Score", main="Scatter Plot", pch=18, col="orange")
+
+# plot normality
+hist(gpa$X, xlab="ACT Scores", ylab="Frequency of Score", main="Histogram", col="orange")
+
+# plot residuals
+gfit <- lm(Y ~ X, data=gpa) #fit linear model
+gpa.e <- resid(gfit) #residuals
+plot(gpa$X, gpa.e, xlab="ACT Score", ylab="Residual", main="Residual Plot", col="orange", pch=18)
+abline(h=0) #horizontal line
+abline(h=1, lty=c(2)) #dotted line
+abline(h=-1, lty=c(2)) #dotted line
+
+# plot QQ plot
+library(car)
+qqPlot(rstandard(gfit), col="orange", pch=18)
+
+# test normality (reject if < 0.05)
+shapiro.test(gpa.e)
+
+# ////////////////////////////////// Extra ////////////////////////////////////
+# View residuals against other variables to see if they should be included in
+# linear model.
+# ////////////////////////////////////////////////////////////////////////////
+
+# plot residuals against unused variables
+plot(gpa$V2, gpa.e, col="orange", pch=18, xlab="V2", ylab="Residuals", main="V2 Residual Plot")
+abline(h=0)
+plot(gpa$V3, gpa.e, col="orange", pch=18, xlab="V3", ylab="Residuals", main="V3 Residual Plot")
+abline(h=0)
+
+```
+
+```{r ANOVA}
+
+# read data
+gpa <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 20/6450/Assignment_2/data/CH03PR03.txt", header=TRUE)
+
+# anova table
+anova(gfit)
+
+# f-test for value of variables in model (H_0: intercept-only model)
+f <- qf(.95, 1, 118) #f*
+MSR <- 3.588
+MSE <- 0.388
+Fstar <- MSR/MSE #f statistic
+
+# calculate r-squared
+SSR <- 3.588
+SSE <- 45.818
+SSTO <- SSR+SSE
+Rsquared <- SSR/SSTO
+
+# not sure????
+conc <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 20/6450/Assignment_2/data/CH03PR15.txt", header=TRUE)
+gfit_conc <- lm(conc$Concentration ~ conc$Hours)
+gfit_conc_full <- lm(conc$Concentration ~ 0 + factor(conc$Hours))
+anova(gfit_conc, gfit_conc_full)
+compare <- qf(.975, 3, 10)
+f_star <- (2.7673/3)/(.1574/10)
+
+# ////////////////////////////////// Answers //////////////////////////////////
+# F Test
+# Null Hypothesis: H_0: B_1=0
+# Alternate Hypothesis: H_a: B_1 \neq 0
+# Because the test statistic is larger than F*, I can reject the null hypothesis 
+# with 95% confidence. I conclude that the full regression model is better than 
+# an intercept-only model.
+# 
+# Unknown Test????
+# H_0: \hat{Y} = -0.3240X + 2.5753$; H_a: \hat{Y} \neq -0.3240X + 2.5753
+#
+# This information does not indicate what regression function is appropriate, 
+# since all other regression functions are included in the alternate hypothesis. 
+# If we want to explore alternate regression functions, we can look to other 
+# diagnostics and examine the residuals.
+# 
+# /////////////////////////////////////////////////////////////////////////////
+```
+
+```{r Transformations}
+
+# read data
+sales <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 20/6450/Assignment_2/data/CH03PR17.txt", header=TRUE)
+
+# view boxcox plot
+gfit <- lm(Y ~ X, data=sales)
+library(MASS)
+boxcox(gfit)
+
+# transform data
+gfit_trfm <- lm(sqrt(Y) ~ X, data=sales)
+summary(gfit_trfm)
+
+# ////////////////////////////////// Answers //////////////////////////////////
+# Box-Cox Plot
+# The Box-Cox procedure suggests a lambda = .5 transformation would be 
+# appropriate.
+# 
+# Interpret Transformed Data
+# For each one-year increase, the expected change in square root of sales in 
+# thousands is 1.07629.
+#
+# /////////////////////////////////////////////////////////////////////////////
+```
+
+```{r Multiple Linear Regression}
+
+# read data
+patient <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 20/6450/Assignment_3/CH06PR15.txt", header=TRUE)
+
+# scatter plot matrix
+pairs(patient, col="slategray4")
+
+# correlation matrix
+cor(patient)
+
+# fit linear model
+gfit <- lm(Satisfaction ~ Age + Severity + Anxiety, data=patient)
+
+# plot residuals against fitted values
+patient.e <- resid(gfit)
+plot(gfit$fitted.values, patient.e, col="slategray4", pch=18)
+
+# plot against single variables
+par(mfrow=c(2,2))
+plot(patient$Age, patient.e, col="slategray4", pch=18)
+plot(patient$Severity, patient.e, col="slategray4", pch=18)
+plot(patient$Anxiety, patient.e, col="slategray4", pch=18)
+
+# plot against interaction variables
+plot(patient$Age*patient$Severity, patient.e, col="slategray4", pch=18)
+plot(patient$Age*patient$Anxiety, patient.e, col="slategray4", pch=18)
+plot(patient$Severity*patient$Anxiety, patient.e, col="slategray4", pch=18)
+
+# f test for not all coefficients = 0
+summary(gfit)
+anova(gfit)
+MSR <- (8275.4+480.9+364.2)/3
+MSE <- 4248.8/42
+F_stat <- MSR/MSE #f stat
+compare <- qf(.90, 3, 42) #f*
+
+# coefficient of multiple determination
+SSR <- MSR*3
+SSTO <- SSR+ (MSE*42)
+R2 <- SSR/SSTO
+
+# estimate mean Y
+ci <- predict(gfit, newdata=data.frame(Age=35, Severity=45, Anxiety=2.2), interval="confidence", level=.90)
+
+# predict Y
+pi <- predict(gfit, newdata=data.frame(Age=35, Severity=45, Anxiety=2.2), interval="prediction", level=.90)
+
+# f test for b3 not = 0
+anova(gfit)
+f_stat_x3 <- (364.2/101.2)
+f4 <- qf(.975, 1, 42)
+
+# f test for b2 and b3 not = 0
+msr_2and3 <- (480.9+364.2)/2
+f_star_2and3 <- msr_2and3/101.2
+
+# ////////////////////////////////// Answers //////////////////////////////////
+# F Test for all Coefficients
+# 
+# The alternatives are as follows:
+# H_0: \beta_1 = \beta_2 = \beta_3 = 0
+# H_a: not all \beta_k = 0
+#
+# If the f-statistic is greater than F*, I will reject the null hypothesis. If 
+# it is less than or equal to `r compare`, I will fail to reject the null 
+# hypothesis.
+# 
+# Because the f-statistic is greater than the f-value, I can reject the null 
+# hypothesis and conclude that at least one of the beta terms is not equal to 
+# zero.
+#
+# The p-value is 1.542e-10, which makes sense as it is less than .10, which was 
+# the required level of significance in order to reject the null.
+#
+# /////////////////////////////////////////////////////////////////////////////
+# Coefficient of Multiple Determination
+# 
+# The coefficient of multiple determination indicates that the inclusion of 
+# these three predictor variables reduces the variability in Y by 68.21973%.
+# 
+# /////////////////////////////////////////////////////////////////////////////
+# F Test for B_3
+# 
+# H_0: B_3=0
+# H_a: B_3 \neq 0
+# 
+# Because F-statistic is NOT greater than F*, I fail to reject the null 
+# hypothesis. The P-value is 0.06468, which does not meet a significance 
+# level of .025.
+# /////////////////////////////////////////////////////////////////////////////
+# 
+# The degree of marginal linear association between $Y$ and $X_1$ is reduced 
+# for each predictor variable considered before $X_1$ is added. This makes 
+# sense because the reduction in variability of Y has the opportunity to be 
+# attributed to other variables first and will not be double-counted.
+# 
+# /////////////////////////////////////////////////////////////////////////////
+# 
+# SSR(X_2|X_1, X_3) has 1 DF
+#
+# /////////////////////////////////////////////////////////////////////////////
+```
+
+
