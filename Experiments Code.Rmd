@@ -1,0 +1,287 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+pacman::p_load(dplyr,
+               ggplot2,                                 #ggplot()
+               lsmeans,                                 #lsmeans()
+               pwr)                                     #pwr.anova.test()
+```
+
+
+```{r Assign Random Treatments}
+
+# Suppose that you are planning to run an experiment with one treatment factor 
+# having four levels and no blocking factors. Suppose that the calculation of 
+# the required number of observations has given r1 = r2 = r3 = r4 = 5. Assign 
+# at random 20 experimental units to the v = 4 levels of the treatments, so 
+# that each treatment is assigned 5 units.
+
+r <- c(5,5,5,5)                                         #set # replicates
+v <- length(r)                                          #set # treatments
+n <- sum(r)                                             #set n
+unsorted_trtmts = rep(1:4, r)                           #create r reps of v treatments
+data = data.frame(unsorted_trtmts=unsorted_trtmts)                    #make data frame
+
+set.seed(12345)                                         #set seed
+unsorted_rand <- runif(n)                               #random deviates of uniform distr.
+data_sort = data.frame(data,                            #add column with random numbers
+                       unsorted.rn = round(unsorted_rand, 3))
+
+sorted_rand = sort(unsorted_rand)                       #sort by random numbers
+ordered_rand = order(unsorted_rand)                     #assign random order
+sort_trtmts = unsorted_trtmts[ordered_rand]             #random order treatments          
+data = data.frame(data,                                 
+                  sort_trtmts = sort_trtmts,            #column sorted treatments
+                  sorted_rand = sorted_rand,            #column sorted random numbers
+                  exper_unit = seq(1:20))               #number experimental units
+```
+
+
+```{r Test Treatment Effect}
+# load data
+trout <- read.table(url("http://deanvossdraguljic.ietsandbox.net/DeanVossDraguljic/R-data/trout.txt"),header=TRUE)
+trout$Sulfa <- as.factor(trout$Sulfa)                   #consider sulfa as treatments
+
+ggplot(trout, aes(x = Sulfa,                            #view boxplots of sulfa groups
+                  y = Hemo, 
+                  group=Sulfa)) +
+  geom_boxplot()
+
+model <- lm(Hemo ~ Sulfa, data=trout)                   #fit linear model
+lsmeans(model, "Sulfa")                                 #find least squares means
+
+#mark least squares means on boxplot
+ggplot(trout, aes(x = Sulfa, y = Hemo, group=Sulfa)) +
+  geom_boxplot() + 
+  geom_point(aes(x=1, y=7.2, col="red"), pch=8, lwd=3) + 
+  geom_point(aes(x=2, y=9.33, col="red"), pch=8, lwd=3) + 
+  geom_point(aes(x=3, y=9.03, col="red"), pch=8, lwd=3) + 
+  geom_point(aes(x=4, y=8.69, col="red"), pch=8, lwd=3)
+
+#anova table
+anova(model)
+
+
+# ////////////////////////////////// Answers //////////////////////////////////
+# Suitable Model
+# Y_{it} = \mu + \tau_i + \epsilon_{it}
+# 
+# for i=1,2,3,4 and t=1,...,10
+# where Y_{it} = the grams of hemoglobin per 100mL,
+# \mu + \tau_i = the mean response for each treatment, and 
+# \epsilon_{it} = the error terms which are approx. N(0, \sigma^2)
+# ////////////////////////////////////////////////////////////////////////////
+# F Test - Effect of Sulfa
+# 
+# H_0: \tau_1 = \tau_2 = \tau_3 = \tau_4
+# H_a: not all \tau_i are equal
+# \alpha = .05
+#
+# The p value is 0.002685. Because the p value is less than the significance 
+# level, I can reject the null hypothesis and conclude that at least two 
+# treatment groups have unequal tau_i.
+#
+# I will not keep the model that considers all treatments equal and instead 
+# adopt a model that suggests sulfamerazine does have an effect on hemoglobin 
+# content.
+# ////////////////////////////////////////////////////////////////////////////
+```
+
+
+```{r Conservative Estimate of Variance}
+
+# load data
+trout <- read.table(url("http://deanvossdraguljic.ietsandbox.net/DeanVossDraguljic/R-data/trout.txt"),header=TRUE)
+trout$Sulfa <- as.factor(trout$Sulfa)   
+
+model <- lm(Hemo ~ Sulfa, data=trout)                   #fit linear model
+lsmeans(model, "Sulfa")                                 #find least squares means
+anova(model)                                            #anova model
+
+chi <- qchisq(.95,                                      #confidence level
+              36,                                       #degrees of freedom
+              lower.tail = FALSE)
+sse <- 56.471                                           #SSE
+sigma2 <- sse/chi                                       #upper limit for sigma^2
+
+# ////////////////////////////////// Answers //////////////////////////////////
+# The upper confidence limit for a 95% confidence interval estimating \sigma^2 
+# would be 2.4269. I would use this variance when conservatively planning an 
+# experiment.
+# ////////////////////////////////////////////////////////////////////////////
+
+```
+
+
+```{r Sample Size}
+
+delta <- 1.5                                            #given delta
+v <- 4                                                  #treatment groups
+#sigma2 from conservative estimate above
+f <- sqrt((delta^2)/(2*v*sigma2))                       #effect size
+pwr.anova.test(4,
+               sig.level=.05,
+               power = .95,                             #desired power
+               f=f)
+
+# ////////////////////////////////// Answers //////////////////////////////////
+# The recommended sample size from each treatment group is 39, with a total 
+# sample size of 156.
+# ////////////////////////////////////////////////////////////////////////////
+
+```
+
+
+```{r Choosing Contrasts}
+# ////////////////////////////////////////////////////////////////////////////
+
+# The experiment was run to compare the effects of auditory and visual cues on 
+# speed of response of a human subject. The experimenters were interested in 
+# the effects on the subjects’ reaction time of the auditory and visual cues 
+# and also in different elapsed times between cue and stimulus. Thus, there were 
+# two different treatment factors: “cue stimulus” at two levels “auditory” or 
+# “visual,” and “elapsed time between cue and stimulus” at three levels “five,” 
+# “ten,” or “fifteen” seconds. This gave a total of six treatment combinations.
+
+# ////////////////////////////////////////////////////////////////////////////
+
+# Comparison: Auditory vs. Visual
+# gamma = ((1/3)*(\tau_1 + \tau_2 + \tau_3 ) - (1/3)*(\tau_4 + \tau_5 + \tau_6 )
+
+# Comparison: 5 sec vs. 10 sec Before Cue
+# gamma = (1/2)*(\tau_1 + \tau_4) - \frac{1}{2}\left(\tau_2 + \tau_5 )
+
+# Comparison: 5 sec vs. 15 sec Before Cue
+# gamma = \frac{1}{2}\left(\tau_1 + \tau_4 ) - \frac{1}{2}\left(\tau_3 + \tau_6 )
+
+# Comparison: 10 sec vs. 15 sec Before Cue
+# gamma = (1/2)*(\tau_2 + \tau_5 ) - (1/2)*(\tau_3 + \tau_6 )
+
+# ////////////////////////////////////////////////////////////////////////////
+```
+
+
+```{r Familywise Confidence Intervals for Contrasts}
+
+# load data
+reaction <- read.table(url("http://deanvossdraguljic.ietsandbox.net/DeanVossDraguljic/R-data/reaction.time.txt")) %>%
+  row_to_names(row_number = 1)
+
+reaction$Trtmt <- as.factor(reaction$Trtmt)               #consider trtmt as treatments
+model <- lm(y ~ Trtmt, data=reaction)                     #fit linear model
+model_means <- lsmeans(model, ~Trtmt)                     #find least square means
+
+summary_b <- summary(contrast(model_means, 
+                            
+                            #list desired contrasts
+                            list(`Method 1 vs. Method 2` = c((1/3), (1/3), (1/3), (-1/3), (-1/3), (-1/3)),
+                                 `5 sec vs. 10 sec` = c(.5, -.5, 0, .5, -.5, 0),
+                                 `10 sec vs. 15 sec` = c(0, .5, -.5, 0, .5, -.5),
+                                 `5 sec vs. 15 sec` = c(.5, 0, -.5, .5, 0, -.5)), 
+                            
+                            adjust="bonferroni"),         #bonferroni method
+                   infer=c(T,T),                          
+                   level=.90,                             #90% family-wise confidence interval
+                   side="two-sided")
+
+summary_s <- summary(contrast(model_means,
+                              method="pairwise",
+                              adjust="scheffe"),         #scheffe method
+                     infer=c(T,T), 
+                     level=.90,                          #90% family-wise confidence interval
+                     side="two-sided")
+
+# ////////////////////////////////// Answer //////////////////////////////////
+# Bonferroni
+# I conclude that there is a significant difference in reaction time depending 
+# on the method of alerting the subject of the cue; however, no significant 
+# difference was found among the amounts of time subjects were given between the 
+# cue and the stimulus.
+# ////////////////////////////////////////////////////////////////////////////
+
+```
+
+```{r Check Assumptions}
+
+# load data
+reaction <- read.table(url("http://deanvossdraguljic.ietsandbox.net/DeanVossDraguljic/R-data/reaction.time.txt")) %>%
+  row_to_names(row_number = 1)
+reaction$Trtmt <- as.factor(reaction$Trtmt)             #consider trtmt as treatments
+
+model<- lm(y ~ Trtmt, data=reaction)                    #fit linear model
+anova(model)                                            #anova table
+resid <- residuals(model)                               #residuals
+fit <- fitted(model)                                    #fitted values
+sresid <- resid / sqrt(.0002893)                        #standardized residuals
+
+par(mfrow=c(2,2))                                       #format imaging
+
+plot(fit, sresid, pch=18, col="aquamarine3",            #plot fitted vs. standardized residuals
+     xlab="Fitted Values", 
+     ylab="Residuals", 
+     main="Check Variance")
+reaction$Trtmt <- as.numeric(reaction$Trtmt)            #convert treatment to numeric for scatterplot
+plot(reaction$Trtmt, sresid, pch=18, col="aquamarine3", #plot treatments vs. standardized residuals
+     xlab="Treatment (coded)", xlim=c(0,3),
+     ylab="Residuals",
+     main="Check Model Fit", type="p")
+abline(h=0)
+plot(reaction$Order, sresid,                            #plot order vs. standardized residuals
+     xlab="Order of Data Sample", 
+     ylab="Reaction Time", 
+     main="Check Independence", col="aquamarine3", pch=18)
+hist(resid, col="aquamarine3",                          #plot histogram
+     xlab="Residuals",
+     main="Check Normality")
+
+# ////////////////////////////////// Answer //////////////////////////////////
+# Check:
+# 1. Constant Variance
+# 2. Independence
+# 3. Normal Distribution
+# 4. Model Fit
+# ////////////////////////////////////////////////////////////////////////////
+#
+# There is an acceptable amount of variance if the following condition is met:
+#
+# sigma_{max} \ sigma_{min} < 3
+# 
+# ////////////////////////////////////////////////////////////////////////////
+
+```
+
+
+```{r Transform Data}
+
+# load data
+bicycle <- read.table( url("http://deanvossdraguljic.ietsandbox.net/DeanVossDraguljic/R-data/bicycle.txt"), header=TRUE)
+
+attach(bicycle)
+means <- tapply(rate, trtmt, mean)                    #mean for each treatment
+variance <- tapply(rate, trtmt, var)                  #variance for each treatment
+compare <- rbind(means, variance)                     #combine for table
+
+slr <- lm(log(variance) ~ log(means))                 #fit linear model of log means & variances
+summary(slr)                                          #view summary for slope
+
+bicycle$newrate <- bicycle$rate^(1+(1.9187/2))        #complete transformation
+
+
+# ////////////////////////////////////////////////////////////////////////////
+# I will use the following transformation and find q using simple linear 
+# regression on the log of both variances and means.
+#
+# h(y_{it}) = (y_{it})^{1-(q/2)}
+#
+# I find q to be -1.9187.
+#
+# ****** Double check that this is best formula - there are others.
+# ////////////////////////////////////////////////////////////////////////////
+
+```
+
+
+
