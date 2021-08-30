@@ -1,0 +1,75 @@
+run_Prep <- function(table){                                        #function of data.frame to detrend and view data
+  
+  z <- table$series[nrow()]*1.5                                     #identify number larger than last value for scaling graphs
+  
+  linear.model <- lm(series ~ year, data=table)                     #create linear model
+  summary(linear.model)                                             #view model summary
+  
+  detrended <- resid(linear.model)                                  #remove linear trend from data
+  
+  par(mfrow=c(2,2))                                                 #view 2x2 arrangement
+  plot(x=table$year, y=table$series, type="l", ylim=c(0,z))         #plot line graph of original data
+  lines(x=table$year, fitted(linear.model))                         #show linear trend line
+  plot(x=table$year, y=detrended, type="l")                         #plot line graph of detrended data
+  
+  acf(detrended, lag.max = 30, main="De-Trended")                   #create ACF for detrended data
+  pacf(detrended, lag.max = 30, main="De-Trended")                  #create PACF for detrended data
+  
+  par(mfrow=c(1,1))                                                 #view solo
+  qqPlot(detrended)                                                 #check normality using qqPlot
+  
+  return(detrended)                                                 #return a hopefully stationary time series
+}
+
+run_Diagnostics <- function(y){                                     #function of time series model
+  
+  model.resid <- resid(y)                                           #find residuals of time series model
+  summary(y)
+
+  par(mfrow=c(2,2))                                                 #view 2x2 arrangement
+  acf(model.resid, lag.max = 30)                                    #create ACF for fitted model
+  pacf(model.resid, lag.max = 30)                                   #create PACF for fitted model
+  plot(c(1:40), model.resid, type="l")                              #plot residuals
+  
+  par(mfrow=c(1,1))                                                 #view solo
+  qqPlot(model.resid)                                               #check normality using qqPlot
+  
+  Box.test(model.resid, lag=15, type="Ljung-Box")                   #test to reject IID
+}
+
+run_Forecast <- function(table, model){
+  h <- 35
+  
+  model.forecast <- predict(model, h)                               #predict next h values of fitted model
+  model.predictions <- model.forecast$pred                          #store predicted values
+  plus.or.minus <- confidence.level*model.forecast$se               #compute standard error
+  
+  fyear <- x+(0:(h-1))                                              #years span x through x+h-1
+  
+  linear.model <- lm(series ~ year, data=table)                     #fit linear model (matches earlier)
+  linear.predictions <- predict(linear.model, newdata=data.frame(year=fyear)) #linear trend predictions
+  adjusted.forecast <- linear.predictions + model.predictions       #trend + stationary model values
+  
+  lower <- adjusted.forecast - plus.or.minus                        #minus standard error for lower CI bound
+  upper <- adjusted.forecast + plus.or.minus                        #plus standard error for upper CI bound
+  
+  par(mfrow=c(1,1))                                                 #view solo
+  plot(table$year, table$series, type="l",                          #plot historical data with room for projection
+       xlim=c(x1, x3), ylim=c(0,max(upper+5000)))
+  lines(fyear, adjusted.forecast, col="red")                        #add projection
+  lines(fyear, lower, col="blue")                                   #add lower CI bound
+  lines(fyear, upper, col="blue")                                   #add upper CI bound
+  abline(h=mean(model))                                             #draw average
+  
+  confidence.interval <- data.frame(fyear, lower, adjusted.forecast, upper) #store CI in data.frame
+  
+  return(confidence.interval)                                       #return data frame with CI values
+}
+
+dt.table <- run_Prep(table)                                         #run functions on dataset
+
+
+fitarima <- arima(dt.table, order=c(1,1,1))                         #fit the ARIMA model based on prep output
+
+run_Diagnostics(fitarima)                                           #run diagnostics on model
+ci.table <- run_Forecast(table, fitarima)                           #confidence interval for forecast
