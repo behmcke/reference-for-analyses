@@ -1,0 +1,19 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r Descriptive Statistics}
+#read data
+bones <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 21/6560/Data_JW6/T1-8.DAT")
+
+#column averages (per variable)
+x_bar2 <- round(colMeans(data2[,1:6]),2)
+
+#variance-covariance matrix
+S_n2 <- round(var(data2[,1:6]),2)
+
+#correlation matrix
+R2 <- round(cor(data2)[,1:6],2)
+```
+
