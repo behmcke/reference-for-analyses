@@ -327,10 +327,35 @@ f_star_2and3 <- msr_2and3/101.2
 ```
 
 ```{r Indicator Variables}
-# read data
+# read data: gpa1 (original) + gpa2 (indicator) = gpa (full dataset)
 gpa1 <- read.table("/Users/elizabethehmcke/Documents/6450/Assignment_4/CH01PR19-1.txt", header=TRUE)
 gpa2 <- read.table("/Users/elizabethehmcke/Documents/6450/Assignment_4/CH08PR16.txt", header=TRUE)
+gpa <- cbind(gpa1, gpa2[1]) #combine
 
+# fit linear model
+gfit <- lm(GPA ~ ACT + Indicator, data=gpa)
+summary(gfit)
+
+# confidence interval for beta_2
+qt <- qt(.975, 117)
+ll <- -.0943 - (qt* .11997)
+ul <- -.0943 + (qt* .11997)
+
+# ////////////////////////////////// Answers //////////////////////////////////
+# 
+# The 95% confidence interval for $\beta_2$ is (`r ll`, `r ul`). We fail to 
+# reject the null hypothesis, because 0 is contained in the confidence interval.
+# This suggests there is no value added by including $X_2$ in the model.
+#
+# /////////////////////////////////////////////////////////////////////////////
+
+# plot residuals against variable; color by indicator
+gpa.e <- resid(gfit)
+palette(c("gray", "red"))
+test <- gpa$Indicator + 1
+plot(gpa$ACT, gpa.e, col=test, pch=18, 
+     main="Residual Plot Against ACT Score Separated by Indicator", 
+     xlab="ACT Score", ylab="Residuals")
 
 ```
 
