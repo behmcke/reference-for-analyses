@@ -326,4 +326,11 @@ f_star_2and3 <- msr_2and3/101.2
 # /////////////////////////////////////////////////////////////////////////////
 ```
 
+```{r Indicator Variables}
+# read data
+gpa1 <- read.table("/Users/elizabethehmcke/Documents/6450/Assignment_4/CH01PR19-1.txt", header=TRUE)
+gpa2 <- read.table("/Users/elizabethehmcke/Documents/6450/Assignment_4/CH08PR16.txt", header=TRUE)
+
+
+```
 
