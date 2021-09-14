@@ -359,6 +359,8 @@ plot(gpa$ACT, gpa.e, col=test, pch=18,
 ```
 
 ```{r Interaction Term}
+
+#fit linear model
 gfit_int <- lm(GPA ~ ACT + Indicator + ACT*Indicator, data=gpa)
 summary(gfit_int)
 
@@ -385,5 +387,46 @@ t1 <- qt(.975, 116)
 # /////////////////////////////////////////////////////////////////////////////
 ```
 
+```{r Added Variable Plot}
 
+# required package
+library(car)
+
+# fit linear model
+gfit2 <- lm(Satisfaction ~ Age + Severity + Anxiety, data=patient)
+
+# added variable plot
+avPlots(gfit2)
+
+# /////////////////////////////////////////////////////////////////////////////
+# Upon visual inspection of the added variable plots, it appears that $X_1$, 
+# which represents age, may have a linear relationship with patient 
+# satisfaction, while the relationship between $X_2$ and $X_3$ and patient 
+# satisfaction remains unclear. It is possible these variables do not 
+# significantly add value to the model.
+# /////////////////////////////////////////////////////////////////////////////
+```
+
+```{r Outliers & Influential Points}
+#uses patient data
+
+# visual check for outliers (none should be found)
+studres <- rstudent(gfit2)
+plot(studres, pch=18, col='red', main="Studentized Residuals")
+abline(h=0)
+
+# identify 3 points with highest leverage (none should be found to be high)
+# informally 0.5 is considered as a threshold for high leverage points
+z <- hatvalues(gfit2)
+sort(z, decreasing=TRUE)[1]
+sort(z, decreasing=TRUE)[2]
+sort(z, decreasing=TRUE)[3]
+
+# check Cook's Distance for influential points (none should be found)
+# Use F(0.5,p,n-p) as cutoff for influential point in Cook's distance.
+library(lindia)
+gg_cooksd(gfit2)
+cutoff <- qf(.5, 4, 42)
+
+```
 
