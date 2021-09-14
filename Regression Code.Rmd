@@ -356,6 +356,34 @@ test <- gpa$Indicator + 1
 plot(gpa$ACT, gpa.e, col=test, pch=18, 
      main="Residual Plot Against ACT Score Separated by Indicator", 
      xlab="ACT Score", ylab="Residuals")
-
 ```
+
+```{r Interaction Term}
+gfit_int <- lm(GPA ~ ACT + Indicator + ACT*Indicator, data=gpa)
+summary(gfit_int)
+
+# ////////////////////////////////// Answers //////////////////////////////////
+# When no major field of concentration is indicated, the interaction term is 
+# dropped. However, when a major field of concentration *is* indicated by the 
+# student, the interaction coefficient contributes to the slope of the 
+# regression line pertaining to students who had indicated their preference of 
+# major, such that for one unit increase in ACT score, the student's freshman 
+# GPA increased by 0.059488.
+# /////////////////////////////////////////////////////////////////////////////
+
+# test interaction term not = 0
+t_star1 <- .062245/.026487
+t1 <- qt(.975, 116)
+
+# /////////////////////////////////////////////////////////////////////////////
+# H_0: \beta_3 = 0
+# H_a: \beta_3 \neq 0
+#
+# Because t*, `r t_star1`, is greater than t, `r t1`, we can reject the null 
+# hypothesis and conclude that the interaction term adds value to the 
+# regression function.
+# /////////////////////////////////////////////////////////////////////////////
+```
+
+
 
