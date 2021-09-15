@@ -430,3 +430,98 @@ cutoff <- qf(.5, 4, 42)
 
 ```
 
+
+```{r Piecewise Linear Model}
+
+# read data
+properties <- read.table("/Users/elizabethehmcke/Documents/MAS/AU/20/6450/Assignment_4/CH06PR18-1.txt", header=TRUE)
+
+# center ages variable (square of variable included in model)
+Centered_Ages <- properties$Age-mean(properties$Age)
+Sq_Centered_Ages <- Centered_Ages^2
+
+# create table
+prop <- cbind(properties, Centered_Ages, Sq_Centered_Ages)
+
+# plot scatter with vertical line at break
+plot(prop$Age, prop$Rental_Rates, pch=18, col="red", ylab="Rental Rates", xlab="Property Age", main="Regression on X1")
+abline(v=10, lty=2)
+
+# fit piecewise model
+piecewise.fit <- lm(Rental_Rates ~ Age + pmax(0, Age - 10) + I(Age > 10), data=prop)
+
+# generate x variables for prediction
+a.grid <- seq(0, max(prop$Age), length.out=1000)
+
+# generate piecewise prediction lines
+predictions <- predict(piecewise.fit, newdata=data.frame(Age = a.grid), interval = "confidence")
+
+# add lines to graph (run entire chunk for success)
+lines(x=a.grid, y=predictions[,1], col="gray3")
+```
+
+```{r Model Selection}
+
+# required package for regsubsets()
+library(leaps)
+
+# read data
+job <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 20/6450/Assignment_4/CH09PR10-1.txt", header=TRUE)
+
+# select model; methods = exhaustive, forward, or backward
+best_subs <- regsubsets(Job_Proficiency_Score ~ X_1 + X_2 + X_3 + X_4, 
+                        data=job, 
+                        method="exhaustive", 
+                        nvmax=2)                    #include 2 variables max
+summary(best_subs)
+          
+# adjusted r squared plot
+plot(best_subs, scale="adjr2", main="Adjusted R^2 Plot")
+
+# mallows cp plot
+plot(best_subs, scale="Cp", main="Mallows Cp Plot")
+
+# bic plot
+plot(best_subs, scale="bic", main="BIC Plot")
+
+# required package for step()
+library(car)
+
+# fit intercept and full model
+gfit_int <- lm(Job_Proficiency_Score~1, data=job)
+gfit_full <- lm(Job_Proficiency_Score~., data=job)
+
+# aic model selection
+forwstep_a <- step(gfit_int, scope=list(upper=gfit_full), data=job, direction="both")
+forwstep_a
+
+# bic model selection
+forwstep_b <- step(gfit_int, scope=list(upper=gfit_full), data=job, direction="both", k=log(nrow(job)))
+forwstep_b
+```
+
+```{r Check Model Fit}
+
+# required package for PRESS()
+library(MPV)
+
+# fit PRESS statistic
+fit_press <- PRESS(jobfit)/nrow(job)
+anova(jobfit)
+
+# read and fit linear model jobs prediction dataset
+job2 <- read.table("/Users/elizabethehmcke/Documents/6450/Assignment_4/CH09PR22-1.txt", header=TRUE)
+jobfit2 <- lm(Job_Proficiency_Score ~ X_3 + X_1 + X_4, data=job2)
+
+# compare summary and anova (coefficients, SE, MSE, R squared)
+summary(jobfit2)
+summary(jobfit)
+anova(jobfit2)
+anova(jobfit)
+
+# compare MSPE to MSE
+pred_job2 <- predict(jobfit, newdata=job2)
+mspe <- mean((job2$Job_Proficiency_Score-pred_job2)^2)
+```
+
+
