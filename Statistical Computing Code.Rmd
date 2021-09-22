@@ -1,1 +1,35 @@
-Test
+
+Code Provided During Labs for 6370 Statistical Computing
+
+```{r examine dataframe}
+
+# load dataset
+load(url("https://www.stat.osu.edu/~vqv/6730/data/fev.RData"))
+
+# check structure of dataframe; lists types
+str(fevdata)
+
+```
+
+```{r ggplots}
+
+# download necessary packages
+pacman::p_load(dplyr,                           # summarize()
+               ggplot2)                         # ggplot()
+
+# create ggplot; aesthetic map variables
+s <- ggplot(fevdata, aes(x = age, y = fev))
+s + geom_point()                                # add points for each datum
+
+# add color mapping by smoke variable
+s <- ggplot(fevdata, aes(x = age, y = fev, color=smoke))
+s + geom_point()
+
+# find mean for each age
+s <- ggplot(fevdata, aes(x = age, y = fev))     # basic ggplot
+fev_mean <- summarize(group_by(fevdata, age), fev = mean(fev))
+s + geom_point() + geom_line(data = fev_mean)   # add line across averages
+
+
+```
+
