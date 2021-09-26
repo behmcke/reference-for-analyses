@@ -524,4 +524,65 @@ pred_job2 <- predict(jobfit, newdata=job2)
 mspe <- mean((job2$Job_Proficiency_Score-pred_job2)^2)
 ```
 
+```{r Simple Logistic Model}
+
+# plot logistic model with b0 = 20, b1 = -.2
+X <- cbind(1:200)
+pi_1a <- exp(20-.2*X)/(1+exp(20-.2*X))
+plot(X, pi_1a, pch=18, col="slateblue1", main="Logistic Mean Response with Given Parameters")
+
+# odds ratio is approximately exp(b1)
+odds126 <- exp(20-.2*126)/(1+exp(20-.2*126))
+odds125 <- exp(20-.2*125)/(1+exp(20-.2*125))
+ratio <- odds126/odds125
+exp(-.2)
+
+# read data
+dues <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 21/6450/Assignment_5/CH14PR07.txt", header=TRUE)
+
+# fit logistic model
+gfit2 <- glm(Renewal ~ Increase, data=dues, family = binomial(link ="logit"))
+summary(gfit2)
+
+# /////////////////////////////////////////////////////////////////////////////
+# The fitted response function is 
+# \hat{\pi} = \frac{exp(-4.80751 + .12508X)}{1+exp(-4.80751 + .12508X)}
+# /////////////////////////////////////////////////////////////////////////////
+
+# generate prediction curve
+predIncrease <- seq(0,100, by=1)                    # create x values
+logit.hat2 <- predict.glm(gfit2,                    # ???
+                          newdata = data.frame(Increase=predIncrease),
+                          se.fit=TRUE)
+prob.hat2 <- exp(logit.hat2$fit)/(1+exp(logit.hat2$fit)) # logistic equation
+
+# plot original data
+plot(dues$Increase, 
+     dues$Renewal, 
+     pch=18, col="slateblue1", 
+     main="Annual Dues Increase", 
+     ylab="Renewal Selection", 
+     xlab="Increase Amount")
+
+# plot loess smoothed line
+loess2 <- loess.smooth(dues$Increase, dues$Renewal)
+lines(loess2, col="slateblue2")                     # loess smooth line
+lines(predIncrease, prob.hat2, col="red")           # predicted values line
+
+# calculate and interpret odds ratio
+beta_1 <- exp(gfit2$coefficients[2])
+
+# /////////////////////////////////////////////////////////////////////////////
+# The value is 1.133237 and suggests that for each additional dollar dues 
+# increase, the odds of a member choosing not to renew their dues increases 13%.
+# /////////////////////////////////////////////////////////////////////////////
+
+# estimated probability that members will not renew if the dues increase $40
+pi_2d <- exp(dues_b[1]+dues_b[2]*40)/(1+exp(dues_b[1]+dues_b[2]*40))
+
+# dues increase for which 75 percent of the members are expected not to renew
+dues_b <- gfit2$coefficients                        # save b1 and b0
+Y <- exp(dues_b[1]+dues_b[2]*X)/(1+exp(dues_b[1]+dues_b[2]*X)) # equation
+answer <- X[which(Y > .74 & Y < 0.76)]              # find Y = .75
+```
 
