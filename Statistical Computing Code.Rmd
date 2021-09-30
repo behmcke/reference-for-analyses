@@ -38,9 +38,21 @@ s + geom_point()                                # add points for each datum
 s <- ggplot(fevdata, aes(x = age, y = fev, color=smoke))
 s + geom_point()
 
+# add color mapping by age variable - those 13+
+s <- ggplot(fevdata, aes(x = age, y = fev, color=age < 13))
+s + geom_point()
+
 # add group mapping by smoke variable
 p <- ggplot(fevdata, aes(x = age, y = fev, group = smoke))
 p + geom_point() + stat_smooth(aes(color = smoke))  # map color for only smooth component
+
+# specify border color and fill
+ggplot(fevdata, aes(x = age, y = fev)) +
+  geom_point(color = "black",                   # needs to be defined in geom_point()
+             fill = "white", 
+             shape = 21, 
+             size = 4, 
+             stroke = 1)
 
 # plot mean across each age
 s <- ggplot(fevdata, aes(x = age, y = fev))     # basic ggplot
