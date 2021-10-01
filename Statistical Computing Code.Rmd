@@ -34,6 +34,10 @@ pacman::p_load(ggplot2)                         # ggplot()
 s <- ggplot(fevdata, aes(x = age, y = fev))
 s + geom_point()                                # add points for each datum
 
+# demonstrate geom_jitter
+s <- ggplot(fevdata, aes(x = age, y = fev))
+s + geom_jitter() 
+
 # add color mapping by smoke variable
 s <- ggplot(fevdata, aes(x = age, y = fev, color=smoke))
 s + geom_point()
@@ -58,13 +62,34 @@ ggplot(fevdata, aes(x = age, y = fev)) +
 s <- ggplot(fevdata, aes(x = age, y = fev))     # basic ggplot
 s + geom_point() + geom_line(data = fev_mean)   # add line across averages
 
-# plot on grid by variables
+# option to fix coordinate plane with 1:1 aspect ratio (supposedly)
+s + geom_point() + coord_fixed()
+```
+
+```{r facet_grid}
+# some of these commands may draw on variables created in data examine chunk
+
+# data source (loaded and manipulated in examine chunk)
+# load(url("https://www.stat.osu.edu/~vqv/6730/data/fev.RData"))
+
+# download necessary packages
+pacman::p_load(dplyr,                           
+               ggplot2)                             # ggplot()
+
+# grid with specified rows and columns
 p <- ggplot(fevdata, aes(x = height, y = fev)) + 
   facet_grid(rows = vars(sex), cols = vars(age_group))
 p + geom_point(aes(color = smoke))
+
+# grid with specified rows only
+p <- ggplot(fevdata, aes(x = height, y = fev)) + 
+  facet_grid(rows = vars(sex))
+p + geom_point(aes(color = smoke))
 ```
 
+
 ```{r boxplot ggplot basics}
+# some of these commands may draw on variables created in data examine chunk
 
 # data source (loaded and manipulated in examine chunk)
 # load(url("https://www.stat.osu.edu/~vqv/6730/data/fev.RData"))
@@ -80,7 +105,45 @@ p + geom_boxplot(mapping = aes(x = as.factor(age_group))) # consider age group
 
 # split and color by smoker status
 p + geom_boxplot(mapping = aes(x = as.factor(age_group), fill = smoke))
+
+# option for horizontal box plots
+ggplot(fevdata) + 
+  geom_boxplot(mapping = aes(x = sex, y = fev)) +
+  coord_flip()
 ```
+
+```{r geom_bar/col plots}
+# some of these commands may draw on variables created in data examine chunk
+
+# data source (loaded and manipulated in examine chunk)
+# load(url("https://www.stat.osu.edu/~vqv/6730/data/fev.RData"))
+
+# download necessary packages
+pacman::p_load(dplyr,                           
+               ggplot2)                             # ggplot()
+
+# geom_bar plot requires group = 1 to consider as a whole rather than by cut
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, group = 1))
+```
+
+```{r pie chart}
+
+# download necessary packages
+pacman::p_load(dplyr,                           
+               ggplot2)                             # ggplot()
+
+# pie chart of diamond cut
+ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(y = 1, fill = cut)) +
+  coord_polar()
+
+# equivalent pie chart
+ggplot(data = diamonds) +
+  geom_bar(mapping = aes(x = 1, fill = cut)) +
+  coord_polar(theta = "y")
+```
+
 
 ```{r manual smoothing}
 
