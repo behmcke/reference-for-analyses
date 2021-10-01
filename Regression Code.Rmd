@@ -584,5 +584,61 @@ pi_2d <- exp(dues_b[1]+dues_b[2]*40)/(1+exp(dues_b[1]+dues_b[2]*40))
 dues_b <- gfit2$coefficients                        # save b1 and b0
 Y <- exp(dues_b[1]+dues_b[2]*X)/(1+exp(dues_b[1]+dues_b[2]*X)) # equation
 answer <- X[which(Y > .74 & Y < 0.76)]              # find Y = .75
+
+```
+
+```{r Multiple Logistic Regression}
+# ///////////////////////// Problem //////////////////////////////////////////
+# A local health clinic sent fliers to its clients to encourage everyone, but
+# especially older persons at high risk of complications, to get a flu shot in 
+# time for protection against an expected flu epidemic. In a pilot follow-up 
+# study, 159 clients were randomly selected and asked whether they actually 
+# received a flu shot. A client who received a flu shot was coded $Y=1$, and a 
+# client who did not receive a flu shot was coded $Y=0$. In addition, data were
+# collected on their age ($X_1$), and their health awareness. The latter data 
+# were combined into a health awareness index ($X_2$), for which higher values
+# indicate greater awareness. Also included in the dta was client gender, where 
+# males were coded $X_3=1$ and females were coded $X_3=0$.
+# 
+# Multiple logistic regression model with three predictor variables in first-
+# order terms is assumed to be appropriate.
+# ////////////////////////////////////////////////////////////////////////////
+
+# read data
+vaxx <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 20/6450/Assignment_5/CH14PR14.txt", header=TRUE)
+
+# fit logistic model
+gfit3 <- glm(Y ~ X1 + X2 + X3, data=vaxx, family = binomial(link ="logit"))
+summary(gfit3)
+
+# ////////////////////////////////////////////////////////////////////////////
+# The fitted response function is 
+# \hat{\pi} = {exp(-1.17716 + 0.07279X_1 - 0.09899X_2 + 0.43397X3)}
+#               / {1+exp(-1.17716 + 0.07279X_1 - 0.09899X_2 + 0.43397X3)}
+# ////////////////////////////////////////////////////////////////////////////
+
+# find the odds ratio for each of the variables and interpret
+exp(gfit3$coefficients[2])
+exp(gfit3$coefficients[3])
+exp(gfit3$coefficients[4])
+
+# ////////////////////////////////////////////////////////////////////////////
+# It is expected that when all other variables are held constant, one unit 
+# increase in age increases the probability of having gotten a flu shot by 
+# 7.55%.
+#
+# It is expected that when all other variables are held constant, one unit 
+# increase in a person's health awareness score decreased the probability of 
+# them having gotten a flu shot by nearly 10%.
+#
+# It is expected that when all other variables are held constant, a man is 54% 
+# more likely to have gotten a flu shot than a woman with the same age and 
+# health awareness.
+# ////////////////////////////////////////////////////////////////////////////
+
+# find probability a 55 year old male with a health index of 60 receives vaccine
+pi = (exp(-1.17716 + 0.07279*55 - 0.09899*60 + 0.43397*1))/(1+exp(-1.17716 + 0.07279*55 - 0.09899*60 + 0.43397*1))
+
+
 ```
 
