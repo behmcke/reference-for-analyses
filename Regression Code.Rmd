@@ -639,6 +639,116 @@ exp(gfit3$coefficients[4])
 # find probability a 55 year old male with a health index of 60 receives vaccine
 pi = (exp(-1.17716 + 0.07279*55 - 0.09899*60 + 0.43397*1))/(1+exp(-1.17716 + 0.07279*55 - 0.09899*60 + 0.43397*1))
 
+# confidence interval: males with ages differing 30 and index differing 25
+exp(30*gfit3$coefficients[2])
+exp(25*gfit3$coefficients[3])
+test1 <- exp(30*(confint.default(gfit3, level=.95)))
+test2 <- exp(25*(confint.default(gfit3, level=.95)))
 
+# ////////////////////////////////////////////////////////////////////////////
+# The 90% joint confidence intervals for the odds ratios are (`r test1[2,1]`, 
+# `r test1[2,2]`) for male clients whose ages differ by 30 years and 
+# (`r test2[3,1]`, `r test2[3,2]`) for male clients whose health awareness 
+# index differs by 25.
+# 
+# Reviewing these intervals, I am 90% confident that the probability of 
+# receiving a flu shot increases if a subject is 30 years older and decreases 
+# if a subject has a health awareness index 25 points higher.
+# ////////////////////////////////////////////////////////////////////////////
+
+# wald test for inclusion of x3: alpha = 0.05
+norm <- qnorm(.975)                             # cutoff for decision
+summary(gfit3)                                  # p-value
+z_star <- .43397/.52179                         # z* statistic
+
+# ////////////////////////////////////////////////////////////////////////////
+# H_0: \beta_3 = 0
+# H_a: \beta_3 \neq 0
+#
+# Decision Rule: If the test statistic is greater than `r norm`, then I will 
+# reject the null hypothesis and conclude that $X_3$ should be included in the
+# regression model.
+#
+# Conclusion: The z* statistic is `r z_star`, which is less than `r norm`; 
+# therefore, I fail to reject the null hypothesis and do not have evidence to 
+# support including $X_3$ in the model.
+#
+# P-value: The p-value is 0.40558, which is greater than $\alpha$. This 
+# supports my conclusion.
+# ////////////////////////////////////////////////////////////////////////////
+
+# likelihood ratio test for inclusion of x3: alpha = 0.05
+chi4c <- qchisq(.95, df=1)                      # chi squared cutoff
+library(lmtest)                                 # required package
+nested <- glm(Y ~ X1 + X2,                      # model without x3
+              data=vaxx, 
+              family = binomial(link ="logit"))
+summary(nested)
+lrtest(nested, gfit3)                           # test
+
+# ////////////////////////////////////////////////////////////////////////////
+# NOTE: the Likelihood Ratio Tests are the same as Deviance Statistic-based 
+# tests
+#
+# Full Model: $[1+exp(-X'\beta_F)]^{-1}$ 
+# where $X'\beta_F =  -1.17716 + 0.07279X_1 - 0.09899X_2 + 0.43397X_3$
+# 
+# Reduced Model: $[1+exp(-X'\beta_R)]^{-1}$ 
+# where $X'\beta_R = 1.45778 + 0.07787X_1 - 0.09547X_2$
+# 
+# H_0: \beta_3 = 0
+# H_a: \beta_3 \neq 0
+# 
+# Decision Rule: If the test statistic is greater than `r chi4c`, then I will 
+# reject the null hypothesis and conclude that $X_3$ should be included in the
+# regression model.
+#
+# Conclusion: The test statistic, $G^2$, is 0.7022. Because it is less than 
+# `r chi4c`, I fail to reject the null hypothesis and do not have enough 
+# evidence to include $X_3$ in the model.
+#
+# P-value: The p-value is 0.402, which supports my conclusion.
+# 
+# Comparison to Wald: Both tests conclude that $X_3$ does not improve the 
+# regression model. Their p-values were very close, both supporting this 
+# conclusion.
+# ////////////////////////////////////////////////////////////////////////////
+
+# likelihood ratio test for inclusion of second-order terms: alpha = 0.05
+chi4d <- qchisq(.95, df=3)                      # chi squared cutoff
+
+x_1sq <- vaxx$X1^2                              # x1 squared term
+x_2sq <- vaxx$X2^2                              # x2 squared term
+x_3sq <- vaxx$X3^2                              # x3 squared term
+interact12 <- vaxx$X1*vaxx$X2                   # interaction of x1 and x2
+interact13 <- vaxx$X1*vaxx$X3                   # interaction of x1 and x3
+interact23 <- vaxx$X2*vaxx$X3                   # interaction of x2 and x3
+
+complex <- glm(vaxx$Y ~ vaxx$X1 + vaxx$X2 + vaxx$X3 + x_1sq + x_2sq + interact12, 
+               family = binomial(link ="logit"))
+
+summary(complex)
+lrtest(gfit3, complex)                          # test
+
+# ////////////////////////////////////////////////////////////////////////////
+# Full Model: $[1+exp(-X'\beta_F)]^{-1}$ 
+# where $X'\beta_F = 19.6040080 - 0.0331617X_1 - 0.7529410X_2 + 0.6200280X_3 - 0.0005456X_1^2 + 0.0040101X_2^2 + 0.0033484X_1X_2$
+# 
+# Reduced Model: $[1+exp(-X'\beta_R)]^{-1}$ 
+# where $X'\beta_R = -1.17716 + 0.07279X_1 - 0.09899X_2 + 0.43397X_3$
+#
+# H_0: \beta_4 = \beta_5 = \beta_6 = 0
+# H_a: At least one of \beta_4, \beta_5, or \beta_6 = 0
+#
+# Decision Rule: If the test statistic is greater than `r chi4d`, then I will 
+# reject the null hypothesis and conclude that the second-order terms should be
+# included in the regression model.
+#
+# Conclusion: The test statistic, $G^2$, is 2.1263. Because it is less than 
+# `r chi4d`, I fail to reject the null hypothesis and do not have enough 
+# evidence to support adding the second-order terms.
+#
+# P-value: The p-value is 0.5466, which supports my conclusion.
+# ////////////////////////////////////////////////////////////////////////////
 ```
 
