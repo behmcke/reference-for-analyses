@@ -750,5 +750,44 @@ lrtest(gfit3, complex)                          # test
 #
 # P-value: The p-value is 0.5466, which supports my conclusion.
 # ////////////////////////////////////////////////////////////////////////////
+
+# model selection with forward BIC
+fit0 <- glm(Y ~ 1, family=binomial(), data=vaxx)  # null model
+
+fitfull <- glm(vaxx$Y ~ vaxx$X1 + vaxx$X2 + vaxx$X3 +  interact12 + interact13 + interact23, 
+               family = binomial(link ="logit"))  # all first order terms and interactions
+
+fitbic <- step(fit0, 
+               scope=list(upper=fitfull), 
+               data=vaxx, 
+               direction="forward", 
+               k=log(nrow(vaxx)))
+
+# deviance residuals vs. estimated probabilities
+fitbic <- glm(vaxx$Y ~ vaxx$X1 + vaxx$X2 + interact12, 
+              family = binomial(link ="logit"))  # model selected using forward BIC
+r1 <- loess(residuals(fitbic) ~ predict(fitbic)) # fit residuals against fitted pi's
+y <- predict(r1, se=TRUE)                        # predict residual
+
+xvals <- predict(fitbic)                         # linear predictors of fitbic
+orderx <- order(predict(fitbic))                 # order of lowest to highest xvals
+summary(fitbic)                                  # print summary
+
+
+plot(predict(fitbic), residuals(fitbic),         # predicted pi vs. residual
+     col="slateblue1", pch=16,
+     ylab="Deviance Residuals", 
+     xlab="Fitted Probabilities", 
+     main="Residuals Plot")
+abline(h=0, lty=2, col="grey", lwd=2)            # grey line on y = 0
+lines(x=xvals[orderx],                           # linear predictors, ordered
+      y=y$fit[orderx],                           # corresponding predicted residual
+      lwd=2)                                     # loess line
+
+# ////////////////////////////////////////////////////////////////////////////
+# I have some concern about the adequacy of the model fit due to the departure 
+# of the loess line from an expected value of zero for fitted probabilities 
+# above zero.
+# ////////////////////////////////////////////////////////////////////////////
 ```
 
