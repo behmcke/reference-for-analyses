@@ -3,13 +3,14 @@ title: "R Notebook"
 output: html_notebook
 ---
 
-```{r}
+```{r Load Packages}
 pacman::p_load(dplyr,
                ggplot2,                                 #ggplot()
                lsmeans,                                 #lsmeans()
                pwr)                                     #pwr.anova.test()
 ```
 
+# Introduction
 
 ```{r Assign Random Treatments}
 
@@ -161,6 +162,14 @@ pwr.anova.test(4,
 # gamma = (1/2)*(\tau_2 + \tau_5 ) - (1/2)*(\tau_3 + \tau_6 )
 
 # ////////////////////////////////////////////////////////////////////////////
+#
+# Tukey Multiplier:
+# w_T = q_{v,n-v, \alpha}/\sqrt{2}
+#
+# Bonferroni Multiplier:
+# w_B= t_{n-v, \alpha/(2m)}
+# 
+# ////////////////////////////////////////////////////////////////////////////
 ```
 
 
@@ -283,5 +292,154 @@ bicycle$newrate <- bicycle$rate^(1+(1.9187/2))        #complete transformation
 
 ```
 
+# Main Effects Model
+
+```{r Linear and Quadratic Trends}
+
+# read data
+water <- read.table(url("http://deanvossdraguljic.ietsandbox.net/DeanVossDraguljic/R-data/water.boiling.txt"), header=TRUE)
+
+water$salt <- as.factor(water$salt)                 # as factor
+water$burner <- as.factor(water$burner)             # as factor
+
+water_model <- aov(time ~ salt + burner,            # main effects model
+                   data=water)
+
+# Linear Trend
+# ////////////////////////////////////////////////////////////////////////////
+# H_0: there is no linear trend
+# H_a: there is a linear trend
+#
+# Decision Rule: If p < 0.01, I will reject the null hypothesis and conclude 
+# there is a linear trend.
+# ////////////////////////////////////////////////////////////////////////////
+
+water_model_means <- lsmeans(water_model, ~salt)    # find least square means
+linear_summary <- summary(contrast(water_model_means, 
+                                   
+                                   # linear trend contrasts
+                                   list(`Linear Trend` = c(-3, -1, 1, 3)),
+                                   
+                                   adjust = "tukey"), #tukey method
+                          infer=c(T,T),
+                          level=.99,               # 99% family-wise confidence
+                          side="two-sided")
+
+# ////////////////////////////////////////////////////////////////////////////
+# Because 0 is contained in the confidence interval and the p-value is greater 
+# than 0.01, I reject that there exists a linear trend between teaspoons of salt 
+# added to water and time to boil.
+# ////////////////////////////////////////////////////////////////////////////
+
+# Quadratic Trend
+# ////////////////////////////////////////////////////////////////////////////
+# H_0: there is no quadratic trend
+# H_a: there is a quadratic trend
+# 
+# Decision Rule: If p < 0.01, I will reject the null hypothesis and conclude 
+# there is a quadratic trend.
+# ////////////////////////////////////////////////////////////////////////////
+
+quad_summary <- summary(contrast(water_model_means, 
+                                 
+                                 # quadratic trend contrasts
+                                 list(`Quadratic Trend` = c(1, -1, -1, 1)),
+                                 
+                                 adjust = "tukey"), # tukey method
+                        infer=c(T,T),
+                        level=.99,                  # 99% family-wise confidence
+                        side="two-sided")
+
+# ////////////////////////////////////////////////////////////////////////////
+# Because 0 is contained in the confidence interval and the p-value is greater 
+# than 0.01, I reject that there exists a quadratic trend between teaspoons of 
+# salt added to water and time to boil.
+# ////////////////////////////////////////////////////////////////////////////
+
+```
+
+
+# Two-Way Complete Model
+
+```{r Interaction Terms}
+
+# read data
+weld <- read.table(url("http://deanvossdraguljic.ietsandbox.net/DeanVossDraguljic/R-data/weld.strength.txt"), header=TRUE)
+
+weld$gage <- as.factor(weld$gage)                 # gage as factor
+weld$time <- as.factor(weld$time)                 # time as factor
+
+weld_model <- aov(strength ~ gage * time,         # two-way complete model
+                  data=weld)
+anova(weld_model)                                 # anova table
+
+# determine cut-off for decision rule
+qf(.95, 8, 15)                                   # (alpha, (a-1)(b-1), ab)
+
+# ////////////////////////////////////////////////////////////////////////////
+# Test for Interaction Term
+#
+# H_0^{AB}: (\alpha\beta)_{ij}-(\bar{\alpha\beta})_{i.}-(\bar{\alpha\beta})_{j.}+(\bar{\alpha\beta})_{..} = 0
+# H_a^{AB}: (\alpha\beta)_{ij}-(\bar{\alpha\beta})_{i.}-(\bar{\alpha\beta})_{j.}+(\bar{\alpha\beta})_{..} \neq 0
+#
+# Decision Rule: 
+# I will reject the null hypothesis if $\frac{msAB}{msE} >F_{(a-1)(b-1, n-ab)}$
+# in which case the corresponding p-value will be less than 0.05.
+# 
+# Conclusion: 
+# Because 6.826 > 2.640797 and the corresponding p-value is 0.0007, I reject 
+# the null hypothesis and conclude that the interaction between gauge level and 
+# weld time is not negligible.
+# ////////////////////////////////////////////////////////////////////////////
+
+attach(weld)
+interaction.plot(gage, time, strength,            # interaction plot
+                 type="b", 
+                 main="Interaction Plot Between Gage Setting and Time")
+
+# ////////////////////////////////////////////////////////////////////////////
+# 
+# The plot supports my conclusion that interaction has an effect. I see that 
+# levels 1 and 3 for time of weld cross the other plots of time, which is 
+# generally indicative of interaction.
+#
+# ////////////////////////////////////////////////////////////////////////////
+# Should we consider effect of gage bar setting?
+# 
+# If we determine that interaction is not negligible, as is the case for this 
+# study, we should proceed with a cell means model and consider possible 
+# treatments rather than levels of an individual factor. This seems well-suited 
+# for this study in particular, because we wish to determine the procedure which 
+# results in the strongest weld.
+# 
+# Instead of considering main effects individually, we would consider the 
+# "treatment" of gauge and time as one effect as shown below...
+# ////////////////////////////////////////////////////////////////////////////
+
+weld2 <- weld %>%
+  mutate(Treatment = ifelse(trtmt == 11, 1,         # rename treatments
+                            ifelse(trtmt == 12, 2,
+                                   ifelse(trtmt == 13, 3,
+                                          ifelse(trtmt == 14, 4,
+                                                 ifelse(trtmt == 15, 5,
+                                                        ifelse(trtmt == 21, 6,
+                                                               ifelse(trtmt == 22, 7,
+                                                                      ifelse(trtmt == 23, 8,
+                                                                             ifelse(trtmt == 24, 9,
+                                                                                    ifelse(trtmt == 25, 10,
+                                                                                           ifelse(trtmt == 31, 11,
+                                                                                                  ifelse(trtmt == 32, 12,
+                                                                                                         ifelse(trtmt == 33, 13, 
+                                                                                                                ifelse(trtmt == 34, 14, 15)))))))))))))))
+ggplot(weld2, 
+       aes(x = Treatment, y = strength, group=Treatment)) + 
+  geom_boxplot()                                    # view treatment boxplots
+
+# ////////////////////////////////////////////////////////////////////////////
+# Predictably, the treatments with the highest weld strength belong to those 
+# with the gage level at 1 or 2 and the time level of 3. These were also shown 
+# to be highest on the interaction plot.
+# ////////////////////////////////////////////////////////////////////////////
+```
 
 
