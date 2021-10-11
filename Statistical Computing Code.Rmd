@@ -235,3 +235,37 @@ p +
 
 ```
 
+```{r Simulation Basics}
+
+# uniform distribution
+x_unif <- runif(400, min = -3, max = 5)
+hist(x_unif,
+     col = "cadetblue2")
+
+# normal distribution
+x_norm <- rnorm(n = 400, mean = 120, sd = 4)
+
+# exponential distribution
+x_exp <- rexp(400, rate = 1)
+
+# probability density/mass function
+dnorm()
+
+# cumulative distribution function
+pnorm()
+```
+
+```{r Sampling}
+
+# sample from numbers 1 thorugh 5
+x_s <- sample(1:5, size = 10, replace = TRUE)
+print(x_s)
+
+# equivalent to
+x_s <- sample(5, size = 10, replace = TRUE)
+print(x_s)
+
+```
+
+
+
