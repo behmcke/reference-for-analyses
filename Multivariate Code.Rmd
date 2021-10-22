@@ -4,16 +4,155 @@ output: html_notebook
 ---
 
 ```{r Descriptive Statistics}
-#read data
+# read data
 bones <- read.table("/Users/elizabethehmcke/Documents/MAS/AU 21/6560/Data_JW6/T1-8.DAT")
 
-#column averages (per variable)
+# column averages (per variable)
 x_bar2 <- round(colMeans(data2[,1:6]),2)
 
-#variance-covariance matrix
+# variance-covariance matrix
 S_n2 <- round(var(data2[,1:6]),2)
 
-#correlation matrix
+# correlation matrix
 R2 <- round(cor(data2)[,1:6],2)
 ```
+
+```{r Check Normality}
+# read data
+psych <-read.table("/Users/elizabethehmcke/Documents/MAS/AU 21/6560/Data_JW6/T4-6.DAT") %>%
+  rename(Indep = V1,
+         Supp = V2,
+         Benev = V3,
+         Conform = V4,
+         Leader = V5,
+         Gender = V6,
+         Socio = V7)
+
+psych <- psych[,1:5]
+
+# check univariate normality
+par(mfrow = c(3,2))
+hist(psych$Indep,
+     main = "Independent",
+     col = "cadetblue2")
+hist(psych$Supp,
+     main = "Support",
+     col = "cadetblue2")
+hist(psych$Benev,
+     main = "Benevolence",
+     col = "cadetblue2")
+hist(psych$Conform,
+     main = "Conformity",
+     col = "cadetblue2")
+hist(psych$Leader,
+     main = "Leadership",
+     col = "cadetblue2")
+
+par(mfrow = c(2,3))
+qqPlot(psych$Indep)
+qqPlot(psych$Supp)
+qqPlot(psych$Benev)
+qqPlot(psych$Conform)
+qqPlot(psych$Leader)
+
+# check multivariate normality
+dev.mat <- scale(psych, center=T, scale=F)        # deviation matrix
+S <- cov(psych)
+S.inv <- solve(S)                                 # inverse of S
+
+d2 <- rep(0,130)                                  # initialize d2 with zero
+for(i in 1:130){
+	d2[i] <- t(dev.mat[i,]) %*% S.inv %*% dev.mat[i,] # d_i^2
+	}
+	
+plot(qchisq(((1:130)-.5)/130, 5), asp = 1,        # theoretical quantiles of chi^2
+     sort(d2), type="n",
+     xlab = "Quantile of Chi-square with df = 5",
+     ylab = "d-square",
+     xlim = c(0,20), ylim = c(0,20)
+     )
+points(qchisq(((1:130)-.5)/130, 5), sort(d2), pch=16, col=2, cex = .75)
+abline(v = 0, col="grey")
+abline(0, 1, col="grey")
+
+qchisq(.5, 5)
+
+# /////////////////////////////////////////////////////////////////////////////
+# Because the points hug the line with slope of 1 through the origin and
+# approximately half of the values are below 4.35 ($q_{c,p}(.5)$), I believe 
+# this dataset has multivariate normality.
+# /////////////////////////////////////////////////////////////////////////////
+```
+
+```{r Principal Component Analysis}
+# mean vector
+xbar <-  c(155.60, 14.70)
+
+# covariance matrix
+S <- matrix(c(7476.45, 303.62, 
+              303.62, 26.19), 
+            nrow = 2, 
+            ncol = 2)
+
+# spectral decomposition
+eigen(S)
+
+# Principal Components ///////////////////////////////////////////////////////
+# \hat{Y}_1 = e_1'X = -0.99917337X_1 - 0.04065185X_2
+# \sigma_{11} = 7488.80293
+# 
+# \hat{Y}_2 = e_2'X = 0.04065185X_1 - 0.99917337X_2
+# \sigma_{22} = 13.83707
+# /////////////////////////////////////////////////////////////////////////////
+
+# proportion of the total sample variance explained by \hat{y}_1
+7488.80293 / (7488.80293+13.83707)
+
+# /////////////////////////////////////////////////////////////////////////////
+# 99.8% of the total sample variance is explained by \hat{y}_1
+# /////////////////////////////////////////////////////////////////////////////
+
+# sketch the constant density ellipse
+a <- sqrt(1.4)*sqrt(7488.80293)
+b <- sqrt(1.4)*sqrt(13.83707)
+x0 <- 0 
+y0 <- 0
+theta <- seq(0, 2 * pi, length=101)
+
+alpha <- atan(0.04065185/0.99917337)
+x <- x0 + a * cos(theta) * cos(alpha) - b * sin(theta) * sin(alpha)
+y <- y0 + a * cos(theta) * sin(alpha) + b * sin(theta) * cos(alpha)
+plot(x, y, asp = 1, type = "l")
+abline(a = 0, b = 0.04065185/0.99917337, col = "grey")
+abline(a = 0, b = 0.99917337/-0.04065185, col = "grey")
+
+# correlation coefficients
+-0.99917337*sqrt(7488.80293) / sqrt(7476.45)
+-0.04065185*sqrt(7488.80293) / sqrt(26.19)
+
+# convert covariance matrix to correlation matrix; compute PCA
+cor.S <- cov2cor(S)
+eigen(cor.S)
+
+# Principal Components ///////////////////////////////////////////////////////
+# \hat{Y}_1 = e_1'X = 0.7071068X_1 + 0.7071068X_2
+# \sigma_{11} = 1.6861434
+# 
+# \hat{Y}_2 = e_2'X = -0.7071068X_1 + 0.7071068X_2
+# \sigma_{22} = 0.3138566
+# /////////////////////////////////////////////////////////////////////////////
+
+# proportion of the total sample variance explained by \hat{y}_1
+1.6861434 / (1.6861434+0.3138566)
+
+# /////////////////////////////////////////////////////////////////////////////
+# 84.3% of the total sample variance is explained by \hat{y}_1
+# /////////////////////////////////////////////////////////////////////////////
+
+# correlation coefficients
+0.7071068*sqrt(1.6861434) / 1
+0.7071068*sqrt(1.6861434) / 1
+
+```
+
 
