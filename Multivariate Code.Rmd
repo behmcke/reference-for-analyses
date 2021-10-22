@@ -85,6 +85,9 @@ qchisq(.5, 5)
 ```
 
 ```{r Principal Component Analysis}
+
+# PCA using Covariance Matrix /////////////////////////////////////////////////
+
 # mean vector
 xbar <-  c(155.60, 14.70)
 
@@ -97,7 +100,7 @@ S <- matrix(c(7476.45, 303.62,
 # spectral decomposition
 eigen(S)
 
-# Principal Components ///////////////////////////////////////////////////////
+# Principal Components ////////////////////////////////////////////////////////
 # \hat{Y}_1 = e_1'X = -0.99917337X_1 - 0.04065185X_2
 # \sigma_{11} = 7488.80293
 # 
@@ -130,11 +133,13 @@ abline(a = 0, b = 0.99917337/-0.04065185, col = "grey")
 -0.99917337*sqrt(7488.80293) / sqrt(7476.45)
 -0.04065185*sqrt(7488.80293) / sqrt(26.19)
 
+# PCA using Correlation Matrix ////////////////////////////////////////////////
+
 # convert covariance matrix to correlation matrix; compute PCA
 cor.S <- cov2cor(S)
 eigen(cor.S)
 
-# Principal Components ///////////////////////////////////////////////////////
+# Principal Components ////////////////////////////////////////////////////////
 # \hat{Y}_1 = e_1'X = 0.7071068X_1 + 0.7071068X_2
 # \sigma_{11} = 1.6861434
 # 
