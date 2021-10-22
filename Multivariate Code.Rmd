@@ -135,6 +135,7 @@ abline(a = 0, b = 0.99917337/-0.04065185, col = "grey")
 
 # PCA using Correlation Matrix ////////////////////////////////////////////////
 
+library(stats)
 # convert covariance matrix to correlation matrix; compute PCA
 cor.S <- cov2cor(S)
 eigen(cor.S)
