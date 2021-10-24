@@ -45,9 +45,11 @@ Stat 6550. Ohio State University. Statistical Analysis of Time Series.
 * Forecasting
 
 # Statistical Computing Code
-Stat 6730. Ohio State University. Introduction to Statistical Computing
+Stat 6730. Ohio State University. Introduction to Statistical Computing.
+
 IN PROGRESS.
 
 # Multivariate Code
 Stat 6560. Ohio State University. Applied Multivariate Analysis.
+
 IN PROGRESS.
