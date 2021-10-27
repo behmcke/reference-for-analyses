@@ -1,6 +1,8 @@
 
 Code Provided During Labs for 6370 Statistical Computing
 
+# Introduction to R
+
 ```{r examine dataframe}
 
 pacman::p_load(dplyr                          # summarize()
@@ -18,8 +20,9 @@ fevdata <- mutate(fevdata, age_group = cut(age, breaks = 5))
 # calculate mean for each age
 fev_mean <- summarize(group_by(fevdata, age), fev = mean(fev))
 
-
 ```
+
+# Visualization of Data in R
 
 ```{r scatter ggplot basics}
 # some of these commands draw on variables created in data examine chunk
@@ -144,6 +147,7 @@ ggplot(data = diamonds) +
   coord_polar(theta = "y")
 ```
 
+# Smoothing and Density Estimation
 
 ```{r manual smoothing}
 
@@ -235,6 +239,8 @@ p +
 
 ```
 
+# Generating Random Variables
+
 ```{r Simulation Basics}
 
 # uniform distribution
@@ -267,6 +273,101 @@ print(x_s)
 
 ```
 
+# Monte Carlo Simulation
 
+```{r monte carlo simulation}
+# load information
+out <- ztp.mle(before_sales)
+lambda_historical <- out$lambda
+
+# simulation
+sample_ts <- replicate(1000, {
+  # sample 1000 from truncated poisson
+  x <-
+    rtruncpois(10,
+               lambda = 1,
+               truncation = 0)
+  
+  # take average (in this example, desired T definition was provided)
+  t_realization <- mean(x)
+})
+
+# assign g: 1 if included in proportion, 0 if not
+g <- ifelse(sample_ts >= 2, 1, 0)
+
+# average of g is proportion included
+mean(g)
+```
+
+# The Bootstrap
+
+```{r estimate}
+# read data
+fish <- read_table('https://www.stat.osu.edu/~vqv/6730/data/fish.txt')
+
+# beverton holt function
+bh <- function(S, beta1, beta2) {
+  R <- 1 / (beta1 + (beta2/S))
+}
+
+# fit linear model on 1/R and 1/S
+bh_lm <- lm(I(1/R) ~ I(1/S), data = fish)
+
+# retrieve coefficients
+beta1 <- coef(bh_lm)[1]
+beta2 <- coef(bh_lm)[2]
+
+# stable population size
+N_stable <- (1-beta2)/ beta1
+
+# function to find N for stable population
+N_hat <- function(df) {
+  bh_lm <- lm(I(1/R) ~ I(1/S), data = df)
+  beta1 <- coef(bh_lm)[1]
+  beta2 <- coef(bh_lm)[2]
+
+  estimate <- (1-beta2)/ beta1
+  return(estimate)
+}
+
+# bootstrap fish to find sampling distribution
+boot_fish <- replicate(1000, {
+  x <- slice_sample(fish, n = nrow(fish), replace = TRUE)
+  summarize(x, 
+            n_hat = N_hat(x))
+}, simplify = FALSE)
+boot_fish <- bind_rows(boot_fish)
+
+# mean
+mean(boot_fish$n_hat)
+
+# standard error
+sd(boot_fish$n_hat)
+```
+
+```{r bootstrap confidence interval}
+# set confidence level
+alpha <- .05
+
+# set number of bootstrap samples
+B <- 1000
+
+# bootstrap for CI
+boot_pivot <- replicate(B, {
+  df_boot <- slice_sample(fish, n = nrow(fish), replace = TRUE)
+  N_hat(df_boot) - N_hat(fish)
+})
+
+# Use setNames to replace the names that quantile() gives its output
+q <- setNames(quantile(boot_pivot, c(1 - alpha/2, alpha/2)), NULL)
+confidence_interval <- N_hat(fish) - q
+
+# print confidence interval
+confidence_interval
+```
+
+# Permutation Methods
+
+# Cross-Validation
 
 
