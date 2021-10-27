@@ -302,6 +302,10 @@ mean(g)
 # The Bootstrap
 
 ```{r estimate}
+# /////////////////////////////////////////////////////////////////////////////
+# Background Info
+# /////////////////////////////////////////////////////////////////////////////
+
 # read data
 fish <- read_table('https://www.stat.osu.edu/~vqv/6730/data/fish.txt')
 
@@ -320,9 +324,17 @@ beta2 <- coef(bh_lm)[2]
 # stable population size
 N_stable <- (1-beta2)/ beta1
 
+# /////////////////////////////////////////////////////////////////////////////
+# Bootstrap Begins Here
+# /////////////////////////////////////////////////////////////////////////////
+
 # function to find N for stable population
 N_hat <- function(df) {
+  
+  # fit linear model
   bh_lm <- lm(I(1/R) ~ I(1/S), data = df)
+  
+  # coefficients for b1 and b2
   beta1 <- coef(bh_lm)[1]
   beta2 <- coef(bh_lm)[2]
 
@@ -332,10 +344,16 @@ N_hat <- function(df) {
 
 # bootstrap fish to find sampling distribution
 boot_fish <- replicate(1000, {
+  
+  # take a sample with replacement of size = fish
   x <- slice_sample(fish, n = nrow(fish), replace = TRUE)
-  summarize(x, 
+  
+  # perform n_hat on each sampled row
+  summarize(x,
             n_hat = N_hat(x))
 }, simplify = FALSE)
+
+# combines list of dataframes into one dataframe
 boot_fish <- bind_rows(boot_fish)
 
 # mean
