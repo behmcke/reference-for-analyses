@@ -297,6 +297,63 @@ g <- ifelse(sample_ts >= 2, 1, 0)
 
 # average of g is proportion included
 mean(g)
+
+# /////////////////////////////////////////////////////////////////////////////
+# Homework 4 Extended (from Lab 4) Example
+
+library(tidyverse)
+
+source(url("https://www.stat.osu.edu/~vqv/6730/data/lab_05.R"))
+load(url("https://www.stat.osu.edu/~vqv/6730/data/lab_05.RData"))
+
+# truncated poisson pdf
+dtruncpois <- function(x, lambda, truncation) {
+  ifelse(x > truncation, 
+    dpois(x, lambda) / ppois(truncation, lambda, lower.tail = FALSE),
+    0
+  )
+}
+
+# function to randomly generate numbers from dtruncpois
+rtruncpois <-
+  function(n,
+           lambda,
+           truncation,
+           proposal_mean = max(lambda, truncation)) {
+    
+    M <-
+      (dpois(truncation + 1, lambda) / dpois(truncation + 1, proposal_mean)) /
+      ppois(truncation, lambda, lower.tail = FALSE)
+    
+    replicate(n, {
+      accept <- FALSE
+      while (!accept) {
+        
+        # Generate proposal
+        x <- rpois(1, proposal_mean)
+        
+        # Generate uniform on [0, M * g(x)]; accept if the uniform falls under f(x)
+        u <- runif(1,
+                   min = 0,
+                   max = M * dpois(x, proposal_mean))
+        accept <- u <= dtruncpois(x, lambda, truncation)
+      }
+      x # ensure the inner block returns x
+    })
+  }
+
+# find the mean of ten random numbers from rtruncpois
+x <- rtruncpois(10, lambda = 1, truncation = 0)
+t_realization <- mean(x)
+
+# repeat for 1e4 simulations
+n_sim <- 1e4
+t_realization <- replicate(n_sim, 
+                           mean(rtruncpois(10, lambda = 1, truncation = 0)))
+
+# proportion over 2 using monte carlo
+(p_2 <- mean(t_realization >= 2))
+
 ```
 
 # The Bootstrap
