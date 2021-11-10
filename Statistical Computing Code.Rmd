@@ -384,6 +384,83 @@ confidence_interval <- N_hat(fish) - q
 confidence_interval
 ```
 
+# Functional Programming
+```{r purrr}
+# load packages
+pacman::p_load(dplyr,
+               ggplot2,
+               nycflights13,
+               read4,
+               purrr)
+
+# find mean of every column of mtcars
+map_dbl(mtcars, mean)
+
+# find type of each column in nycflights
+map_chr(flights, typeof)
+
+# find number of unique values in each column
+map_int(iris, function(x) length(unique(x)))
+
+# generate four samples of size ten with specified means
+map(c(-10, 0, 10, 100), rnorm, n = 10)
+
+# read data
+fish <- read_table('https://www.stat.osu.edu/~vqv/6730/data/fish.txt')
+
+# function for population size
+N_hat <- function(df){
+  fitted_model <- lm(I(1/R) ~ I(1/S), data = df)
+  beta <- unname(coef(fitted_model))
+  (1 - beta[2]) / beta[1]
+}
+
+# number of bootstrap replicates
+n_bootstrap_replicates <- 1e3
+
+# create bootstrap samples
+fish_boot <- map(1:n_bootstrap_replicates,
+                 function(x) slice_sample(fish, 
+                                          n = nrow(fish), 
+                                          replace = TRUE)
+                 )
+
+# evaluate n_hat on samples
+N_hat_boot <- map_dbl(fish_boot, N_hat)
+
+# find standard error of result
+(N_hat_se <- sd(N_hat_boot))
+
+# store linear models fit to each bootstrap
+linear_models <- map(fish_boot, function(x) lm(I(1/R) ~ I(1/S), data = x))
+
+# store coefficients of linear models
+coef_boot <- map(linear_models, coef)
+
+# function to estimate R from S
+bh_curve <- function(beta, S) {
+  tibble(
+    S = S,
+    R = 1 / (beta[1] + (beta[2] / S))
+  )
+}
+
+# create curve using betas from coef_boot
+bh_boot <- map(coef_boot, bh_curve, S = seq(50,500,by=1))
+
+# bind rows and store list # in id column
+bh_boot_df <- bind_rows(bh_boot, .id = "bootstrap_replicate")
+
+# plot the curves
+ggplot(fish, mapping = aes(x = S, y = R)) +
+  geom_point() +
+  geom_line(
+    data = bh_boot_df,
+    mapping = aes(group = bootstrap_replicate),
+    alpha = 1 / 20
+  )
+```
+
 # Permutation Methods
 
 # Cross-Validation
