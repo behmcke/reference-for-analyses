@@ -277,6 +277,8 @@ print(x_s)
 
 ```{r monte carlo simulation}
 # load information
+source(url("https://www.stat.osu.edu/~vqv/6730/data/lab_05.R"))
+load(url("https://www.stat.osu.edu/~vqv/6730/data/lab_05.RData"))
 out <- ztp.mle(before_sales)
 lambda_historical <- out$lambda
 
