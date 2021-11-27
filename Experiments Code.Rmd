@@ -162,6 +162,25 @@ pwr.anova.test(4,
 # gamma = (1/2)*(\tau_2 + \tau_5 ) - (1/2)*(\tau_3 + \tau_6 )
 
 # ////////////////////////////////////////////////////////////////////////////
+
+# Burt Beiter, Doug Fairchild, Leo Russo, and Jim Wirtley, in 1990, ran an 
+# experiment to compare the relative strengths of two similarly priced brands 
+# of paper towel under varying levels of moisture saturation and liquid type. 
+# The treatment factors were “amount of liquid” (factor A, with levels 5 and 10 
+# drops coded 1 and 2), “brand of towel” (factor B, with levels coded 1 and 2), 
+# and “type of liquid” (factor C , with levels “beer” and “water” coded 1 and 
+# 2). A 2 × 2 × 2 factorial experiment with r = 3 was run in a completely 
+# randomized design. 
+
+# List all treatment contrasts that are likely to be of primary interest to the 
+# experimenters.
+
+# Compare levels (two total) of Factor A: \alpha_1-\alpha_2
+# Compare levels (two total) of Factor B: \beta_1-\beta_2
+# Compare levels (two total) of Factor C: \gamma_1-\gamma_2
+# Confirm interaction of Factors A and B: [(\alpha\beta)_{11.}+(\alpha\beta)_{22.}]-[(\alpha\beta)_{12.}+(\alpha\beta)_{21.}]
+
+# ////////////////////////////////////////////////////////////////////////////
 #
 # Tukey Multiplier:
 # w_T = q_{v,n-v, \alpha}/\sqrt{2}
@@ -361,6 +380,48 @@ quad_summary <- summary(contrast(water_model_means,
 
 # Two-Way Complete Model
 
+```{r Test Effects}
+
+# read data
+paperTowel <-
+  read.table(
+    url(
+      "http://deanvossdraguljic.ietsandbox.net/DeanVossDraguljic/R-data/paper.towel.strength.txt"
+    ),
+    header = TRUE
+  )
+
+# consider as factors
+paperTowel$A <- as.factor(paperTowel$A)
+paperTowel$B <- as.factor(paperTowel$B)
+paperTowel$C <- as.factor(paperTowel$C)
+
+# fit model including AB interaction
+model7.8 <- aov(strength ~ A + B + C + A*B, data=paperTowel)
+
+# ////////////////////////////////////////////////////////////////////////////
+# H_0: An effect is insignificant to the model
+# H_a: An effect is not insignificant and should be added to the model
+# 
+# I will use the ANOVA table to determine P-values found via F testing.
+# 
+# Decision Rule: Any p-value under 0.01 will suggest that the corresponding 
+# effect is significant and should be maintained in the model. I will use 0.01, 
+# so that after the four tests, the end result will have a confidence of 0.04 
+# as desired in the problem statement.
+# ////////////////////////////////////////////////////////////////////////////
+
+# create anova table
+drop1(model7.8, ~., test="F")
+
+# ////////////////////////////////////////////////////////////////////////////
+# Only factors B and C should be included in the model, since both have 
+# p-values < 0.01 via F testing. Factor A and the interaction between factors 
+# A and B are considered insignificant to this model.
+# ////////////////////////////////////////////////////////////////////////////
+```
+
+
 ```{r Interaction Terms}
 
 # read data
@@ -439,6 +500,44 @@ ggplot(weld2,
 # Predictably, the treatments with the highest weld strength belong to those 
 # with the gage level at 1 or 2 and the time level of 3. These were also shown 
 # to be highest on the interaction plot.
+# ////////////////////////////////////////////////////////////////////////////
+```
+
+```{r Impossible to Interpret (limited sample size)}
+# read data
+towel2 <- filter(paperTowel, order <11)
+
+# fit model
+model7.13 <- aov(strength ~ A + B + C + A*B, data=towel2)
+
+# ////////////////////////////////////////////////////////////////////////////
+
+# Is it possible to perform an analysis of variance of these data, using a 
+# model that includes main effects and the AB interaction as required by the 
+# experimenters? If so, analyze the experiment.
+
+# anova table
+drop1(model7.13, ~., test="F")
+
+# With only ten observations, we are not able to conclude any effects belong in 
+# the model, main effects or interaction.
+
+# ////////////////////////////////////////////////////////////////////////////
+
+# Use a computer program to fit a three-way complete model. Can all of the main 
+# effects and interactions be measured? If not, investigate which models could 
+# have been used in the analysis of such a design with two empty cells and 
+# unequal numbers of observations in the other cells.
+
+model7.13b <- aov(strength ~ A*B*C, data=towel2)
+
+kable(drop1(model7.13b, ~., test="F")) %>%
+        kable_styling(font_size = 7)
+
+# No, not all of the effects can be measured. We can consider models that 
+# include Factor A, Factor B, both Factors A and B, or both Factor A and B as 
+# well as their interaction effect
+
 # ////////////////////////////////////////////////////////////////////////////
 ```
 
