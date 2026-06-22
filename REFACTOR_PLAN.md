@@ -32,7 +32,7 @@ of the existing content (code, prose, or statistical answers move verbatim).
 ## Target structure
 
 ```
-reference-for-analyses/
+stats-cookbook/
 ├── _quarto.yml                    # site config: navbar, sidebar, search, listing
 ├── index.qmd                      # landing page = filterable task listing + README intro
 ├── tasks/

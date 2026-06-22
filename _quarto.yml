@@ -136,7 +136,7 @@ website:
             href: tasks/time-series/forecasting.qmd
     right:
       - icon: github
-        href: https://github.com/behmcke/reference-for-analyses
+        href: https://github.com/behmcke/stats-cookbook
         aria-label: GitHub
 
 format:
