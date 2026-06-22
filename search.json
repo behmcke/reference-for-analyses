@@ -1,0 +1,814 @@
+[
+  {
+    "objectID": "data/README.html",
+    "href": "data/README.html",
+    "title": "Vendored datasets",
+    "section": "",
+    "text": "These datasets are vendored here so the code chunks in the cookbook are reproducible. They were originally read from instructor URLs or from local course folders. Raw numeric data of this kind (measurements, textbook problem sets) is generally uncopyrightable fact and these sets are already widely mirrored; each is cited below in good faith with its source and retrieval date.\nAll files retrieved / collected 2026-06-11.\nTask pages read these via a relative path (../../data/&lt;file&gt;); no analysis logic was changed — only the path string.\nOrganized using Claude Code\n\n\nSource: Dean, Voss & Draguljic, Design and Analysis of Experiments (2nd ed.), companion data site. Original URL pattern: http://deanvossdraguljic.ietsandbox.net/DeanVossDraguljic/R-data/&lt;file&gt; Retrieved 2026-06-11 (HTTP 200).\n\n\n\nFile\nOriginal URL\n\n\n\n\ntrout.txt\n…/R-data/trout.txt\n\n\nreaction.time.txt\n…/R-data/reaction.time.txt\n\n\nbicycle.txt\n…/R-data/bicycle.txt\n\n\nwater.boiling.txt\n…/R-data/water.boiling.txt\n\n\npaper.towel.strength.txt\n…/R-data/paper.towel.strength.txt\n\n\nweld.strength.txt\n…/R-data/weld.strength.txt\n\n\n\n\n\n\nSource: OSU Stat 6730 course materials (V. Q. Vu). Original URL pattern: https://www.stat.osu.edu/~vqv/6730/data/&lt;file&gt; Retrieved 2026-06-11 (HTTP 200). The OSU URLs currently resolve via a 301 redirect to a personal page (asc.ohio-state.edu/vu.104/...), which is fragile — hence vendoring.\n\n\n\nFile\nOriginal URL\n\n\n\n\nfev.RData\n…/6730/data/fev.RData\n\n\nlab_05.R\n…/6730/data/lab_05.R\n\n\nlab_05.RData\n…/6730/data/lab_05.RData\n\n\nfish.txt\n…/6730/data/fish.txt\n\n\nozonerats.csv\n…/6730/data/ozonerats.csv (permutation test)\n\n\nelectemp.csv\n…/6730/data/electemp.csv (cross-validation)\n\n\n\n\n\n\nSource: OSU Stat 6550 course materials. Collected 2026-06-11.\n\n\n\n\n\n\n\nFile\nDescription\n\n\n\n\nUS_oil_production.txt\nMonthly U.S. oil production (360 obs from 1980), used for the moving-average trend, seasonal decomposition, and ARMA-fitting tasks. (The wind-speed and Columbus-temperature series for the other Time Series tasks are entered inline in those pages.)\n\n\n\n\n\n\nSource: Johnson & Wichern, Applied Multivariate Statistical Analysis (6th ed.), textbook data sets (the Data_JW6 collection). Collected from local course folder 2026-06-11.\n\n\n\nFile\nDescription\n\n\n\n\nT1-8.DAT\nTable 1.8 (mineral content of bones)\n\n\nT4-6.DAT\nTable 4.6 (psychological profile data)\n\n\n\n\n\n\nSource: Kutner, Nachtsheim, Neter & Li, Applied Linear Statistical Models (ALSM), textbook problem data sets. File names follow the textbook’s CH&lt;chapter&gt;PR&lt;problem&gt; convention. Collected 2026-06-11 (local course folders / public ALSM mirror).\n\n\n\nFile\nUsed for\n\n\n\n\ngpa.txt\nGPA simple linear regression\n\n\nCH03PR03.txt\nresidual / assumption checking\n\n\nCH03PR15.txt\nconcentration data\n\n\nCH03PR17.txt\nsales data\n\n\nCH06PR15.txt\npatient satisfaction (multiple regression)\n\n\nCH01PR19-1.txt\nGPA vs. ACT\n\n\nCH08PR16.txt\nindicator variable (paired with CH01PR19-1)\n\n\nCH06PR18-1.txt\ncommercial property rental rates\n\n\nCH09PR10-1.txt\njob / model-selection data\n\n\nCH09PR22-1.txt\njob proficiency (model selection)\n\n\nCH14PR07.txt\nlogistic regression (dues)\n\n\nCH14PR14.txt\nlogistic regression (vaccination)"
+  },
+  {
+    "objectID": "data/README.html#experiments",
+    "href": "data/README.html#experiments",
+    "title": "Vendored datasets",
+    "section": "",
+    "text": "Source: Dean, Voss & Draguljic, Design and Analysis of Experiments (2nd ed.), companion data site. Original URL pattern: http://deanvossdraguljic.ietsandbox.net/DeanVossDraguljic/R-data/&lt;file&gt; Retrieved 2026-06-11 (HTTP 200).\n\n\n\nFile\nOriginal URL\n\n\n\n\ntrout.txt\n…/R-data/trout.txt\n\n\nreaction.time.txt\n…/R-data/reaction.time.txt\n\n\nbicycle.txt\n…/R-data/bicycle.txt\n\n\nwater.boiling.txt\n…/R-data/water.boiling.txt\n\n\npaper.towel.strength.txt\n…/R-data/paper.towel.strength.txt\n\n\nweld.strength.txt\n…/R-data/weld.strength.txt"
+  },
+  {
+    "objectID": "data/README.html#statistical-computing",
+    "href": "data/README.html#statistical-computing",
+    "title": "Vendored datasets",
+    "section": "",
+    "text": "Source: OSU Stat 6730 course materials (V. Q. Vu). Original URL pattern: https://www.stat.osu.edu/~vqv/6730/data/&lt;file&gt; Retrieved 2026-06-11 (HTTP 200). The OSU URLs currently resolve via a 301 redirect to a personal page (asc.ohio-state.edu/vu.104/...), which is fragile — hence vendoring.\n\n\n\nFile\nOriginal URL\n\n\n\n\nfev.RData\n…/6730/data/fev.RData\n\n\nlab_05.R\n…/6730/data/lab_05.R\n\n\nlab_05.RData\n…/6730/data/lab_05.RData\n\n\nfish.txt\n…/6730/data/fish.txt\n\n\nozonerats.csv\n…/6730/data/ozonerats.csv (permutation test)\n\n\nelectemp.csv\n…/6730/data/electemp.csv (cross-validation)"
+  },
+  {
+    "objectID": "data/README.html#time-series",
+    "href": "data/README.html#time-series",
+    "title": "Vendored datasets",
+    "section": "",
+    "text": "Source: OSU Stat 6550 course materials. Collected 2026-06-11.\n\n\n\n\n\n\n\nFile\nDescription\n\n\n\n\nUS_oil_production.txt\nMonthly U.S. oil production (360 obs from 1980), used for the moving-average trend, seasonal decomposition, and ARMA-fitting tasks. (The wind-speed and Columbus-temperature series for the other Time Series tasks are entered inline in those pages.)"
+  },
+  {
+    "objectID": "data/README.html#multivariate",
+    "href": "data/README.html#multivariate",
+    "title": "Vendored datasets",
+    "section": "",
+    "text": "Source: Johnson & Wichern, Applied Multivariate Statistical Analysis (6th ed.), textbook data sets (the Data_JW6 collection). Collected from local course folder 2026-06-11.\n\n\n\nFile\nDescription\n\n\n\n\nT1-8.DAT\nTable 1.8 (mineral content of bones)\n\n\nT4-6.DAT\nTable 4.6 (psychological profile data)"
+  },
+  {
+    "objectID": "data/README.html#regression",
+    "href": "data/README.html#regression",
+    "title": "Vendored datasets",
+    "section": "",
+    "text": "Source: Kutner, Nachtsheim, Neter & Li, Applied Linear Statistical Models (ALSM), textbook problem data sets. File names follow the textbook’s CH&lt;chapter&gt;PR&lt;problem&gt; convention. Collected 2026-06-11 (local course folders / public ALSM mirror).\n\n\n\nFile\nUsed for\n\n\n\n\ngpa.txt\nGPA simple linear regression\n\n\nCH03PR03.txt\nresidual / assumption checking\n\n\nCH03PR15.txt\nconcentration data\n\n\nCH03PR17.txt\nsales data\n\n\nCH06PR15.txt\npatient satisfaction (multiple regression)\n\n\nCH01PR19-1.txt\nGPA vs. ACT\n\n\nCH08PR16.txt\nindicator variable (paired with CH01PR19-1)\n\n\nCH06PR18-1.txt\ncommercial property rental rates\n\n\nCH09PR10-1.txt\njob / model-selection data\n\n\nCH09PR22-1.txt\njob proficiency (model selection)\n\n\nCH14PR07.txt\nlogistic regression (dues)\n\n\nCH14PR14.txt\nlogistic regression (vaccination)"
+  },
+  {
+    "objectID": "tasks/regression/simple-linear-regression.html",
+    "href": "tasks/regression/simple-linear-regression.html",
+    "title": "Fit Simple Linear Regression Model",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nFit a simple linear regression to relate a response to one predictor, with coefficient tests, confidence intervals, and predictions.\nGrade point average. The director of admissions of a small college selected 120 students at random from the new freshman class in a study to determine whether a student’s grade point average (GPA) at the end of freshman year (Y) can be predicted from the ACT test score (X). The results of the study follow. Assume that first-order regression model (1.1) is appropriate.\n# read data\ngpa &lt;- read.table(\"../../data/gpa.txt\", header = TRUE)\n\n# fit linear model + print summary\ngfit &lt;- lm(GPA ~ ACT, data=gpa)\nsummary(gfit)\n\n\nCall:\nlm(formula = GPA ~ ACT, data = gpa)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.74004 -0.33827  0.04062  0.44064  1.22737 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  2.11405    0.32089   6.588  1.3e-09 ***\nACT          0.03883    0.01277   3.040  0.00292 ** \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6231 on 118 degrees of freedom\nMultiple R-squared:  0.07262,   Adjusted R-squared:  0.06476 \nF-statistic:  9.24 on 1 and 118 DF,  p-value: 0.002917\n\n# plot data with fitted regression line\nplot(gpa$ACT, gpa$GPA, cex=.5, main=\"Data and Fitted Regression Model\", ylab=\"Freshman GPA\", xlab=\"ACT Score\")\nabline(gfit,lwd = 3)\n\n\n\n\n\n\n\n# produce confidence interval for B_1\nconfint(gfit, 'ACT', level = 0.99)\n\n          0.5 %     99.5 %\nACT 0.005385614 0.07226864\n\n# t-test for relationship\nbeta0 &lt;- coef(gfit)[1] #coefficient b_0\nbeta1 &lt;- coef(gfit)[2] #coefficient b_1\nfitted_values &lt;- beta0 + beta1 * gpa$ACT #y_hat values\n\nsse &lt;- sum((gpa$GPA - fitted_values) ^2) #sse\nmse &lt;- sse / (nrow(gpa)-2) #mse\nsigma.hat&lt;-sqrt(mse) #estimated standard dev\nsxx &lt;- sum((gpa$ACT - mean(gpa$ACT))^2) #msr\nse.beta.hat.1 &lt;- sqrt(mse / sxx) #standard error\nT.statistic &lt;- beta1 / se.beta.hat.1 #t statistic\np_value &lt;- 2*pt(T.statistic, df=nrow(gpa)-2, lower.tail=FALSE)\nt.star &lt;- qt(.995, nrow(gpa)-2) #t*\n\n# estimate mean y value\nnewdata &lt;- data.frame(ACT = c(28))\nci &lt;- predict(gfit, newdata, interval = \"confidence\", level = .95)\n\n# predict y for known x value\npi &lt;- predict(gfit,newdata,interval = \"predict\", level = .95)"
+  },
+  {
+    "objectID": "tasks/regression/simple-linear-regression.html#answers",
+    "href": "tasks/regression/simple-linear-regression.html#answers",
+    "title": "Fit Simple Linear Regression Model",
+    "section": "Answers",
+    "text": "Answers\n\nLeast Squares Estimates\n\\(\\hat{\\beta}_{0} = 2.11405\\)\n\\(\\hat{\\beta}_{1} = 0.03883\\)\n\n\nEquation of a Line\n\\(\\hat{Y} = 2.11405 + 0.03883X\\)\n\n\nDescribe Plot\nThe estimated regression function appears to fit the data poorly. The majority of the data appears to show a stronger relationship between ACT score and freshman GPA; however, points (29, 0.5) and (31, 1.486) among a handful of others prevent the regression function from having a steeper slope.\n\n\nInterpret Confidence Interval\nIf the observational study were repeated again and again, the coefficient for \\(\\beta_1\\) is expected to be in theconfidence interval, calculated with this method, 99% of the time. If the CI included 0, the director of admissions could ignore ACT score as a predictor of Freshman GPA since the results would suggest the observed relationship may be due to error.\n\n\nHypothesis Test for Relationship\n\\(H_0: \\beta_1 = 0\\)\n\\(H_a: \\beta_1 \\neq 0\\)\nI will be able to reject the null hypothesis if \\(T &lt; -2.618137\\) or \\(T &gt; 2.618137\\). The t-statistic is 3.04; therefore, I can reject the null hypothesis.\nThe P-value is 0.002. The probability of getting a T-statistic of 3.04 would be less than .01 if the null hypothesis were true, satisfying the 99% confidence interval. I can conclude there is a linear association between ACT score and freshman GPA.\n\n\nEstimate Mean Y\nIf the observational study were conducted again and again, the mean freshman GPA for a student scoring 28 on the ACT is expected to be in the created confidence interval 95% of the time.\n\n\nPredict Y\nThe prediction interval when calculated with this method will contain the student’s actual Freshman GPA 95% of the time.\n\n\nNote on Difference\nThe prediction interval includes the prediction of error and will always be wider than the confidence interval, which predicts the mean exclusively.\n\n\nAdditional - Relationship test\nIf there were no linear association between Y and X, 0 would be included in the confidence interval for slope. However, 0 is not included in the confidence interval, so this conclusion is valid with a significance of 0.05."
+  },
+  {
+    "objectID": "tasks/regression/simple-linear-regression.html#see-also",
+    "href": "tasks/regression/simple-linear-regression.html#see-also",
+    "title": "Fit Simple Linear Regression Model",
+    "section": "See also",
+    "text": "See also\n\nMultiple Linear Regression\nCheck Assumptions\n\nData: gpa.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/transformations.html",
+    "href": "tasks/regression/transformations.html",
+    "title": "Transformations",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse a Box-Cox plot to choose a response transformation when constant-variance or normality assumptions are violated.\n# read data\nsales &lt;- read.table(\"../../data/CH03PR17.txt\", header=TRUE)\n\n# view boxcox plot\ngfit &lt;- lm(Y ~ X, data=sales)\nlibrary(MASS)\nboxcox(gfit)\n\n\n\n\n\n\n\n# transform data\ngfit_trfm &lt;- lm(sqrt(Y) ~ X, data=sales)\nsummary(gfit_trfm)\n\n\nCall:\nlm(formula = sqrt(Y) ~ X, data = sales)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-0.47447 -0.30811  0.01549  0.29541  0.46781 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 10.26093    0.21290   48.20 3.80e-11 ***\nX            1.07629    0.03988   26.99 3.83e-09 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.3622 on 8 degrees of freedom\nMultiple R-squared:  0.9891,    Adjusted R-squared:  0.9878 \nF-statistic: 728.4 on 1 and 8 DF,  p-value: 3.826e-09"
+  },
+  {
+    "objectID": "tasks/regression/transformations.html#answers",
+    "href": "tasks/regression/transformations.html#answers",
+    "title": "Transformations",
+    "section": "Answers",
+    "text": "Answers\n\nBox-Cox Plot\nThe Box-Cox procedure suggests a lambda = .5 transformation would be appropriate.\n\n\nInterpret Transformed Data\nFor each one-year increase, the expected change in square root of sales in thousands is 1.07629."
+  },
+  {
+    "objectID": "tasks/regression/transformations.html#see-also",
+    "href": "tasks/regression/transformations.html#see-also",
+    "title": "Transformations",
+    "section": "See also",
+    "text": "See also\n\nCheck Assumptions\nTransformations\n\nData: CH03PR17.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/indicator-variables.html",
+    "href": "tasks/regression/indicator-variables.html",
+    "title": "Indicator Variables",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse an indicator variable to let a single regression capture the shift between two categories (coded 0/1).\n# read data: gpa1 (original) + gpa2 (indicator) = gpa (full dataset)\ngpa1 &lt;- read.table(\"../../data/CH01PR19-1.txt\", header=TRUE)\ngpa2 &lt;- read.table(\"../../data/CH08PR16.txt\", header=TRUE)\ngpa &lt;- cbind(gpa1, gpa2[1]) #combine\n\n# fit linear model\ngfit &lt;- lm(GPA ~ ACT + Indicator, data=gpa)\nsummary(gfit)\n\n\nCall:\nlm(formula = GPA ~ ACT + Indicator, data = gpa)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.70304 -0.35574  0.02541  0.45747  1.25037 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  2.19842    0.33886   6.488 2.18e-09 ***\nACT          0.03789    0.01285   2.949  0.00385 ** \nIndicator   -0.09430    0.11997  -0.786  0.43341    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6241 on 117 degrees of freedom\nMultiple R-squared:  0.07749,   Adjusted R-squared:  0.06172 \nF-statistic: 4.914 on 2 and 117 DF,  p-value: 0.008928\n\n# confidence interval for beta_2\nqt &lt;- qt(.975, 117)\nll &lt;- -.0943 - (qt* .11997)\nul &lt;- -.0943 + (qt* .11997)\nThe 95% confidence interval for \\(\\beta_2\\) is (-0.3318943, 0.1432943). We fail to reject the null hypothesis, because 0 is contained in the confidence interval. This suggests there is no value added by including \\(X_2\\) in the model.\n# plot residuals against variable; color by indicator\ngpa.e &lt;- resid(gfit)\npalette(c(\"gray\", \"red\"))\ntest &lt;- gpa$Indicator + 1\nplot(gpa$ACT, gpa.e, col=test, pch=18,\n     main=\"Residual Plot Against ACT Score Separated by Indicator\",\n     xlab=\"ACT Score\", ylab=\"Residuals\")"
+  },
+  {
+    "objectID": "tasks/regression/indicator-variables.html#see-also",
+    "href": "tasks/regression/indicator-variables.html#see-also",
+    "title": "Indicator Variables",
+    "section": "See also",
+    "text": "See also\n\nInteraction Terms\n\nData: CH01PR19-1.txt, CH08PR16.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/piecewise-linear-model.html",
+    "href": "tasks/regression/piecewise-linear-model.html",
+    "title": "Fit Piecewise Linear Model",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nFit a piecewise linear model when the relationship changes slope at a known breakpoint.\n# read data\nproperties &lt;- read.table(\"../../data/CH06PR18-1.txt\", header=TRUE)\n\n# center ages variable (square of variable included in model)\nCentered_Ages &lt;- properties$Age-mean(properties$Age)\nSq_Centered_Ages &lt;- Centered_Ages^2\n\n# create table\nprop &lt;- cbind(properties, Centered_Ages, Sq_Centered_Ages)\n\n# plot scatter with vertical line at break\nplot(prop$Age, prop$Rental_Rates, pch=18, col=\"red\", ylab=\"Rental Rates\", xlab=\"Property Age\", main=\"Regression on X1\")\nabline(v=10, lty=2)\n\n# fit piecewise model\npiecewise.fit &lt;- lm(Rental_Rates ~ Age + pmax(0, Age - 10) + I(Age &gt; 10), data=prop)\n\n# generate x variables for prediction\na.grid &lt;- seq(0, max(prop$Age), length.out=1000)\n\n# generate piecewise prediction lines\npredictions &lt;- predict(piecewise.fit, newdata=data.frame(Age = a.grid), interval = \"confidence\")\n\n# add lines to graph (run entire chunk for success)\nlines(x=a.grid, y=predictions[,1], col=\"gray3\")"
+  },
+  {
+    "objectID": "tasks/regression/piecewise-linear-model.html#see-also",
+    "href": "tasks/regression/piecewise-linear-model.html#see-also",
+    "title": "Fit Piecewise Linear Model",
+    "section": "See also",
+    "text": "See also\n\nMultiple Linear Regression\n\nData: CH06PR18-1.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/check-assumptions.html",
+    "href": "tasks/regression/check-assumptions.html",
+    "title": "Check Assumptions",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nRun these residual plots and tests to verify the core linear-model assumptions before trusting any inference from the fit.\nAssumptions to check:\n# read data\ngpa &lt;- read.table(\"../../data/CH03PR03.txt\", header=TRUE)\n\n# plot data\nplot(gpa$X,gpa$Y, ylab=\"Freshman GPA\", xlab=\"ACT Score\", main=\"Scatter Plot\", pch=18, col=\"orange\")\n\n\n\n\n\n\n\n# plot normality\nhist(gpa$X, xlab=\"ACT Scores\", ylab=\"Frequency of Score\", main=\"Histogram\", col=\"orange\")\n\n\n\n\n\n\n\n# plot residuals\ngfit &lt;- lm(Y ~ X, data=gpa) #fit linear model\ngpa.e &lt;- resid(gfit) #residuals\nplot(gpa$X, gpa.e, xlab=\"ACT Score\", ylab=\"Residual\", main=\"Residual Plot\", col=\"orange\", pch=18)\nabline(h=0) #horizontal line\nabline(h=1, lty=c(2)) #dotted line\nabline(h=-1, lty=c(2)) #dotted line\n\n\n\n\n\n\n\n# plot QQ plot\nlibrary(car)\nqqPlot(rstandard(gfit), col=\"orange\", pch=18)\n\n\n\n\n\n\n\n\n[1]   9 115\n\n# test normality (reject if &lt; 0.05)\nshapiro.test(gpa.e)\n\n\n    Shapiro-Wilk normality test\n\ndata:  gpa.e\nW = 0.95249, p-value = 0.0003304\n# plot residuals against unused variables\nplot(gpa$V2, gpa.e, col=\"orange\", pch=18, xlab=\"V2\", ylab=\"Residuals\", main=\"V2 Residual Plot\")\nabline(h=0)\n\n\n\n\n\n\n\nplot(gpa$V3, gpa.e, col=\"orange\", pch=18, xlab=\"V3\", ylab=\"Residuals\", main=\"V3 Residual Plot\")\nabline(h=0)"
+  },
+  {
+    "objectID": "tasks/regression/check-assumptions.html#see-also",
+    "href": "tasks/regression/check-assumptions.html#see-also",
+    "title": "Check Assumptions",
+    "section": "See also",
+    "text": "See also\n\nSimple Linear Regression\nOutliers & Influential Points\nCheck Assumptions\n\nData: CH03PR03.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/simple-logistic-regression.html",
+    "href": "tasks/regression/simple-logistic-regression.html",
+    "title": "Simple Logistic Regression",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse simple logistic regression to model a binary outcome from a single predictor, reading the slope as an odds ratio.\n# plot logistic model with b0 = 20, b1 = -.2\nX &lt;- cbind(1:200)\npi_1a &lt;- exp(20-.2*X)/(1+exp(20-.2*X))\nplot(X, pi_1a, pch=18, col=\"slateblue1\", main=\"Logistic Mean Response with Given Parameters\")\n\n\n\n\n\n\n\n# odds ratio is approximately exp(b1)\nodds126 &lt;- exp(20-.2*126)/(1+exp(20-.2*126))\nodds125 &lt;- exp(20-.2*125)/(1+exp(20-.2*125))\nratio &lt;- odds126/odds125\nexp(-.2)\n\n[1] 0.8187308\n\n# read data\ndues &lt;- read.table(\"../../data/CH14PR07.txt\", header=TRUE)\n\n# fit logistic model\ngfit2 &lt;- glm(Renewal ~ Increase, data=dues, family = binomial(link =\"logit\"))\nsummary(gfit2)\n\n\nCall:\nglm(formula = Renewal ~ Increase, family = binomial(link = \"logit\"), \n    data = dues)\n\nDeviance Residuals: \n    Min       1Q   Median       3Q      Max  \n-1.7651  -1.0012   0.6502   0.9828   1.6455  \n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)  \n(Intercept) -4.80751    2.65576  -1.810   0.0703 .\nIncrease     0.12508    0.06676   1.874   0.0610 .\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 41.455  on 29  degrees of freedom\nResidual deviance: 37.465  on 28  degrees of freedom\nAIC: 41.465\n\nNumber of Fisher Scoring iterations: 4\nThe fitted response function is \\[\\hat{\\pi} = \\frac{\\exp(-4.80751 + 0.12508X)}{1+\\exp(-4.80751 + 0.12508X)}\\]\n# generate prediction curve\npredIncrease &lt;- seq(0,100, by=1)                    # create x values\nlogit.hat2 &lt;- predict.glm(gfit2,                    # ???\n                          newdata = data.frame(Increase=predIncrease),\n                          se.fit=TRUE)\nprob.hat2 &lt;- exp(logit.hat2$fit)/(1+exp(logit.hat2$fit)) # logistic equation\n\n# plot original data\nplot(dues$Increase,\n     dues$Renewal,\n     pch=18, col=\"slateblue1\",\n     main=\"Annual Dues Increase\",\n     ylab=\"Renewal Selection\",\n     xlab=\"Increase Amount\")\n\n# plot loess smoothed line\nloess2 &lt;- loess.smooth(dues$Increase, dues$Renewal)\nlines(loess2, col=\"slateblue2\")                     # loess smooth line\nlines(predIncrease, prob.hat2, col=\"red\")           # predicted values line\n\n\n\n\n\n\n\n# calculate and interpret odds ratio\nbeta_1 &lt;- exp(gfit2$coefficients[2])\nThe value is 1.133237 and suggests that for each additional dollar dues increase, the odds of a member choosing not to renew their dues increases 13%.\ndues_b &lt;- gfit2$coefficients                        # save b1 and b0\n\n# estimated probability that members will not renew if the dues increase $40\npi_2d &lt;- exp(dues_b[1]+dues_b[2]*40)/(1+exp(dues_b[1]+dues_b[2]*40))\n\n# dues increase for which 75 percent of the members are expected not to renew\nY &lt;- exp(dues_b[1]+dues_b[2]*X)/(1+exp(dues_b[1]+dues_b[2]*X)) # equation\nanswer &lt;- X[which(Y &gt; .74 & Y &lt; 0.76)]              # find Y = .75"
+  },
+  {
+    "objectID": "tasks/regression/simple-logistic-regression.html#see-also",
+    "href": "tasks/regression/simple-logistic-regression.html#see-also",
+    "title": "Simple Logistic Regression",
+    "section": "See also",
+    "text": "See also\n\nMultiple Logistic Regression\n\nData: CH14PR07.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/multiple-linear-regression.html",
+    "href": "tasks/regression/multiple-linear-regression.html",
+    "title": "Fit Multiple Linear Regression Model",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nFit a multiple linear regression to relate a response to several predictors at once, then check residuals and test the coefficients.\n# read data\npatient &lt;- read.table(\"../../data/CH06PR15.txt\", header=TRUE)\n\n# scatter plot matrix\npairs(patient, col=\"slategray4\")\n\n\n\n\n\n\n\n# correlation matrix\ncor(patient)\n\n             Satisfaction        Age   Severity    Anxiety\nSatisfaction    1.0000000 -0.7867555 -0.6029417 -0.6445910\nAge            -0.7867555  1.0000000  0.5679505  0.5696775\nSeverity       -0.6029417  0.5679505  1.0000000  0.6705287\nAnxiety        -0.6445910  0.5696775  0.6705287  1.0000000\n\n# fit linear model\ngfit &lt;- lm(Satisfaction ~ Age + Severity + Anxiety, data=patient)\n\n# plot residuals against fitted values\npatient.e &lt;- resid(gfit)\nplot(gfit$fitted.values, patient.e, col=\"slategray4\", pch=18)\n\n\n\n\n\n\n\n# plot against single variables\npar(mfrow=c(2,2))\nplot(patient$Age, patient.e, col=\"slategray4\", pch=18)\nplot(patient$Severity, patient.e, col=\"slategray4\", pch=18)\nplot(patient$Anxiety, patient.e, col=\"slategray4\", pch=18)\n\n# plot against interaction variables\nplot(patient$Age*patient$Severity, patient.e, col=\"slategray4\", pch=18)\n\n\n\n\n\n\n\nplot(patient$Age*patient$Anxiety, patient.e, col=\"slategray4\", pch=18)\nplot(patient$Severity*patient$Anxiety, patient.e, col=\"slategray4\", pch=18)\n\n# f test for not all coefficients = 0\nsummary(gfit)\n\n\nCall:\nlm(formula = Satisfaction ~ Age + Severity + Anxiety, data = patient)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-18.3524  -6.4230   0.5196   8.3715  17.1601 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) 158.4913    18.1259   8.744 5.26e-11 ***\nAge          -1.1416     0.2148  -5.315 3.81e-06 ***\nSeverity     -0.4420     0.4920  -0.898   0.3741    \nAnxiety     -13.4702     7.0997  -1.897   0.0647 .  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 10.06 on 42 degrees of freedom\nMultiple R-squared:  0.6822,    Adjusted R-squared:  0.6595 \nF-statistic: 30.05 on 3 and 42 DF,  p-value: 1.542e-10\n\nanova(gfit)\n\nAnalysis of Variance Table\n\nResponse: Satisfaction\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nAge        1 8275.4  8275.4 81.8026 2.059e-11 ***\nSeverity   1  480.9   480.9  4.7539   0.03489 *  \nAnxiety    1  364.2   364.2  3.5997   0.06468 .  \nResiduals 42 4248.8   101.2                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nMSR &lt;- (8275.4+480.9+364.2)/3\nMSE &lt;- 4248.8/42\nF_stat &lt;- MSR/MSE #f stat\ncompare &lt;- qf(.90, 3, 42) #f*\n\n# coefficient of multiple determination\nSSR &lt;- MSR*3\nSSTO &lt;- SSR+ (MSE*42)\nR2 &lt;- SSR/SSTO\n\n# estimate mean Y\nci &lt;- predict(gfit, newdata=data.frame(Age=35, Severity=45, Anxiety=2.2), interval=\"confidence\", level=.90)\n\n# predict Y\npi &lt;- predict(gfit, newdata=data.frame(Age=35, Severity=45, Anxiety=2.2), interval=\"prediction\", level=.90)\n\n# f test for b3 not = 0\nanova(gfit)\n\nAnalysis of Variance Table\n\nResponse: Satisfaction\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nAge        1 8275.4  8275.4 81.8026 2.059e-11 ***\nSeverity   1  480.9   480.9  4.7539   0.03489 *  \nAnxiety    1  364.2   364.2  3.5997   0.06468 .  \nResiduals 42 4248.8   101.2                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nf_stat_x3 &lt;- (364.2/101.2)\nf4 &lt;- qf(.975, 1, 42)\n\n# f test for b2 and b3 not = 0\nmsr_2and3 &lt;- (480.9+364.2)/2\nf_star_2and3 &lt;- msr_2and3/101.2"
+  },
+  {
+    "objectID": "tasks/regression/multiple-linear-regression.html#answers",
+    "href": "tasks/regression/multiple-linear-regression.html#answers",
+    "title": "Fit Multiple Linear Regression Model",
+    "section": "Answers",
+    "text": "Answers\n\nF Test for all Coefficients\nThe alternatives are as follows:\n\\(H_0: \\beta_1 = \\beta_2 = \\beta_3 = 0\\)\n\\(H_a:\\) not all \\(\\beta_k = 0\\)\nIf the f-statistic is greater than F*, I will reject the null hypothesis. If it is less than or equal to 2.2190586, I will fail to reject the null hypothesis.\nBecause the f-statistic is greater than the f-value, I can reject the null hypothesis and conclude that at least one of the beta terms is not equal to zero.\nThe p-value is 1.542e-10, which makes sense as it is less than .10, which was the required level of significance in order to reject the null.\n\n\nCoefficient of Multiple Determination\nThe coefficient of multiple determination indicates that the inclusion of these three predictor variables reduces the variability in Y by 68.21973%.\n\n\nF Test for B_3\n\\(H_0: \\beta_3 = 0\\)\n\\(H_a: \\beta_3 \\neq 0\\)\nBecause F-statistic is NOT greater than F*, I fail to reject the null hypothesis. The P-value is 0.06468, which does not meet a significance level of .025.\nThe degree of marginal linear association between \\(Y\\) and \\(X_1\\) is reduced for each predictor variable considered before \\(X_1\\) is added. This makes sense because the reduction in variability of Y has the opportunity to be attributed to other variables first and will not be double-counted.\n\\(SSR(X_2 \\mid X_1, X_3)\\) has 1 DF."
+  },
+  {
+    "objectID": "tasks/regression/multiple-linear-regression.html#see-also",
+    "href": "tasks/regression/multiple-linear-regression.html#see-also",
+    "title": "Fit Multiple Linear Regression Model",
+    "section": "See also",
+    "text": "See also\n\nAdded Variable Plot\nOutliers & Influential Points\n\nData: CH06PR15.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/manual-smoothing.html",
+    "href": "tasks/statistical-computing/manual-smoothing.html",
+    "title": "Manual Smoothing",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nFit a linear or loess smoother yourself and overlay the predictions, for full control over the curve.\npacman::p_load(dplyr, ggplot2)\n\n# fevdata loaded and manipulated in the Examine a Dataframe task\nload(\"../../data/fev.RData\")\nfevdata &lt;- mutate(fevdata, age_group = cut(age, breaks = 5))\n\n# use linear regression\nlinear_model &lt;- lm(fev ~ age, data=fevdata)              # fit linear model\ntarget_values &lt;- data.frame(\n  age = seq(from = min(fevdata$age),\n            to = max(fevdata$age),\n            length.out = 100)\n)                                                        # create x values\npredictions &lt;- mutate(target_values,\n                      fev = predict(linear_model,\n                                    newdata = target_values)\n                      )                                  # find y_hats\np &lt;- ggplot(data = fevdata, mapping = aes(x = age, y = fev))\np +\n  geom_point() +                                         # scatter plot\n  geom_line(data = predictions, color = \"red\")           # linear overlay\n\n\n\n\n\n\n\n# locally-weighted smoothers\npolynomial_model &lt;- loess(fev ~ age,\n                          data = fevdata,\n                          degree = 2,                     # ??\n                          span = .75)                     # window to consider\npredictions &lt;- mutate(target_values,\n                      fev = predict(polynomial_model,     # new predictions\n                                    newdata = target_values)\n                      )\np +\n  geom_point() +\n  geom_line(data = predictions, color = \"red\")\n\n\n\n\n\n\n\n# map color to line with legend\np +\n  geom_point() +\n  geom_line(data = predictions, mapping = aes(color = \"Original Line\")) +\n  geom_line(data = 2+predictions, mapping = aes(color = \"Demonstrate\"))"
+  },
+  {
+    "objectID": "tasks/statistical-computing/manual-smoothing.html#see-also",
+    "href": "tasks/statistical-computing/manual-smoothing.html#see-also",
+    "title": "Manual Smoothing",
+    "section": "See also",
+    "text": "See also\n\nSmoothing with geom_smooth()\n\nData: fev.RData — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/cross-validation.html",
+    "href": "tasks/statistical-computing/cross-validation.html",
+    "title": "Cross-Validation",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse k-fold cross-validation to estimate prediction error and choose model complexity by the one-standard-error rule.\npacman::p_load(dplyr, rsample, tidyverse)\n\n# read data\nelectemp &lt;- read_csv(\"../../data/electemp.csv\")\ncv &lt;- vfold_cv(electemp, v = 10)\nThe dataframe cv has ten rows, each of which holds information about the dataset which has been split into training and test data. The first column holds this information and the second column informs us which fold (1-10) that dataset corresponds with.\ncv2 &lt;- cv %&gt;%\n    rowwise() %&gt;%\n    mutate(fit = list(lm(usage ~ poly(temp, 2), data = splits)))\nBy wrapping lm() in list(), we can preserve a rectangular data frame where the multiple outputs of lm() are accessible in the row from which their data was drawn. Recall data is stored in splits - information for a dataset is stored within first element of row.\nThe dataframe remains rowwise because we are using the mutate function, which expands the rows rather than collapses them.\ntrain_and_test &lt;- function(splits, sp) {\n  fit &lt;- lm(usage ~ poly(temp, sp), data = splits)\n  test &lt;- assessment(splits)\n  test &lt;- mutate(test, predicted = predict(fit, newdata = test))\n  summarize(test, mse = mean( (usage - predicted)^2 ))$mse\n}\nmcv &lt;- cv2 %&gt;%\n  rowwise() %&gt;%\n  mutate(mse = train_and_test(splits, 2))\ncv_result &lt;- mcv %&gt;%\n    ungroup() %&gt;%\n    summarize(se = sd(mse) / sqrt(n()), mse = mean(mse))\ncv_result\n\n# A tibble: 1 × 2\n     se   mse\n  &lt;dbl&gt; &lt;dbl&gt;\n1  26.0  98.3\nWe need to use ungroup so that the dataframe will not treat each row as its own group. This allows summarize to collapse across all rows, rather than computing the values rowwise.\ncv &lt;- vfold_cv(electemp, v = 10) %&gt;%\n  rowwise() %&gt;%\n  summarize(mse = train_and_test(splits, 2)) %&gt;%\n  summarize(se = sd(mse) / sqrt(n()), mse = mean(mse))\nmodels &lt;- tibble(degree = 1:7)\ncv &lt;- vfold_cv(electemp, k = 10)\nmcv &lt;- crossing(cv, models)\nThe dataframe mcv offers every combination of the folds (1-10) and the number of polynomials fit in the model (1-7).\ncv_result &lt;- mcv %&gt;%\n  rowwise() %&gt;%\n  mutate(mse = train_and_test(splits, degree))\ncv_result &lt;- cv_result %&gt;%\n  group_by(degree) %&gt;%\n  summarize(se = sd(mse) / sqrt(n()), mse = mean(mse))\ncv_result\n\n# A tibble: 7 × 3\n  degree    se   mse\n   &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;\n1      1  20.1 134. \n2      2  14.1  92.4\n3      3  14.1  94.9\n4      4  14.3  95.7\n5      5  14.7  98.1\n6      6  14.5  97.5\n7      7  16.8 108.\np &lt;- ggplot(electemp, aes(temp, usage)) +\n    geom_point() +\n    labs(x = 'temperature', y = 'electricity usage (kwh)')\np &lt;- p + stat_smooth(method = lm, formula = y ~ x,\n                     se = FALSE, aes(color = 'linear'))\np &lt;- p + stat_smooth(method = lm, formula = y ~ poly(x, degree = 2),\n                     se = FALSE, aes(color = 'quadratic'))\np &lt;- p + stat_smooth(method = lm, formula = y ~ poly(x, degree = 3),\n                     se = FALSE, aes(color = 'cubed'))\np &lt;- p + stat_smooth(method = lm, formula = y ~ poly(x, degree = 4),\n                     se = FALSE, aes(color = '4th degree'))\np &lt;- p + stat_smooth(method = lm, formula = y ~ poly(x, degree = 5),\n                     se = FALSE, aes(color = '5th degree'))\np &lt;- p + stat_smooth(method = lm, formula = y ~ poly(x, degree = 6),\n                     se = FALSE, aes(color = '6th degree'))\np &lt;- p + stat_smooth(method = lm, formula = y ~ poly(x, degree = 7),\n                     se = FALSE, aes(color = '7th degree'))\n\nprint(p + theme(legend.position = 'bottom', legend.title=element_blank()))\nThe simplest model that satisfies the one standard error rule is a second degree polynomial model."
+  },
+  {
+    "objectID": "tasks/statistical-computing/cross-validation.html#see-also",
+    "href": "tasks/statistical-computing/cross-validation.html#see-also",
+    "title": "Cross-Validation",
+    "section": "See also",
+    "text": "See also\n\nSmoothing with geom_smooth()\nModel Selection\n\nData: electemp.csv — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/boxplots-ggplot.html",
+    "href": "tasks/statistical-computing/boxplots-ggplot.html",
+    "title": "Boxplots with ggplot2",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse geom_boxplot to compare a numeric variable’s distribution across groups.\n# download necessary packages\npacman::p_load(dplyr,\n               ggplot2)                             # ggplot()\n\n# fevdata loaded and manipulated in the Examine a Dataframe task\nload(\"../../data/fev.RData\")\nfevdata &lt;- mutate(fevdata, age_group = cut(age, breaks = 5))\n\n# create boxplot by age\np &lt;- ggplot(fevdata, aes(x = age, y = fev))\np + geom_boxplot(mapping = aes(x = as.factor(age))) # consider age categorical\n\n\n\n\n\n\n\np + geom_boxplot(mapping = aes(x = as.factor(age_group))) # consider age group\n\n\n\n\n\n\n\n# split and color by smoker status\np + geom_boxplot(mapping = aes(x = as.factor(age_group), fill = smoke))\n\n\n\n\n\n\n\n# option for horizontal box plots\nggplot(fevdata) +\n  geom_boxplot(mapping = aes(x = sex, y = fev)) +\n  coord_flip()"
+  },
+  {
+    "objectID": "tasks/statistical-computing/boxplots-ggplot.html#see-also",
+    "href": "tasks/statistical-computing/boxplots-ggplot.html#see-also",
+    "title": "Boxplots with ggplot2",
+    "section": "See also",
+    "text": "See also\n\nExamine a Dataframe\nFacetting with facet_grid\n\nData: fev.RData — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/permutation-tests.html",
+    "href": "tasks/statistical-computing/permutation-tests.html",
+    "title": "Permutation Tests",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse a permutation test to build a null distribution by shuffling group labels — no parametric assumptions needed.\npacman::p_load(ggplot2, tidyverse)\n\n# read data\nrats &lt;- read_csv('../../data/ozonerats.csv')\n\n# plot data boxplots\nggplot(rats) + geom_boxplot(aes(group, weightgain))\nstr(rats)\n\nspec_tbl_df [45 × 2] (S3: spec_tbl_df/tbl_df/tbl/data.frame)\n $ weightgain: num [1:45] 41 38.4 24.9 25.9 21.9 18.3 13.1 27.3 28.5 -16.9 ...\n $ group     : chr [1:45] \"control\" \"control\" \"control\" \"control\" ...\n - attr(*, \"spec\")=\n  .. cols(\n  ..   weightgain = col_double(),\n  ..   group = col_character()\n  .. )\n - attr(*, \"problems\")=&lt;externalptr&gt;\nThe dataframe has two variables: weightgain, a numeric column with rats’ weights; and group, a character column with which group each rat belonged to.\n\\(H_0: F(x) = G(x)\\)\nwhere \\(X_1,...X_n \\sim^{iid} F(x)\\) and \\(Y_1, ..., Y_m \\sim^{iid} G(x)\\)\n\\(H_a: \\mu_{F(x)} \\neq \\mu_{G(x)}\\)\nt0 &lt;- summarise(rats,\n                t_stat = abs(t.test(weightgain ~ group)$statistic))\n\ndf_perm &lt;- map(1:1e3,\n               function(x) mutate(rats,\n                                  group = sample(group)))\nt_perm &lt;- map_dfr(df_perm,\n                  summarize,\n                  t_stat = abs(t.test(weightgain ~ group)$statistic))\n\np_value &lt;- mean(c(t0$t_stat, t_perm$t_stat) &gt;= t0$t_stat)\nggplot(t_perm)+\n  geom_histogram(aes(t_stat, fill = t_stat &gt;= t0$t_stat)) +\n  geom_vline(xintercept = t0$t_stat) +\n  ggtitle(\"Permutation null\", subtitle = paste(\"empirical p-value = \", p_value))\nThe rejection region is one-sided, because I’m interested in how unlikely it was to achieve my t-statistic with the data shuffled."
+  },
+  {
+    "objectID": "tasks/statistical-computing/permutation-tests.html#see-also",
+    "href": "tasks/statistical-computing/permutation-tests.html#see-also",
+    "title": "Permutation Tests",
+    "section": "See also",
+    "text": "See also\n\nBootstrap Estimate\nTest Treatment Effect\n\nData: ozonerats.csv — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/bootstrap-confidence-interval.html",
+    "href": "tasks/statistical-computing/bootstrap-confidence-interval.html",
+    "title": "Bootstrap Confidence Interval",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nResample with replacement to form a pivotal bootstrap confidence interval for a statistic without distributional assumptions.\npacman::p_load(readr, dplyr)\n\n# fish data + N_hat carried over from the Bootstrap Estimate task\nfish &lt;- read_table('../../data/fish.txt')\nN_hat &lt;- function(df) {\n  bh_lm &lt;- lm(I(1/R) ~ I(1/S), data = df)\n  beta1 &lt;- coef(bh_lm)[1]\n  beta2 &lt;- coef(bh_lm)[2]\n  (1-beta2)/ beta1\n}\n\n# set confidence level\nalpha &lt;- .05\n\n# set number of bootstrap samples\nB &lt;- 1000\n\n# bootstrap for CI\nboot_pivot &lt;- replicate(B, {\n  df_boot &lt;- slice_sample(fish, n = nrow(fish), replace = TRUE)\n  N_hat(df_boot) - N_hat(fish)\n})\n\n# Use setNames to replace the names that quantile() gives its output\nq &lt;- setNames(quantile(boot_pivot, c(1 - alpha/2, alpha/2)), NULL)\nconfidence_interval &lt;- N_hat(fish) - q\n\n# print confidence interval\nconfidence_interval\n\n[1] 142.8796 157.5691"
+  },
+  {
+    "objectID": "tasks/statistical-computing/bootstrap-confidence-interval.html#see-also",
+    "href": "tasks/statistical-computing/bootstrap-confidence-interval.html#see-also",
+    "title": "Bootstrap Confidence Interval",
+    "section": "See also",
+    "text": "See also\n\nBootstrap Estimate\nFunctional Programming with purrr\n\nData: fish.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/pie-chart.html",
+    "href": "tasks/statistical-computing/pie-chart.html",
+    "title": "Pie Charts",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse a bar geometry in polar coordinates to draw a pie chart of a categorical variable.\n# download necessary packages\npacman::p_load(dplyr,\n               ggplot2)                             # ggplot()\n\n# pie chart of diamond cut\nggplot(data = diamonds) +\n  geom_bar(mapping = aes(y = 1, fill = cut)) +\n  coord_polar()\n\n\n\n\n\n\n\n# equivalent pie chart\nggplot(data = diamonds) +\n  geom_bar(mapping = aes(x = 1, fill = cut)) +\n  coord_polar(theta = \"y\")"
+  },
+  {
+    "objectID": "tasks/statistical-computing/pie-chart.html#see-also",
+    "href": "tasks/statistical-computing/pie-chart.html#see-also",
+    "title": "Pie Charts",
+    "section": "See also",
+    "text": "See also\n\nBar Plots"
+  },
+  {
+    "objectID": "tasks/statistical-computing/monte-carlo-simulation.html",
+    "href": "tasks/statistical-computing/monte-carlo-simulation.html",
+    "title": "Monte Carlo Simulation",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse Monte Carlo simulation to approximate a probability or expectation by repeatedly sampling from a model.\n# load information\nsource(\"../../data/lab_05.R\")\nload(\"../../data/lab_05.RData\")\nout &lt;- ztp.mle(before_sales)\nlambda_historical &lt;- out$lambda\n\n# simulation\nsample_ts &lt;- replicate(1000, {\n  # sample 1000 from truncated poisson\n  x &lt;-\n    rtruncpois(10,\n               lambda = 1,\n               truncation = 0)\n\n  # take average (in this example, desired T definition was provided)\n  t_realization &lt;- mean(x)\n})\n\n# assign g: 1 if included in proportion, 0 if not\ng &lt;- ifelse(sample_ts &gt;= 2, 1, 0)\n\n# average of g is proportion included\nmean(g)\n\n[1] 0.074"
+  },
+  {
+    "objectID": "tasks/statistical-computing/monte-carlo-simulation.html#see-also",
+    "href": "tasks/statistical-computing/monte-carlo-simulation.html#see-also",
+    "title": "Monte Carlo Simulation",
+    "section": "See also",
+    "text": "See also\n\nSimulation Basics\nSampling\n\nData: lab_05.R, lab_05.RData — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/geom-smooth.html",
+    "href": "tasks/statistical-computing/geom-smooth.html",
+    "title": "Smoothing with geom_smooth()",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse geom_smooth to add a fitted trend — loess by default, or a model you specify — to a scatterplot.\npacman::p_load(dplyr, ggplot2)\n\n# fevdata loaded and manipulated in the Examine a Dataframe task\nload(\"../../data/fev.RData\")\nfevdata &lt;- mutate(fevdata, age_group = cut(age, breaks = 5))\n\n# basic plot\np &lt;- ggplot(data = fevdata, mapping = aes(x = age, y = fev))\n\n# show geom_smooth\np +\n  geom_point() +\n  geom_smooth()\n\n\n\n\n\n\n\n# linear geom_smooth\np +\n  geom_point() +\n  geom_smooth(method = lm)\n\n\n\n\n\n\n\n# IMPORTANT\n# Confidence Intervals generated by GGPlot are NOT valid if the model is not true\n# turn off confidence bounds\np +\n  geom_point() +\n  geom_smooth(se = FALSE)\n\n\n\n\n\n\n\n# polynomial geom_smooth\np +\n  geom_point() +\n  geom_smooth(method = loess,\n              method.args = list(degree = 2, span = .75))\n\n\n\n\n\n\n\n# specify desired model\np +\n  geom_point() +\n  geom_smooth(method = lm,\n              formula = y~x+I(x^2), se = FALSE)\n\n\n\n\n\n\n\np +\n  geom_point() +\n  geom_smooth(method = lm, formula = y~poly(x, degree = 3), se = FALSE)\n\n\n\n\n\n\n\n# view by smoker status\np +\n  geom_point(aes(color = smoke)) +                     # map point color to smoke\n  geom_smooth(aes(color = smoke)) +                    # map lines to smoke\n  facet_grid(rows = vars(smoke))                       # separate plots"
+  },
+  {
+    "objectID": "tasks/statistical-computing/geom-smooth.html#see-also",
+    "href": "tasks/statistical-computing/geom-smooth.html#see-also",
+    "title": "Smoothing with geom_smooth()",
+    "section": "See also",
+    "text": "See also\n\nManual Smoothing\nScatterplots with ggplot2\n\nData: fev.RData — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/experiments/choosing-contrasts.html",
+    "href": "tasks/experiments/choosing-contrasts.html",
+    "title": "Choosing Contrasts",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nSet up contrasts to express the specific treatment comparisons you care about — main effects, pairwise differences, or interactions.\nThe experiment was run to compare the effects of auditory and visual cues on speed of response of a human subject. The experimenters were interested in the effects on the subjects’ reaction time of the auditory and visual cues and also in different elapsed times between cue and stimulus. Thus, there were two different treatment factors: “cue stimulus” at two levels “auditory” or “visual,” and “elapsed time between cue and stimulus” at three levels “five,” “ten,” or “fifteen” seconds. This gave a total of six treatment combinations.\nComparison: Auditory vs. Visual \\[\\gamma = \\tfrac{1}{3}(\\tau_1 + \\tau_2 + \\tau_3) - \\tfrac{1}{3}(\\tau_4 + \\tau_5 + \\tau_6)\\]\nComparison: 5 sec vs. 10 sec Before Cue \\[\\gamma = \\tfrac{1}{2}(\\tau_1 + \\tau_4) - \\tfrac{1}{2}(\\tau_2 + \\tau_5)\\]\nComparison: 5 sec vs. 15 sec Before Cue \\[\\gamma = \\tfrac{1}{2}(\\tau_1 + \\tau_4) - \\tfrac{1}{2}(\\tau_3 + \\tau_6)\\]\nComparison: 10 sec vs. 15 sec Before Cue \\[\\gamma = \\tfrac{1}{2}(\\tau_2 + \\tau_5) - \\tfrac{1}{2}(\\tau_3 + \\tau_6)\\]\nBurt Beiter, Doug Fairchild, Leo Russo, and Jim Wirtley, in 1990, ran an experiment to compare the relative strengths of two similarly priced brands of paper towel under varying levels of moisture saturation and liquid type. The treatment factors were “amount of liquid” (factor A, with levels 5 and 10 drops coded 1 and 2), “brand of towel” (factor B, with levels coded 1 and 2), and “type of liquid” (factor C, with levels “beer” and “water” coded 1 and 2). A 2 × 2 × 2 factorial experiment with r = 3 was run in a completely randomized design.\nList all treatment contrasts that are likely to be of primary interest to the experimenters.\nTukey Multiplier: \\[w_T = q_{v,\\,n-v,\\,\\alpha} / \\sqrt{2}\\]\nBonferroni Multiplier: \\[w_B = t_{n-v,\\,\\alpha/(2m)}\\]"
+  },
+  {
+    "objectID": "tasks/experiments/choosing-contrasts.html#see-also",
+    "href": "tasks/experiments/choosing-contrasts.html#see-also",
+    "title": "Choosing Contrasts",
+    "section": "See also",
+    "text": "See also\n\nFamily-wise Confidence Intervals"
+  },
+  {
+    "objectID": "tasks/experiments/transformations.html",
+    "href": "tasks/experiments/transformations.html",
+    "title": "Transformations",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse the relationship between treatment means and variances to pick a variance-stabilizing power transformation.\n# load data\nbicycle &lt;- read.table(\"../../data/bicycle.txt\", header=TRUE)\n\nattach(bicycle)\nmeans &lt;- tapply(rate, trtmt, mean)                    #mean for each treatment\nvariance &lt;- tapply(rate, trtmt, var)                  #variance for each treatment\ncompare &lt;- rbind(means, variance)                     #combine for table\ncompare\n\n                5 10 15        20        25\nmeans    18.66667 31 45 60.333333 74.333333\nvariance 12.33333 13  3  1.333333  1.333333\n\nslr &lt;- lm(log(variance) ~ log(means))                 #fit linear model of log means & variances\nsummary(slr)                                          #view summary for slope\n\n\nCall:\nlm(formula = log(variance) ~ log(means))\n\nResiduals:\n       5       10       15       20       25 \n-0.35072  0.67520 -0.07608 -0.32439  0.07600 \n\nCoefficients:\n            Estimate Std. Error t value Pr(&gt;|t|)  \n(Intercept)   8.4786     1.6412   5.166   0.0141 *\nlog(means)   -1.9187     0.4379  -4.381   0.0220 *\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.4816 on 3 degrees of freedom\nMultiple R-squared:  0.8648,    Adjusted R-squared:  0.8198 \nF-statistic:  19.2 on 1 and 3 DF,  p-value: 0.02201\n\nbicycle$newrate &lt;- bicycle$rate^(1+(1.9187/2))        #complete transformation\nI will use the following transformation and find q using simple linear regression on the log of both variances and means.\n\\[h(y_{it}) = (y_{it})^{1-(q/2)}\\]\nI find q to be -1.9187.\n****** Double check that this is best formula - there are others."
+  },
+  {
+    "objectID": "tasks/experiments/transformations.html#see-also",
+    "href": "tasks/experiments/transformations.html#see-also",
+    "title": "Transformations",
+    "section": "See also",
+    "text": "See also\n\nCheck Assumptions\nTransformations\n\nData: bicycle.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/experiments/check-assumptions.html",
+    "href": "tasks/experiments/check-assumptions.html",
+    "title": "Check Assumptions",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse these residual diagnostics to verify the ANOVA assumptions before interpreting treatment effects.\npacman::p_load(dplyr, janitor)\n\n# load data\nreaction &lt;- read.table(\"../../data/reaction.time.txt\") %&gt;%\n  row_to_names(row_number = 1)\nreaction$Trtmt &lt;- as.factor(reaction$Trtmt)             #consider trtmt as treatments\n\nmodel&lt;- lm(y ~ Trtmt, data=reaction)                    #fit linear model\nanova(model)                                            #anova table\n\nAnalysis of Variance Table\n\nResponse: y\n          Df   Sum Sq   Mean Sq F value    Pr(&gt;F)    \nTrtmt      5 0.025549 0.0051098  17.661 3.656e-05 ***\nResiduals 12 0.003472 0.0002893                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nresid &lt;- residuals(model)                               #residuals\nfit &lt;- fitted(model)                                    #fitted values\nsresid &lt;- resid / sqrt(.0002893)                        #standardized residuals\n\npar(mfrow=c(2,2))                                       #format imaging\n\nplot(fit, sresid, pch=18, col=\"aquamarine3\",            #plot fitted vs. standardized residuals\n     xlab=\"Fitted Values\",\n     ylab=\"Residuals\",\n     main=\"Check Variance\")\nreaction$Trtmt &lt;- as.numeric(reaction$Trtmt)            #convert treatment to numeric for scatterplot\nplot(reaction$Trtmt, sresid, pch=18, col=\"aquamarine3\", #plot treatments vs. standardized residuals\n     xlab=\"Treatment (coded)\", xlim=c(0,3),\n     ylab=\"Residuals\",\n     main=\"Check Model Fit\", type=\"p\")\nabline(h=0)\nplot(reaction$Order, sresid,                            #plot order vs. standardized residuals\n     xlab=\"Order of Data Sample\",\n     ylab=\"Reaction Time\",\n     main=\"Check Independence\", col=\"aquamarine3\", pch=18)\nhist(resid, col=\"aquamarine3\",                          #plot histogram\n     xlab=\"Residuals\",\n     main=\"Check Normality\")"
+  },
+  {
+    "objectID": "tasks/experiments/check-assumptions.html#answer",
+    "href": "tasks/experiments/check-assumptions.html#answer",
+    "title": "Check Assumptions",
+    "section": "Answer",
+    "text": "Answer\nCheck:\n\nConstant Variance\nIndependence\nNormal Distribution\nModel Fit\n\nThere is an acceptable amount of variance if the following condition is met:\n\\[\\sigma_{max} / \\sigma_{min} &lt; 3\\]"
+  },
+  {
+    "objectID": "tasks/experiments/check-assumptions.html#see-also",
+    "href": "tasks/experiments/check-assumptions.html#see-also",
+    "title": "Check Assumptions",
+    "section": "See also",
+    "text": "See also\n\nTest Treatment Effect\nCheck Assumptions\n\nData: reaction.time.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/experiments/assign-random-treatments.html",
+    "href": "tasks/experiments/assign-random-treatments.html",
+    "title": "Assign Random Treatments",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse this to randomly assign experimental units across treatment levels so each treatment receives its planned number of replicates.\nSuppose that you are planning to run an experiment with one treatment factor having four levels and no blocking factors. Suppose that the calculation of the required number of observations has given r1 = r2 = r3 = r4 = 5. Assign at random 20 experimental units to the v = 4 levels of the treatments, so that each treatment is assigned 5 units.\nr &lt;- c(5,5,5,5)                                         #set # replicates\nv &lt;- length(r)                                          #set # treatments\nn &lt;- sum(r)                                             #set n\nunsorted_trtmts = rep(1:4, r)                           #create r reps of v treatments\ndata = data.frame(unsorted_trtmts=unsorted_trtmts)                    #make data frame\n\nset.seed(12345)                                         #set seed\nunsorted_rand &lt;- runif(n)                               #random deviates of uniform distr.\ndata_sort = data.frame(data,                            #add column with random numbers\n                       unsorted.rn = round(unsorted_rand, 3))\n\nsorted_rand = sort(unsorted_rand)                       #sort by random numbers\nordered_rand = order(unsorted_rand)                     #assign random order\nsort_trtmts = unsorted_trtmts[ordered_rand]             #random order treatments\ndata = data.frame(data,\n                  sort_trtmts = sort_trtmts,            #column sorted treatments\n                  sorted_rand = sorted_rand,            #column sorted random numbers\n                  exper_unit = seq(1:20))               #number experimental units\ndata\n\n   unsorted_trtmts sort_trtmts sorted_rand exper_unit\n1                1           3 0.001136587          1\n2                1           3 0.034535435          2\n3                1           3 0.152373490          3\n4                1           2 0.166371785          4\n5                1           4 0.178963585          5\n6                2           2 0.325095387          6\n7                2           4 0.388143982          7\n8                2           3 0.391203335          8\n9                2           4 0.402485142          9\n10               2           1 0.456480960         10\n11               3           4 0.462494654         11\n12               3           2 0.509224336         12\n13               3           1 0.720903896         13\n14               3           2 0.727705254         14\n15               3           3 0.735684952         15\n16               4           1 0.760982328         16\n17               4           1 0.875773193         17\n18               4           1 0.886124566         18\n19               4           4 0.951658754         19\n20               4           2 0.989736938         20"
+  },
+  {
+    "objectID": "tasks/experiments/assign-random-treatments.html#see-also",
+    "href": "tasks/experiments/assign-random-treatments.html#see-also",
+    "title": "Assign Random Treatments",
+    "section": "See also",
+    "text": "See also\n\nSample Size"
+  },
+  {
+    "objectID": "tasks/experiments/fit-2-way-complete-model.html",
+    "href": "tasks/experiments/fit-2-way-complete-model.html",
+    "title": "Fit 2-Way Complete Model",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nFit a two-way complete model with both main effects and their interaction, then test which terms to retain.\n# read data\npaperTowel &lt;-\n  read.table(\n    \"../../data/paper.towel.strength.txt\",\n    header = TRUE\n  )\n\n# consider as factors\npaperTowel$A &lt;- as.factor(paperTowel$A)\npaperTowel$B &lt;- as.factor(paperTowel$B)\npaperTowel$C &lt;- as.factor(paperTowel$C)\n\n# fit model including AB interaction\nmodel7.8 &lt;- aov(strength ~ A + B + C + A*B, data=paperTowel)\n\\(H_0\\): An effect is insignificant to the model\n\\(H_a\\): An effect is not insignificant and should be added to the model\nI will use the ANOVA table to determine P-values found via F testing.\nDecision Rule: Any p-value under 0.01 will suggest that the corresponding effect is significant and should be maintained in the model. I will use 0.01, so that after the four tests, the end result will have a confidence of 0.04 as desired in the problem statement.\n# create anova table\ndrop1(model7.8, ~., test=\"F\")\n\nSingle term deletions\n\nModel:\nstrength ~ A + B + C + A * B\n       Df Sum of Sq     RSS    AIC F value    Pr(&gt;F)    \n&lt;none&gt;              1862906 280.23                      \nA       1    147475 2010381 280.06  1.5041 0.2350221    \nB       1   1979738 3842644 295.61 20.1916 0.0002488 ***\nC       1    858552 2721458 287.33  8.7565 0.0080578 ** \nA:B     1      3823 1866729 278.28  0.0390 0.8455661    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\nOnly factors B and C should be included in the model, since both have p-values &lt; 0.01 via F testing. Factor A and the interaction between factors A and B are considered insignificant to this model."
+  },
+  {
+    "objectID": "tasks/experiments/fit-2-way-complete-model.html#see-also",
+    "href": "tasks/experiments/fit-2-way-complete-model.html#see-also",
+    "title": "Fit 2-Way Complete Model",
+    "section": "See also",
+    "text": "See also\n\nImpossible to Interpret\nInteraction Terms\n\nData: paper.towel.strength.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/experiments/test-treatment-effect.html",
+    "href": "tasks/experiments/test-treatment-effect.html",
+    "title": "Test Treatment Effect",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nFit a one-way model and use ANOVA to test whether the treatment has any effect on the response.\npacman::p_load(dplyr, ggplot2, lsmeans)\n\n# load data\ntrout &lt;- read.table(\"../../data/trout.txt\", header=TRUE)\ntrout$Sulfa &lt;- as.factor(trout$Sulfa)                   #consider sulfa as treatments\n\nggplot(trout, aes(x = Sulfa,                            #view boxplots of sulfa groups\n                  y = Hemo,\n                  group=Sulfa)) +\n  geom_boxplot()\n\n\n\n\n\n\n\nmodel &lt;- lm(Hemo ~ Sulfa, data=trout)                   #fit linear model\nlsmeans(model, \"Sulfa\")                                 #find least squares means\n\n Sulfa lsmean    SE df lower.CL upper.CL\n 1       7.20 0.396 36     6.40     8.00\n 2       9.33 0.396 36     8.53    10.13\n 3       9.03 0.396 36     8.23     9.83\n 4       8.69 0.396 36     7.89     9.49\n\nConfidence level used: 0.95 \n\n#mark least squares means on boxplot\nggplot(trout, aes(x = Sulfa, y = Hemo, group=Sulfa)) +\n  geom_boxplot() +\n  geom_point(aes(x=1, y=7.2, col=\"red\"), pch=8, lwd=3) +\n  geom_point(aes(x=2, y=9.33, col=\"red\"), pch=8, lwd=3) +\n  geom_point(aes(x=3, y=9.03, col=\"red\"), pch=8, lwd=3) +\n  geom_point(aes(x=4, y=8.69, col=\"red\"), pch=8, lwd=3)\n\n\n\n\n\n\n\n#anova table\nanova(model)\n\nAnalysis of Variance Table\n\nResponse: Hemo\n          Df Sum Sq Mean Sq F value   Pr(&gt;F)   \nSulfa      3 26.803  8.9343  5.6955 0.002685 **\nResiduals 36 56.471  1.5686                    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
+  },
+  {
+    "objectID": "tasks/experiments/test-treatment-effect.html#answers",
+    "href": "tasks/experiments/test-treatment-effect.html#answers",
+    "title": "Test Treatment Effect",
+    "section": "Answers",
+    "text": "Answers\n\nSuitable Model\n\\[Y_{it} = \\mu + \\tau_i + \\epsilon_{it}\\]\nfor \\(i=1,2,3,4\\) and \\(t=1,\\dots,10\\) where \\(Y_{it}\\) = the grams of hemoglobin per 100mL, \\(\\mu + \\tau_i\\) = the mean response for each treatment, and \\(\\epsilon_{it}\\) = the error terms which are approx. \\(N(0, \\sigma^2)\\).\n\n\nF Test - Effect of Sulfa\n\\(H_0: \\tau_1 = \\tau_2 = \\tau_3 = \\tau_4\\)\n\\(H_a:\\) not all \\(\\tau_i\\) are equal\n\\(\\alpha = .05\\)\nThe p value is 0.002685. Because the p value is less than the significance level, I can reject the null hypothesis and conclude that at least two treatment groups have unequal tau_i.\nI will not keep the model that considers all treatments equal and instead adopt a model that suggests sulfamerazine does have an effect on hemoglobin content."
+  },
+  {
+    "objectID": "tasks/experiments/test-treatment-effect.html#see-also",
+    "href": "tasks/experiments/test-treatment-effect.html#see-also",
+    "title": "Test Treatment Effect",
+    "section": "See also",
+    "text": "See also\n\nConservative Estimate of Variance\nCheck Assumptions\n\nData: trout.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/multivariate/check-normality.html",
+    "href": "tasks/multivariate/check-normality.html",
+    "title": "Check Normality",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nCheck whether multivariate data are normal — variable by variable and jointly — before applying methods that assume it.\npacman::p_load(dplyr, car)\n\n# read data\npsych &lt;-read.table(\"../../data/T4-6.DAT\") %&gt;%\n  rename(Indep = V1,\n         Supp = V2,\n         Benev = V3,\n         Conform = V4,\n         Leader = V5,\n         Gender = V6,\n         Socio = V7)\n\npsych &lt;- psych[,1:5]\n\n# check univariate normality\npar(mfrow = c(3,2))\nhist(psych$Indep,\n     main = \"Independent\",\n     col = \"cadetblue2\")\nhist(psych$Supp,\n     main = \"Support\",\n     col = \"cadetblue2\")\nhist(psych$Benev,\n     main = \"Benevolence\",\n     col = \"cadetblue2\")\nhist(psych$Conform,\n     main = \"Conformity\",\n     col = \"cadetblue2\")\nhist(psych$Leader,\n     main = \"Leadership\",\n     col = \"cadetblue2\")\n\npar(mfrow = c(2,3))\n\n\n\n\n\n\n\nqqPlot(psych$Indep)\n\n[1] 111  55\n\nqqPlot(psych$Supp)\n\n[1] 60 30\n\nqqPlot(psych$Benev)\n\n[1] 104 111\n\nqqPlot(psych$Conform)\n\n[1] 83 73\n\nqqPlot(psych$Leader)\n\n[1] 127  60\n\n# check multivariate normality\ndev.mat &lt;- scale(psych, center=T, scale=F)        # deviation matrix\nS &lt;- cov(psych)\nS.inv &lt;- solve(S)                                 # inverse of S\n\nd2 &lt;- rep(0,130)                                  # initialize d2 with zero\nfor(i in 1:130){\n    d2[i] &lt;- t(dev.mat[i,]) %*% S.inv %*% dev.mat[i,] # d_i^2\n    }\n\nplot(qchisq(((1:130)-.5)/130, 5), asp = 1,        # theoretical quantiles of chi^2\n     sort(d2), type=\"n\",\n     xlab = \"Quantile of Chi-square with df = 5\",\n     ylab = \"d-square\",\n     xlim = c(0,20), ylim = c(0,20)\n     )\npoints(qchisq(((1:130)-.5)/130, 5), sort(d2), pch=16, col=2, cex = .75)\nabline(v = 0, col=\"grey\")\nabline(0, 1, col=\"grey\")\n\n\n\n\n\n\n\nqchisq(.5, 5)\n\n[1] 4.35146\nBecause the points hug the line with slope of 1 through the origin and approximately half of the values are below 4.35 (\\(q_{c,p}(.5)\\)), I believe this dataset has multivariate normality."
+  },
+  {
+    "objectID": "tasks/multivariate/check-normality.html#see-also",
+    "href": "tasks/multivariate/check-normality.html#see-also",
+    "title": "Check Normality",
+    "section": "See also",
+    "text": "See also\n\nDescriptive Statistics\nCheck Assumptions\n\nData: T4-6.DAT — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/time-series/forecasting.html",
+    "href": "tasks/time-series/forecasting.html",
+    "title": "Forecasting",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse a fitted ARMA model to forecast future values and draw 95% prediction bounds.\n# detrend + deseasonalize the per-day oil series (carried over)\noil &lt;- scan(\"../../data/US_oil_production.txt\")\nd &lt;- 12\nn &lt;- length(oil)\nfilt &lt;- c(0.5, rep(1, 5*d-1), 0.5)/(5*d)            # 5-year MA window\nper.day &lt;- oil / c(31,28.25,31,30,31,30,31,31,30,31,30,31)\nlonger.per.day &lt;- c(per.day[(5*d/2):1], per.day, per.day[n:(n-(5*d/2)+1)])\nper.day.MA &lt;- filter(longer.per.day, filt)[(5*d/2+1):(5*d/2+n)]\nper.day.MA.resids &lt;- per.day - per.day.MA\nper.day.matrix &lt;- matrix(per.day.MA.resids, nrow=d)\ns.hat.per.day &lt;- round(rowMeans(per.day.matrix) - mean(rowMeans(per.day.matrix)))\nper.day.ds &lt;- per.day.MA.resids - s.hat.per.day\n# fit the ARMA(1,1) model selected in the Fit ARIMA Model task\nmodel &lt;- arima(per.day.ds, order = c(1,0,1))\n\n# forecast the next h steps\nh &lt;- 24\nmodel.forecast &lt;- predict(model, n.ahead = h)\n\n# 95% prediction bounds\nconfidence.level &lt;- 1.96\nupper &lt;- model.forecast$pred + confidence.level * model.forecast$se\nlower &lt;- model.forecast$pred - confidence.level * model.forecast$se\n\n# plot the history followed by the forecast and its bounds\nt_hist   &lt;- seq_along(per.day.ds)\nt_future &lt;- length(per.day.ds) + (1:h)\n\nplot(t_hist, per.day.ds, type = \"l\",\n     xlim = c(0, max(t_future)),\n     ylim = range(per.day.ds, upper, lower),\n     xlab = \"time index (months)\", ylab = \"deseasonalized per-day oil\")\nlines(t_future, model.forecast$pred, col = \"red\")           # point forecast\nlines(t_future, upper, col = \"blue\", lty = 2)               # upper bound\nlines(t_future, lower, col = \"blue\", lty = 2)               # lower bound\nabline(h = 0, col = \"grey\")\n\n\n\n\n\n\n\n# table of forecast values with bounds\nforecast.interval &lt;- data.frame(step = 1:h,\n                                lower = lower,\n                                forecast = model.forecast$pred,\n                                upper = upper)\nhead(forecast.interval)\n\n  step      lower  forecast    upper\n1    1  -10.94427 234.76275 480.4698\n2    2  -98.73920 187.80453 474.3483\n3    3 -159.28354 150.39580 460.0751\n4    4 -202.91033 120.59456 444.0995\n5    5 -235.12678  96.85374 428.8343\n6    6 -259.30808  77.94089 415.1899"
+  },
+  {
+    "objectID": "tasks/time-series/forecasting.html#see-also",
+    "href": "tasks/time-series/forecasting.html#see-also",
+    "title": "Forecasting",
+    "section": "See also",
+    "text": "See also\n\nFit ARIMA Model\nACF and PACF\n\nData: US_oil_production.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/time-series/detrending.html",
+    "href": "tasks/time-series/detrending.html",
+    "title": "Detrending",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nRemove a series’ trend — by fitting a polynomial or by differencing — to move it toward stationarity.\nA time series of wind speed (excluding gusts) was recorded every twenty minutes at an airport in Fort Lauderdale during Hurricane Wilma in October 2005, analyzed on the square root scale.\nwinds &lt;- c(2.90, 3.06, 3.62, 3.38, 3.43, 3.07, 3.13, 3.27, 3.35, 3.21, 3.26,\n           3.51, 3.21, 2.83, 2.59, 2.62, 2.88, 2.75, 2.52, 2.68, 3.13, 3.22,\n           3.60, 3.47, 3.30, 3.33, 3.38, 3.27, 3.32, 3.37, 4.04, 3.94, 3.74,\n           3.77, 3.79, 3.80, 3.96, 3.87, 3.68, 4.01, 4.26, 4.16, 4.32, 3.93,\n           3.86, 3.79, 3.89, 4.04, 3.46, 3.26, 3.17, 3.41, 3.67, 3.68, 3.88,\n           3.84, 4.05, 4.10, 3.59, 3.75, 4.00, 3.67, 4.02, 4.35, 4.09, 4.03,\n           3.99, 4.13, 4.15, 4.28, 4.51, 4.54, 4.44, 4.51, 4.50, 4.47, 4.52,\n           4.43, 4.93, 5.15, 4.90, 5.09, 4.95, 5.24, 5.67, 5.69, 6.12, 6.30,\n           6.25, 6.47, 6.63, 6.48, 6.41, 6.58, 6.97, 7.62, 8.03, 7.98, 7.67,\n           7.26, 7.51, 7.65, 7.57, 7.50, 7.86, 7.85, 7.27, 6.77, 6.81, 6.83,\n           6.64, 6.49, 6.27, 6.07, 5.96, 5.64, 5.52, 5.45, 5.37, 5.18, 4.89,\n           4.53, 4.31, 4.37, 4.41, 4.54, 4.68, 4.80, 4.59, 4.42, 4.14, 4.00,\n           4.17, 3.95, 3.97, 3.95, 3.89, 3.97)\n\nhours &lt;- seq(from=0, by=1/3, length=length(winds))\n\n## plot the time series\nplot(hours, winds, type=\"l\",\n     xlab=\"hours since midnight, 23 Oct 2005\",\n     ylab=\"square root of wind speed\")\nRemove the trend by fitting a polynomial model with least squares, then inspecting the residual series.\n## Now fit a polynomial model to the data using least squares.\nlm.winds &lt;- lm(winds ~ hours + I(hours^2) + I(hours^3))\n\n## Summarize the model obtained.\nsummary(lm.winds)\n\n\nCall:\nlm(formula = winds ~ hours + I(hours^2) + I(hours^3))\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-1.1516 -0.5169 -0.1011  0.4489  1.7242 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)  3.934e+00  2.262e-01  17.390  &lt; 2e-16 ***\nhours       -2.973e-01  4.305e-02  -6.905 1.83e-10 ***\nI(hours^2)   2.412e-02  2.195e-03  10.988  &lt; 2e-16 ***\nI(hours^3)  -3.911e-04  3.159e-05 -12.380  &lt; 2e-16 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6824 on 134 degrees of freedom\nMultiple R-squared:  0.7707,    Adjusted R-squared:  0.7656 \nF-statistic: 150.1 on 3 and 134 DF,  p-value: &lt; 2.2e-16\n\npar(mfrow=c(1,2))\n## Plot the series and the regression line.\nplot(hours, winds, type=\"l\",\n     xlab=\"hours since midnight, 23 Oct 2005\",\n     ylab=\"square root of wind speed\")\nlines(hours, fitted(lm.winds))\n\n## Plot the residual series with a horizontal line at y=0.\nplot(hours, resid(lm.winds), type=\"l\",\n     xlab=\"hours since midnight, 23 Oct 2005\",\n     ylab=\"residuals\")\nabline(h=0)\nDifferencing is an alternative way to remove trend.\n## Difference the time series\ndiff.winds &lt;- diff(winds)\n\npar(mfrow=c(1,2))\n## Plot the differenced series, correcting the time scale.\nplot(hours[-1], diff.winds, type=\"l\",\n     xlab=\"hours since midnight, 23 Oct 2005\",\n     ylab=\"1st diff. of sqrt wind speed\")\n\n## We difference the time series again!\ndiff2.winds &lt;- diff(diff.winds)\n\n## Plot the twice differenced series, again correcting the time scale.\nplot(hours[-(1:2)], diff2.winds, type=\"l\",\n     xlab=\"hours since midnight, 23 Oct 2005\",\n     ylab=\"2nd diff. of sqrt wind speed\")"
+  },
+  {
+    "objectID": "tasks/time-series/detrending.html#see-also",
+    "href": "tasks/time-series/detrending.html#see-also",
+    "title": "Detrending",
+    "section": "See also",
+    "text": "See also\n\nDeseasoning\nCheck Assumptions"
+  },
+  {
+    "objectID": "tasks/time-series/fit-arima-model.html",
+    "href": "tasks/time-series/fit-arima-model.html",
+    "title": "Fit ARIMA Model",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nFit an ARMA model to a stationary series, then drop parameters whose confidence intervals contain zero to simplify it.\nHere the model is fit to the detrended, deseasonalized U.S. per-day oil production series with the arima function; preprocessing is carried over from the Detrending / Deseasoning tasks.\nlibrary(kableExtra)\n\n# detrend + deseasonalize the per-day oil series (carried over)\noil &lt;- scan(\"../../data/US_oil_production.txt\")\nyears &lt;- seq(from=1980, by=1/12, length=length(oil))\nd &lt;- 12\nn &lt;- length(oil)\nfilt &lt;- c(0.5, rep(1, 5*d-1), 0.5)/(5*d)            # 5-year MA window\nper.day &lt;- oil / c(31,28.25,31,30,31,30,31,31,30,31,30,31)\nlonger.per.day &lt;- c(per.day[(5*d/2):1], per.day, per.day[n:(n-(5*d/2)+1)])\nper.day.MA &lt;- filter(longer.per.day, filt)[(5*d/2+1):(5*d/2+n)]\nper.day.MA.resids &lt;- per.day - per.day.MA\nper.day.matrix &lt;- matrix(per.day.MA.resids, nrow=d)\ns.hat.per.day &lt;- round(rowMeans(per.day.matrix) - mean(rowMeans(per.day.matrix)))\nper.day.ds &lt;- per.day.MA.resids - s.hat.per.day\nStart with an ARMA(2,1) model.\narma21.model &lt;- arima(per.day.ds, order=c(2,0,1))\n\narma21.resids &lt;- resid(arma21.model)\n\npar(mfrow=c(1,1), cex=0.7, bty=\"L\", mar=c(4,4,1.5,1))\nplot(years, arma21.resids, type=\"l\", xlab=\"year\", ylab=\"ARMA21 residuals\")\n\n\n\n\n\n\n\narma21.model\n\n\nCall:\narima(x = per.day.ds, order = c(2, 0, 1))\n\nCoefficients:\n         ar1      ar2      ma1  intercept\n      1.1064  -0.2234  -0.4990     4.9656\ns.e.  0.2023   0.1529   0.1892    27.9281\n\nsigma^2 estimated as 15635:  log likelihood = -2249.48,  aic = 4508.97\n\nphi1.lower &lt;- 1.1064-(1.96*.2023)\nphi2.lower &lt;- -0.2234-(1.96*.1529)\ntheta1.lower &lt;- -.4990-(1.96*.1892)\n\nphi1.upper &lt;- 1.1064+(1.96*.2023)\nphi2.upper &lt;- -0.2234+(1.96*.1529)\ntheta1.upper &lt;- -.4990+(1.96*.1892)\n\nparameter.table &lt;- data.frame(\"estimate\" = c(\"phi_1\", \"phi_2\", \"theta_1\"),\n                              \"lower limit\" = c(phi1.lower, phi2.lower, theta1.lower),\n                              \"upper limit\" = c(phi1.upper, phi2.upper, theta1.upper))\nThe model is described by the equation:\n\\[X_t - \\phi_1X_{t-1} - \\phi_2X_{t-2} = Z_t + \\theta_1Z_{t-1}\\]\nwhere \\(X_t\\) is a random variable, \\(\\phi_1\\) is 1.1064, \\(\\phi_2\\) is -0.2234, \\(\\theta_1\\) is -0.4990, and \\(Z_t\\) has the distribution WN(0, 15635). The confidence intervals below can be interpreted as: should we estimate the parameters with this method again and again, we expect the true parameters to fall within the calculated intervals 95% of the time.\nkable(parameter.table) %&gt;%\n  kable_styling(font_size = 9)\n\n\n\n\nestimate\nlower.limit\nupper.limit\n\n\n\n\nphi_1\n0.709892\n1.502908\n\n\nphi_2\n-0.523084\n0.076284\n\n\ntheta_1\n-0.869832\n-0.128168\nBecause the confidence interval for \\(\\phi_2\\) contains zero, we do not believe it is significant in the model and it can be dropped. Proceed with an ARMA(1,1) process instead:\n\\[X_t - \\phi_1X_{t-1} = Z_t + \\theta_1Z_{t-1}\\]\narma11.model &lt;- arima(per.day.ds, order=c(1,0,1))\narma11.resids &lt;- resid(arma11.model)\n\narma11.model\n\n\nCall:\narima(x = per.day.ds, order = c(1, 0, 1))\n\nCoefficients:\n         ar1      ma1  intercept\n      0.7966  -0.1966     3.8526\ns.e.  0.0493   0.0852    25.8678\n\nsigma^2 estimated as 15715:  log likelihood = -2250.4,  aic = 4508.8\n\nphi1.lower &lt;- 0.7966-(1.96*0.0493)\ntheta1.lower &lt;- -0.1966-(1.96*0.0852)\n\nphi1.upper &lt;- 0.7966+(1.96*0.0493)\ntheta1.upper &lt;- -0.1966+(1.96*0.0852)\n\nparameter.table2 &lt;- data.frame(\"estimate\" = c(\"phi_1\", \"theta_1\"),\n                              \"lower limit\" = c(phi1.lower, theta1.lower),\n                              \"upper limit\" = c(phi1.upper, theta1.upper))\n\nkable(parameter.table2) %&gt;%\n  kable_styling(font_size = 9)\n\n\n\n\nestimate\nlower.limit\nupper.limit\n\n\n\n\nphi_1\n0.699972\n0.893228\n\n\ntheta_1\n-0.363592\n-0.029608\nNone of the ARMA(1,1) intervals contain zero, so all parameters are kept."
+  },
+  {
+    "objectID": "tasks/time-series/fit-arima-model.html#see-also",
+    "href": "tasks/time-series/fit-arima-model.html#see-also",
+    "title": "Fit ARIMA Model",
+    "section": "See also",
+    "text": "See also\n\nACF and PACF\nForecasting\n\nData: US_oil_production.txt — see sources & provenance."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Betsy’s Stats Cookbook",
+    "section": "",
+    "text": "A cookbook of applied-statistics code snippets accumulated while completing coursework for an applied-statistics degree. Each task is its own page, tagged with the course it came from and with cross-cutting concept tags (Model Fitting, Diagnostics, Visualization, …), so the same content is browsable by course and by concept — and fully searchable.\nUse the category tags to the right to filter by course or by concept, or the search box (top right) to find a specific technique.\nOrganized using Claude Code\n\n\n   \n    \n    \n      Order By\n      Default\n      \n        Title\n      \n    \n  \n    \n      \n      \n    \n\n\n\n\n\n\nTitle\n\n\n\nDescription\n\n\n\nCategories\n\n\n\n\n\n\n\n\nACF and PACF\n\n\nIdentify candidate ARMA orders from the sample ACF and PACF of a stationary series.\n\n\nTime Series, Diagnostics\n\n\n\n\n\n\nANOVA Table\n\n\nPartition regression variation and run F-tests with an ANOVA table.\n\n\nRegression, Inference & Prediction\n\n\n\n\n\n\nAdded Variable Plot\n\n\nIsolate one predictor’s contribution to a fitted model with an added-variable plot.\n\n\nRegression, Diagnostics, Visualization\n\n\n\n\n\n\nAssign Random Treatments\n\n\nRandomly allocate experimental units to treatment levels for a completely randomized design.\n\n\nExperiments, Experimental Design\n\n\n\n\n\n\nBar Plots\n\n\nDraw bar charts of a categorical variable with ggplot2.\n\n\nStatistical Computing, Visualization\n\n\n\n\n\n\nBootstrap Confidence Interval\n\n\nBuild a bootstrap confidence interval with the pivotal method.\n\n\nStatistical Computing, Resampling & Simulation\n\n\n\n\n\n\nBootstrap Estimate\n\n\nEstimate a statistic’s standard error by bootstrapping.\n\n\nStatistical Computing, Resampling & Simulation\n\n\n\n\n\n\nBoxplots with ggplot2\n\n\nDraw and group boxplots with ggplot2.\n\n\nStatistical Computing, Visualization\n\n\n\n\n\n\nCheck Assumptions\n\n\nVerify a decomposed series’ residuals are stationary, IID, and normal.\n\n\nTime Series, Diagnostics\n\n\n\n\n\n\nCheck Assumptions\n\n\nCheck constant variance, independence, normality, and fit for a one-way ANOVA.\n\n\nExperiments, Diagnostics\n\n\n\n\n\n\nCheck Assumptions\n\n\nCheck normality, constant variance, independence, and outliers for a linear model.\n\n\nRegression, Diagnostics\n\n\n\n\n\n\nCheck Model Fit\n\n\nAssess predictive fit with PRESS and compare MSPE against MSE on a validation set.\n\n\nRegression, Diagnostics\n\n\n\n\n\n\nCheck Normality\n\n\nAssess univariate and multivariate normality with histograms, Q-Q, and chi-square plots.\n\n\nMultivariate, Diagnostics\n\n\n\n\n\n\nChoosing Contrasts\n\n\nDefine treatment contrasts that capture the comparisons of primary interest.\n\n\nExperiments, Experimental Design, Inference & Prediction\n\n\n\n\n\n\nConservative Estimate of Variance\n\n\nGet a conservative upper bound on the error variance for experiment planning.\n\n\nExperiments, Experimental Design, Inference & Prediction\n\n\n\n\n\n\nCross-Validation\n\n\nEstimate out-of-sample error and pick model complexity with k-fold cross-validation.\n\n\nStatistical Computing, Model Selection, Resampling & Simulation\n\n\n\n\n\n\nDescriptive Statistics\n\n\nSummarize multivariate data with mean vectors and covariance/correlation matrices.\n\n\nMultivariate, Data Wrangling\n\n\n\n\n\n\nDeseasoning\n\n\nEstimate and remove a seasonal component with the classical decomposition algorithm.\n\n\nTime Series, Transformations\n\n\n\n\n\n\nDetrending\n\n\nRemove trend from a series by polynomial regression or differencing.\n\n\nTime Series, Transformations\n\n\n\n\n\n\nExamine a Dataframe\n\n\nInspect a dataframe’s structure and compute grouped summaries.\n\n\nStatistical Computing, Data Wrangling\n\n\n\n\n\n\nFacetting with facet_grid\n\n\nSplit a plot into a grid of panels by one or two variables.\n\n\nStatistical Computing, Visualization\n\n\n\n\n\n\nFamily-wise Confidence Intervals for Contrasts\n\n\nBuild family-wise confidence intervals for contrasts with Bonferroni and Scheffé adjustments.\n\n\nExperiments, Inference & Prediction\n\n\n\n\n\n\nFit 2-Way Complete Model\n\n\nFit a two-way complete (factorial) model and test which effects to keep.\n\n\nExperiments, Model Fitting\n\n\n\n\n\n\nFit ARIMA Model\n\n\nFit an ARMA model and simplify it using parameter confidence intervals.\n\n\nTime Series, Model Fitting\n\n\n\n\n\n\nFit Multiple Linear Regression Model\n\n\nFit, test, and interpret a multiple linear regression with several predictors.\n\n\nRegression, Model Fitting\n\n\n\n\n\n\nFit Piecewise Linear Model\n\n\nFit a piecewise (segmented) linear regression with a breakpoint.\n\n\nRegression, Model Fitting\n\n\n\n\n\n\nFit Simple Linear Regression Model\n\n\nFit, test, and predict from a simple linear regression on a single predictor.\n\n\nRegression, Model Fitting\n\n\n\n\n\n\nForecasting\n\n\nForecast a fitted ARMA model forward with 95% prediction bounds.\n\n\nTime Series, Inference & Prediction\n\n\n\n\n\n\nFunctional Programming with purrr\n\n\nReplace loops with map functions for iteration over columns and bootstrap samples.\n\n\nStatistical Computing, Data Wrangling\n\n\n\n\n\n\nImpossible to Interpret (Limited Sample Size)\n\n\nSee how too few observations and empty cells leave factorial effects unmeasurable.\n\n\nExperiments, Experimental Design\n\n\n\n\n\n\nIndicator Variables\n\n\nAdd a categorical predictor to a regression with an indicator (dummy) variable.\n\n\nRegression, Model Fitting\n\n\n\n\n\n\nInteraction Terms\n\n\nTest and visualize a two-factor interaction; switch to a cell-means model when it matters.\n\n\nExperiments, Model Fitting, Visualization\n\n\n\n\n\n\nInteraction Terms\n\n\nLet one predictor’s effect depend on another using an interaction term.\n\n\nRegression, Model Fitting\n\n\n\n\n\n\nLinear and Quadratic Trends\n\n\nTest for linear and quadratic trends across ordered treatment levels with polynomial contrasts.\n\n\nExperiments, Inference & Prediction\n\n\n\n\n\n\nManual Smoothing\n\n\nFit and overlay smoothers manually with predict() instead of geom_smooth.\n\n\nStatistical Computing, Visualization\n\n\n\n\n\n\nModel Selection\n\n\nChoose predictors with best-subsets, adjusted R², Mallows’ Cp, BIC, and stepwise search.\n\n\nRegression, Model Selection\n\n\n\n\n\n\nMonte Carlo Simulation\n\n\nEstimate a probability or expectation by simulating from a model.\n\n\nStatistical Computing, Resampling & Simulation\n\n\n\n\n\n\nMultiple Logistic Regression\n\n\nModel a binary outcome from several predictors; test with Wald and likelihood-ratio tests.\n\n\nRegression, Model Fitting, Model Selection\n\n\n\n\n\n\nOutlier and Influential Points\n\n\nFlag outliers and influential points with studentized residuals, leverage, and Cook’s distance.\n\n\nRegression, Diagnostics\n\n\n\n\n\n\nPermutation Tests\n\n\nTest for a group difference by shuffling labels to build the null distribution.\n\n\nStatistical Computing, Resampling & Simulation, Inference & Prediction\n\n\n\n\n\n\nPie Charts\n\n\nDraw a pie chart with ggplot2 using polar coordinates.\n\n\nStatistical Computing, Visualization\n\n\n\n\n\n\nPrincipal Component Analysis\n\n\nDerive principal components from covariance and correlation matrices via spectral decomposition.\n\n\nMultivariate, Model Fitting, Visualization\n\n\n\n\n\n\nSample Size\n\n\nCompute the per-group sample size needed for a target power in a one-way ANOVA.\n\n\nExperiments, Experimental Design\n\n\n\n\n\n\nSampling\n\n\nDraw random samples with and without replacement using sample().\n\n\nStatistical Computing, Resampling & Simulation\n\n\n\n\n\n\nScatterplots with ggplot2\n\n\nBuild scatterplots with ggplot2: aesthetics, color, jitter, and overlays.\n\n\nStatistical Computing, Visualization\n\n\n\n\n\n\nSimple Logistic Regression\n\n\nModel a binary outcome from one predictor and interpret the odds ratio.\n\n\nRegression, Model Fitting\n\n\n\n\n\n\nSimulation Basics\n\n\nGenerate random draws from common distributions and use their d/p functions.\n\n\nStatistical Computing, Resampling & Simulation\n\n\n\n\n\n\nSmoothing with geom_smooth()\n\n\nOverlay linear, polynomial, and loess smoothers on a scatterplot.\n\n\nStatistical Computing, Visualization\n\n\n\n\n\n\nTest Treatment Effect\n\n\nFit a one-way ANOVA and test whether treatment means differ.\n\n\nExperiments, Inference & Prediction, Visualization\n\n\n\n\n\n\nTransformations\n\n\nChoose a variance-stabilizing power transformation from the mean–variance relationship.\n\n\nExperiments, Transformations\n\n\n\n\n\n\nTransformations\n\n\nStabilize variance by choosing a response transformation with Box-Cox.\n\n\nRegression, Transformations\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "tasks/time-series/acf-and-pacf.html",
+    "href": "tasks/time-series/acf-and-pacf.html",
+    "title": "ACF and PACF",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nRead the sample ACF and PACF to choose candidate AR and MA orders for a stationary series.\nHere the functions are applied to the detrended, deseasonalized U.S. per-day oil production series (the preprocessing is carried over from the Detrending / Deseasoning tasks).\n# detrend + deseasonalize the per-day oil series (carried over)\noil &lt;- scan(\"../../data/US_oil_production.txt\")\nyears &lt;- seq(from=1980, by=1/12, length=length(oil))\nd &lt;- 12\nn &lt;- length(oil)\nfilt &lt;- c(0.5, rep(1, 5*d-1), 0.5)/(5*d)            # 5-year MA window\nper.day &lt;- oil / c(31,28.25,31,30,31,30,31,31,30,31,30,31)\nlonger.per.day &lt;- c(per.day[(5*d/2):1], per.day, per.day[n:(n-(5*d/2)+1)])\nper.day.MA &lt;- filter(longer.per.day, filt)[(5*d/2+1):(5*d/2+n)]\nper.day.MA.resids &lt;- per.day - per.day.MA\nper.day.matrix &lt;- matrix(per.day.MA.resids, nrow=d)\ns.hat.per.day &lt;- round(rowMeans(per.day.matrix) - mean(rowMeans(per.day.matrix)))\nper.day.ds &lt;- per.day.MA.resids - s.hat.per.day\npar(mfrow=c(2,2))\nplot(years, per.day.ds, type=\"l\", main=\"Time Series\")\nacf(per.day.ds, lag.max=60, main=\"Sample ACF\")\npacf(per.day.ds, lag.max=60, main=\"Sample PACF\")\n\npar(mfrow=c(2,2))\n\n\n\n\n\n\n\nhist(per.day.ds)\nqqnorm(per.day.ds)\nqqline(per.day.ds)\n\nBox.test(per.day.ds, lag = 60, type=\"Ljung-Box\")\n\n\n    Box-Ljung test\n\ndata:  per.day.ds\nX-squared = 738.1, df = 60, p-value &lt; 2.2e-16\nThe ACF decays more slowly than the PACF, suggesting an AR component; the PACF has values outside the bounds at lags 1 and 2, pointing toward a low-order ARMA model. The Ljung-Box test rejects IID noise, so a model for the errors is warranted."
+  },
+  {
+    "objectID": "tasks/time-series/acf-and-pacf.html#see-also",
+    "href": "tasks/time-series/acf-and-pacf.html#see-also",
+    "title": "ACF and PACF",
+    "section": "See also",
+    "text": "See also\n\nDetrending\nDeseasoning\nFit ARIMA Model\n\nData: US_oil_production.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/time-series/check-assumptions.html",
+    "href": "tasks/time-series/check-assumptions.html",
+    "title": "Check Assumptions",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nAfter detrending and deseasonalizing, check that the residual (noise) process looks stationary, IID, and normal.\nThis continues the Columbus monthly temperature decomposition from the Deseasoning task.\ntemp &lt;-\n  c(29.9, 28.1, 44.3, 50.6, 61.0, 72.4, 75.6, 76.9, 63.6, 55.7, 38.1, 29.2,\n    27.9, 30.7, 34.4, 50.5, 60.6, 70.8, 73.9, 73.6, 65.8, 55.5, 37.3, 37.4,\n    28.0, 35.9, 42.9, 47.9, 57.1, 70.0, 74.3, 70.4, 65.4, 55.3, 40.6, 35.4,\n    37.0, 39.4, 42.9, 53.7, 67.2, 71.7, 74.9, 75.7, 71.5, 56.0, 46.0, 41.5,\n    31.3, 36.2, 36.9, 54.7, 64.8, 74.5, 79.2, 73.7, 68.3, 54.7, 48.6, 34.6,\n    28.0, 36.5, 46.5, 50.5, 64.5, 71.7, 71.9, 71.3, 65.8, 57.5, 42.1, 24.4,\n    27.6, 35.9, 37.1, 55.8, 63.3, 69.9, 74.5, 75.2, 65.3, 55.8, 49.2, 40.9,\n    33.4, 38.1, 39.6, 55.0, 57.2, 73.0, 77.8, 76.2, 70.7, 55.0, 41.6, 31.8,\n    24.6, 27.0, 43.0, 52.7, 61.1, 66.6, 73.2, 73.7, 65.7, 52.3, 49.0, 33.7,\n    26.7, 29.1, 42.3, 52.1, 65.8, 69.7, 73.0, 70.8, 68.5, 55.0, 48.7, 32.4,\n    32.7, 33.3, 34.9, 54.8, 57.4, 72.7, 76.8, 76.4, 71.0, 56.3, 45.7, 30.3)\n\nyear &lt;- seq(from=1995, by=1/12, length=length(temp))\n\n## seasonal component carried over from the Deseasoning task\nd &lt;- 12\nn &lt;- length(temp)\nour.filter &lt;- c(0.5, rep(1,d-1), 0.5)/d\nlonger.temp &lt;- c(temp[(d/2):1], temp, temp[n:(n-d/2+1)])\ntemp.MA &lt;- filter(longer.temp, our.filter)[(d/2+1):(d/2+n)]\ntemp.matrix &lt;- matrix(temp - temp.MA, nrow=d)\ns.hat &lt;- rowMeans(temp.matrix) - mean(rowMeans(temp.matrix))\ndeseasonalized &lt;- temp - s.hat\n\n## fit a quadratic trend to the deseasonalized data and take residuals\nlm.deseasonalized &lt;- lm(deseasonalized ~ year + I(year^2))\nresids &lt;- resid(lm.deseasonalized)\npar(mfrow=c(2, 2))\n\n## Plot the residual series with a horizontal line at y=0.\nplot(year, resids, type=\"l\", xlab=\"year\", ylab=\"estimate of noise process\")\nabline(h=0, lty=2)\n\n## plot the acf\nacf(resids, main=\"\")\n\n## carry out the Ljung-Box test\nBox.test(resids, 22, type=\"Ljung-Box\")\n\n\n    Box-Ljung test\n\ndata:  resids\nX-squared = 25.455, df = 22, p-value = 0.2758\n\n## draw a Q-Q plot of the residuals.\nqqnorm(resids, xlab=\"z-scores\", ylab=\"estimate of noise process\", main=\"\")\nqqline(resids)\nThe residual series shows no remaining trend or seasonality; the Ljung-Box test fails to reject IID noise (p ≈ 0.28); and the Q-Q plot supports normality."
+  },
+  {
+    "objectID": "tasks/time-series/check-assumptions.html#see-also",
+    "href": "tasks/time-series/check-assumptions.html#see-also",
+    "title": "Check Assumptions",
+    "section": "See also",
+    "text": "See also\n\nDeseasoning\nCheck Assumptions"
+  },
+  {
+    "objectID": "tasks/time-series/deseasoning.html",
+    "href": "tasks/time-series/deseasoning.html",
+    "title": "Deseasoning",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse classical decomposition to estimate a series’ seasonal component and subtract it, leaving a deseasonalized series.\nThe classical decomposition algorithm (CDA) applied to a time series of monthly temperatures recorded in Columbus, OH from January 1995 to December 2005 (degrees Fahrenheit).\ntemp &lt;-\n  c(29.9, 28.1, 44.3, 50.6, 61.0, 72.4, 75.6, 76.9, 63.6, 55.7, 38.1, 29.2,\n    27.9, 30.7, 34.4, 50.5, 60.6, 70.8, 73.9, 73.6, 65.8, 55.5, 37.3, 37.4,\n    28.0, 35.9, 42.9, 47.9, 57.1, 70.0, 74.3, 70.4, 65.4, 55.3, 40.6, 35.4,\n    37.0, 39.4, 42.9, 53.7, 67.2, 71.7, 74.9, 75.7, 71.5, 56.0, 46.0, 41.5,\n    31.3, 36.2, 36.9, 54.7, 64.8, 74.5, 79.2, 73.7, 68.3, 54.7, 48.6, 34.6,\n    28.0, 36.5, 46.5, 50.5, 64.5, 71.7, 71.9, 71.3, 65.8, 57.5, 42.1, 24.4,\n    27.6, 35.9, 37.1, 55.8, 63.3, 69.9, 74.5, 75.2, 65.3, 55.8, 49.2, 40.9,\n    33.4, 38.1, 39.6, 55.0, 57.2, 73.0, 77.8, 76.2, 70.7, 55.0, 41.6, 31.8,\n    24.6, 27.0, 43.0, 52.7, 61.1, 66.6, 73.2, 73.7, 65.7, 52.3, 49.0, 33.7,\n    26.7, 29.1, 42.3, 52.1, 65.8, 69.7, 73.0, 70.8, 68.5, 55.0, 48.7, 32.4,\n    32.7, 33.3, 34.9, 54.8, 57.4, 72.7, 76.8, 76.4, 71.0, 56.3, 45.7, 30.3)\n\nyear &lt;- seq(from=1995, by=1/12, length=length(temp))\nStep 1 — estimate the trend by smoothing the series with a moving-average filter over a d = 12 month period.\nd &lt;- 12\nhalf.d &lt;- d/2\n\n## smooth the temp time series using the 'filter' command\nour.filter &lt;- c(0.5, rep(1,d-1), 0.5)/d\nn &lt;- length(temp)\n\n## filter a padded copy so the smooth spans the original years\nlonger.temp &lt;- c(temp[(d/2):1], temp, temp[n:(n-d/2+1)])\ntemp.MA &lt;- filter(longer.temp, our.filter)[(d/2+1):(d/2+n)]\n\nplot(year, temp, type=\"l\",\n     xlab=\"year\", ylab=\"monthly temperature (Fahrenheit)\")\nlines(year, temp.MA, type=\"l\", lwd=2)\nStep 2 — estimate the seasonal component from the residuals of the smooth.\n## residuals of the smooth\ntemp.MA.resids &lt;- temp - temp.MA\n\nmonths &lt;- c(\"Jan\", \"Feb\", \"Mar\", \"Apr\", \"May\", \"Jun\",\n            \"Jul\", \"Aug\", \"Sep\", \"Oct\", \"Nov\", \"Dec\")\n\n## form the residuals into a matrix with 'd' rows and average across years\ntemp.matrix &lt;- matrix(temp.MA.resids, nrow=d)\ns.hat.stars &lt;- rowMeans(temp.matrix)\n\n## subtract the mean so the seasonal component sums to zero\ns.hat &lt;- s.hat.stars - mean(s.hat.stars)\n\nplot(s.hat, type=\"l\", xaxt=\"n\",\n     xlab=\"month\", ylab=\"estimate of seasonal component\")\naxis(side=1, at=1:12, labels=months)\nStep 3 — deseasonalize by subtracting the seasonal component.\ndeseasonalized &lt;- temp - s.hat\n\nplot(year, deseasonalized, type=\"l\",\n     xlab=\"year\", ylab=\"deseasonalized temperature\")"
+  },
+  {
+    "objectID": "tasks/time-series/deseasoning.html#see-also",
+    "href": "tasks/time-series/deseasoning.html#see-also",
+    "title": "Deseasoning",
+    "section": "See also",
+    "text": "See also\n\nDetrending\nCheck Assumptions"
+  },
+  {
+    "objectID": "tasks/multivariate/principal-component-analysis.html",
+    "href": "tasks/multivariate/principal-component-analysis.html",
+    "title": "Principal Component Analysis",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse PCA to reduce correlated variables to a few components that capture most of the total variance."
+  },
+  {
+    "objectID": "tasks/multivariate/principal-component-analysis.html#see-also",
+    "href": "tasks/multivariate/principal-component-analysis.html#see-also",
+    "title": "Principal Component Analysis",
+    "section": "See also",
+    "text": "See also\n\nDescriptive Statistics"
+  },
+  {
+    "objectID": "tasks/multivariate/descriptive-statistics.html",
+    "href": "tasks/multivariate/descriptive-statistics.html",
+    "title": "Descriptive Statistics",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nCompute mean vectors and covariance/correlation matrices to summarize the structure of multivariate data.\nAt the start of a study to determine whether exercise or dietary supplements would slow bone loss in older women, an investigator measured the mineral content of bones by photon absorptiometry. Measurements were recorded for three bones on the dominant and non-dominant sides and are shown in Table 1.8.\n# read data\nbones &lt;- read.table(\"../../data/T1-8.DAT\")\n\n# column averages (per variable)\nx_bar2 &lt;- round(colMeans(bones[,1:6]),2)\nx_bar2\n\n  V1   V2   V3   V4   V5   V6 \n0.84 0.82 1.79 1.73 0.70 0.69 \n\n# variance-covariance matrix\nS_n2 &lt;- round(var(bones[,1:6]),2)\nS_n2\n\n     V1   V2   V3   V4   V5   V6\nV1 0.01 0.01 0.02 0.02 0.01 0.01\nV2 0.01 0.01 0.02 0.02 0.01 0.01\nV3 0.02 0.02 0.08 0.07 0.02 0.01\nV4 0.02 0.02 0.07 0.07 0.02 0.02\nV5 0.01 0.01 0.02 0.02 0.01 0.01\nV6 0.01 0.01 0.01 0.02 0.01 0.01\n\n# correlation matrix\nR2 &lt;- round(cor(bones)[,1:6],2)\nR2\n\n     V1   V2   V3   V4   V5   V6\nV1 1.00 0.85 0.69 0.67 0.74 0.68\nV2 0.85 1.00 0.61 0.75 0.74 0.81\nV3 0.69 0.61 1.00 0.89 0.55 0.44\nV4 0.67 0.75 0.89 1.00 0.63 0.62\nV5 0.74 0.74 0.55 0.63 1.00 0.73\nV6 0.68 0.81 0.44 0.62 0.73 1.00"
+  },
+  {
+    "objectID": "tasks/multivariate/descriptive-statistics.html#see-also",
+    "href": "tasks/multivariate/descriptive-statistics.html#see-also",
+    "title": "Descriptive Statistics",
+    "section": "See also",
+    "text": "See also\n\nCheck Normality\nPrincipal Component Analysis\n\nData: T1-8.DAT — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/experiments/familywise-confidence-intervals.html",
+    "href": "tasks/experiments/familywise-confidence-intervals.html",
+    "title": "Family-wise Confidence Intervals for Contrasts",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse Bonferroni or Scheffé multipliers to control the family-wise error rate across several contrast intervals at once.\npacman::p_load(dplyr, janitor, lsmeans)\n\n# load data\nreaction &lt;- read.table(\"../../data/reaction.time.txt\") %&gt;%\n  row_to_names(row_number = 1)\n\nreaction$Trtmt &lt;- as.factor(reaction$Trtmt)               #consider trtmt as treatments\nmodel &lt;- lm(y ~ Trtmt, data=reaction)                     #fit linear model\nmodel_means &lt;- lsmeans(model, ~Trtmt)                     #find least square means\n\nsummary_b &lt;- summary(contrast(model_means,\n\n                            #list desired contrasts\n                            list(`Method 1 vs. Method 2` = c((1/3), (1/3), (1/3), (-1/3), (-1/3), (-1/3)),\n                                 `5 sec vs. 10 sec` = c(.5, -.5, 0, .5, -.5, 0),\n                                 `10 sec vs. 15 sec` = c(0, .5, -.5, 0, .5, -.5),\n                                 `5 sec vs. 15 sec` = c(.5, 0, -.5, .5, 0, -.5)),\n\n                            adjust=\"bonferroni\"),         #bonferroni method\n                   infer=c(T,T),\n                   level=.90,                             #90% family-wise confidence interval\n                   side=\"two-sided\")\nsummary_b\n\n contrast              estimate      SE df lower.CL upper.CL t.ratio p.value\n Method 1 vs. Method 2 -0.07233 0.00802 12  -0.0929 -0.05181  -9.021  &lt;.0001\n 5 sec vs. 10 sec       0.00767 0.00982 12  -0.0175  0.03281   0.781  1.0000\n 10 sec vs. 15 sec     -0.01950 0.00982 12  -0.0446  0.00564  -1.986  0.2816\n 5 sec vs. 15 sec      -0.01183 0.00982 12  -0.0370  0.01331  -1.205  1.0000\n\nConfidence level used: 0.9 \nConf-level adjustment: bonferroni method for 4 estimates \nP value adjustment: bonferroni method for 4 tests \n\nsummary_s &lt;- summary(contrast(model_means,\n                              method=\"pairwise\",\n                              adjust=\"scheffe\"),         #scheffe method\n                     infer=c(T,T),\n                     level=.90,                          #90% family-wise confidence interval\n                     side=\"two-sided\")\nsummary_s\n\n contrast estimate     SE df lower.CL  upper.CL t.ratio p.value\n 1 - 2     0.00633 0.0139 12  -0.0417  0.054384   0.456  0.9987\n 1 - 3    -0.02700 0.0139 12  -0.0751  0.021051  -1.944  0.5980\n 1 - 4    -0.08333 0.0139 12  -0.1314 -0.035282  -6.000  0.0025\n 1 - 5    -0.07433 0.0139 12  -0.1224 -0.026282  -5.352  0.0063\n 1 - 6    -0.08000 0.0139 12  -0.1281 -0.031949  -5.760  0.0035\n 2 - 3    -0.03333 0.0139 12  -0.0814  0.014718  -2.400  0.3863\n 2 - 4    -0.08967 0.0139 12  -0.1377 -0.041616  -6.456  0.0013\n 2 - 5    -0.08067 0.0139 12  -0.1287 -0.032616  -5.808  0.0033\n 2 - 6    -0.08633 0.0139 12  -0.1344 -0.038282  -6.216  0.0018\n 3 - 4    -0.05633 0.0139 12  -0.1044 -0.008282  -4.056  0.0422\n 3 - 5    -0.04733 0.0139 12  -0.0954  0.000718  -3.408  0.1075\n 3 - 6    -0.05300 0.0139 12  -0.1011 -0.004949  -3.816  0.0600\n 4 - 5     0.00900 0.0139 12  -0.0391  0.057051   0.648  0.9935\n 4 - 6     0.00333 0.0139 12  -0.0447  0.051384   0.240  0.9999\n 5 - 6    -0.00567 0.0139 12  -0.0537  0.042384  -0.408  0.9993\n\nConfidence level used: 0.9 \nConf-level adjustment: scheffe method with rank 5 \nP value adjustment: scheffe method with rank 5"
+  },
+  {
+    "objectID": "tasks/experiments/familywise-confidence-intervals.html#answer",
+    "href": "tasks/experiments/familywise-confidence-intervals.html#answer",
+    "title": "Family-wise Confidence Intervals for Contrasts",
+    "section": "Answer",
+    "text": "Answer\n\nBonferroni\nI conclude that there is a significant difference in reaction time depending on the method of alerting the subject of the cue; however, no significant difference was found among the amounts of time subjects were given between the cue and the stimulus."
+  },
+  {
+    "objectID": "tasks/experiments/familywise-confidence-intervals.html#see-also",
+    "href": "tasks/experiments/familywise-confidence-intervals.html#see-also",
+    "title": "Family-wise Confidence Intervals for Contrasts",
+    "section": "See also",
+    "text": "See also\n\nChoosing Contrasts\nCheck Assumptions\n\nData: reaction.time.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/experiments/impossible-to-interpret.html",
+    "href": "tasks/experiments/impossible-to-interpret.html",
+    "title": "Impossible to Interpret (Limited Sample Size)",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nA cautionary example: with empty cells and too few observations, some factorial effects simply cannot be estimated.\npacman::p_load(dplyr, kableExtra)\n\n# paperTowel carried over from the Fit 2-Way Complete Model task\npaperTowel &lt;- read.table(\"../../data/paper.towel.strength.txt\", header = TRUE)\npaperTowel$A &lt;- as.factor(paperTowel$A)\npaperTowel$B &lt;- as.factor(paperTowel$B)\npaperTowel$C &lt;- as.factor(paperTowel$C)\n\n# read data\ntowel2 &lt;- filter(paperTowel, order &lt;11)\n\n# fit model\nmodel7.13 &lt;- aov(strength ~ A + B + C + A*B, data=towel2)\nIs it possible to perform an analysis of variance of these data, using a model that includes main effects and the AB interaction as required by the experimenters? If so, analyze the experiment.\n# anova table\ndrop1(model7.13, ~., test=\"F\")\n\nSingle term deletions\n\nModel:\nstrength ~ A + B + C + A * B\n       Df Sum of Sq     RSS    AIC F value Pr(&gt;F)\n&lt;none&gt;               688894 121.40               \nA       1     37493  726388 119.93  0.2721 0.6242\nB       1     62896  751791 120.28  0.4565 0.5292\nC       1    498080 1186975 124.84  3.6151 0.1157\nA:B     1     72961  761855 120.41  0.5295 0.4994\nWith only ten observations, we are not able to conclude any effects belong in the model, main effects or interaction.\nUse a computer program to fit a three-way complete model. Can all of the main effects and interactions be measured? If not, investigate which models could have been used in the analysis of such a design with two empty cells and unequal numbers of observations in the other cells.\nmodel7.13b &lt;- aov(strength ~ A*B*C, data=towel2)\n\nkable(drop1(model7.13b, ~., test=\"F\")) %&gt;%\n        kable_styling(font_size = 7)\n\n\n\n\n\nDf\nSum of Sq\nRSS\nAIC\nF value\nPr(&gt;F)\n\n\n\n\n&lt;none&gt;\nNA\nNA\n681216.0\n123.2905\nNA\nNA\n\n\nA\n1\n37493.42\n718709.4\n121.8263\n0.2201558\n0.6633539\n\n\nB\n1\n70178.54\n751394.5\n122.2710\n0.4120780\n0.5558561\n\n\nC\n0\n0.00\n681216.0\n123.2905\nNA\nNA\n\n\nA:B\n1\n31682.96\n712899.0\n121.7451\n0.1860377\n0.6884639\n\n\nA:C\n0\n0.00\n681216.0\n123.2905\nNA\nNA\n\n\nB:C\n0\n0.00\n681216.0\n123.2905\nNA\nNA\n\n\nA:B:C\n0\n0.00\n681216.0\n123.2905\nNA\nNA\nNo, not all of the effects can be measured. We can consider models that include Factor A, Factor B, both Factors A and B, or both Factor A and B as well as their interaction effect."
+  },
+  {
+    "objectID": "tasks/experiments/impossible-to-interpret.html#see-also",
+    "href": "tasks/experiments/impossible-to-interpret.html#see-also",
+    "title": "Impossible to Interpret (Limited Sample Size)",
+    "section": "See also",
+    "text": "See also\n\nFit 2-Way Complete Model\n\nData: paper.towel.strength.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/experiments/conservative-estimate-of-variance.html",
+    "href": "tasks/experiments/conservative-estimate-of-variance.html",
+    "title": "Conservative Estimate of Variance",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse the upper confidence limit for σ² as a conservative variance when planning a future experiment.\npacman::p_load(dplyr, lsmeans)\n\n# load data\ntrout &lt;- read.table(\"../../data/trout.txt\", header=TRUE)\ntrout$Sulfa &lt;- as.factor(trout$Sulfa)\n\nmodel &lt;- lm(Hemo ~ Sulfa, data=trout)                   #fit linear model\nlsmeans(model, \"Sulfa\")                                 #find least squares means\n\n Sulfa lsmean    SE df lower.CL upper.CL\n 1       7.20 0.396 36     6.40     8.00\n 2       9.33 0.396 36     8.53    10.13\n 3       9.03 0.396 36     8.23     9.83\n 4       8.69 0.396 36     7.89     9.49\n\nConfidence level used: 0.95 \n\nanova(model)                                            #anova model\n\nAnalysis of Variance Table\n\nResponse: Hemo\n          Df Sum Sq Mean Sq F value   Pr(&gt;F)   \nSulfa      3 26.803  8.9343  5.6955 0.002685 **\nResiduals 36 56.471  1.5686                    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nchi &lt;- qchisq(.95,                                      #confidence level\n              36,                                       #degrees of freedom\n              lower.tail = FALSE)\nsse &lt;- 56.471                                           #SSE\nsigma2 &lt;- sse/chi                                       #upper limit for sigma^2\nThe upper confidence limit for a 95% confidence interval estimating \\(\\sigma^2\\) would be 2.4269. I would use this variance when conservatively planning an experiment."
+  },
+  {
+    "objectID": "tasks/experiments/conservative-estimate-of-variance.html#see-also",
+    "href": "tasks/experiments/conservative-estimate-of-variance.html#see-also",
+    "title": "Conservative Estimate of Variance",
+    "section": "See also",
+    "text": "See also\n\nSample Size\nTest Treatment Effect\n\nData: trout.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/experiments/interaction-terms.html",
+    "href": "tasks/experiments/interaction-terms.html",
+    "title": "Interaction Terms",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nTest for a two-factor interaction and read an interaction plot; when interaction is present, compare treatments rather than individual factor levels.\npacman::p_load(dplyr, ggplot2)\n\n# read data\nweld &lt;- read.table(\"../../data/weld.strength.txt\", header=TRUE)\n\nweld$gage &lt;- as.factor(weld$gage)                 # gage as factor\nweld$time &lt;- as.factor(weld$time)                 # time as factor\n\nweld_model &lt;- aov(strength ~ gage * time,         # two-way complete model\n                  data=weld)\nanova(weld_model)                                 # anova table\n\nAnalysis of Variance Table\n\nResponse: strength\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \ngage       2 278.60 139.300 12.7409 0.0005838 ***\ntime       4 385.53  96.383  8.8155 0.0007212 ***\ngage:time  8 597.07  74.633  6.8262 0.0007535 ***\nResiduals 15 164.00  10.933                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n# determine cut-off for decision rule\nqf(.95, 8, 15)                                   # (alpha, (a-1)(b-1), ab)\n\n[1] 2.640797"
+  },
+  {
+    "objectID": "tasks/experiments/interaction-terms.html#see-also",
+    "href": "tasks/experiments/interaction-terms.html#see-also",
+    "title": "Interaction Terms",
+    "section": "See also",
+    "text": "See also\n\nFit 2-Way Complete Model\n\nData: weld.strength.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/experiments/linear-and-quadratic-trends.html",
+    "href": "tasks/experiments/linear-and-quadratic-trends.html",
+    "title": "Linear and Quadratic Trends",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse polynomial trend contrasts to test whether the response changes linearly or quadratically across ordered treatment levels.\npacman::p_load(lsmeans)\n\n# read data\nwater &lt;- read.table(\"../../data/water.boiling.txt\", header=TRUE)\n\nwater$salt &lt;- as.factor(water$salt)                 # as factor\nwater$burner &lt;- as.factor(water$burner)             # as factor\n\nwater_model &lt;- aov(time ~ salt + burner,            # main effects model\n                   data=water)"
+  },
+  {
+    "objectID": "tasks/experiments/linear-and-quadratic-trends.html#see-also",
+    "href": "tasks/experiments/linear-and-quadratic-trends.html#see-also",
+    "title": "Linear and Quadratic Trends",
+    "section": "See also",
+    "text": "See also\n\nFamily-wise Confidence Intervals\nChoosing Contrasts\n\nData: water.boiling.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/experiments/sample-size.html",
+    "href": "tasks/experiments/sample-size.html",
+    "title": "Sample Size",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse a power calculation to find how many observations per treatment you need to detect a given effect size.\npacman::p_load(pwr)\n\n# sigma2 carried over from the Conservative Estimate of Variance task\nchi &lt;- qchisq(.95, 36, lower.tail = FALSE)\nsse &lt;- 56.471\nsigma2 &lt;- sse/chi\n\ndelta &lt;- 1.5                                            #given delta\nv &lt;- 4                                                  #treatment groups\n#sigma2 from conservative estimate above\nf &lt;- sqrt((delta^2)/(2*v*sigma2))                       #effect size\npwr.anova.test(4,\n               sig.level=.05,\n               power = .95,                             #desired power\n               f=f)\n\n\n     Balanced one-way analysis of variance power calculation \n\n              k = 4\n              n = 38.03364\n              f = 0.3404229\n      sig.level = 0.05\n          power = 0.95\n\nNOTE: n is number in each group\nThe recommended sample size from each treatment group is 39, with a total sample size of 156."
+  },
+  {
+    "objectID": "tasks/experiments/sample-size.html#see-also",
+    "href": "tasks/experiments/sample-size.html#see-also",
+    "title": "Sample Size",
+    "section": "See also",
+    "text": "See also\n\nConservative Estimate of Variance"
+  },
+  {
+    "objectID": "tasks/statistical-computing/bar-plots.html",
+    "href": "tasks/statistical-computing/bar-plots.html",
+    "title": "Bar Plots",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse geom_bar to show counts across the levels of a categorical variable.\n# download necessary packages\npacman::p_load(dplyr,\n               ggplot2)                             # ggplot()\n\n# geom_bar plot requires group = 1 to consider as a whole rather than by cut\nggplot(data = diamonds) +\n  geom_bar(mapping = aes(x = cut, group = 1))"
+  },
+  {
+    "objectID": "tasks/statistical-computing/bar-plots.html#see-also",
+    "href": "tasks/statistical-computing/bar-plots.html#see-also",
+    "title": "Bar Plots",
+    "section": "See also",
+    "text": "See also\n\nPie Charts"
+  },
+  {
+    "objectID": "tasks/statistical-computing/bootstrap-estimate.html",
+    "href": "tasks/statistical-computing/bootstrap-estimate.html",
+    "title": "Bootstrap Estimate",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nResample the data with replacement to approximate the sampling distribution of an estimator and its standard error."
+  },
+  {
+    "objectID": "tasks/statistical-computing/bootstrap-estimate.html#see-also",
+    "href": "tasks/statistical-computing/bootstrap-estimate.html#see-also",
+    "title": "Bootstrap Estimate",
+    "section": "See also",
+    "text": "See also\n\nBootstrap Confidence Interval\nFunctional Programming with purrr\n\nData: fish.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/sampling.html",
+    "href": "tasks/statistical-computing/sampling.html",
+    "title": "Sampling",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse sample() to draw random values, with or without replacement.\n# sample from numbers 1 thorugh 5\nx_s &lt;- sample(1:5, size = 10, replace = TRUE)\nprint(x_s)\n\n [1] 3 5 2 3 2 4 4 2 1 2\n\n# equivalent to\nx_s &lt;- sample(5, size = 10, replace = TRUE)\nprint(x_s)\n\n [1] 2 3 5 3 5 5 4 2 3 5"
+  },
+  {
+    "objectID": "tasks/statistical-computing/sampling.html#see-also",
+    "href": "tasks/statistical-computing/sampling.html#see-also",
+    "title": "Sampling",
+    "section": "See also",
+    "text": "See also\n\nSimulation Basics"
+  },
+  {
+    "objectID": "tasks/statistical-computing/purrr.html",
+    "href": "tasks/statistical-computing/purrr.html",
+    "title": "Functional Programming with purrr",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse purrr’s map family to iterate cleanly over columns, list elements, or bootstrap samples instead of writing loops.\n# load packages\npacman::p_load(dplyr,\n               ggplot2,\n               nycflights13,\n               readr,\n               purrr)\n\n# find mean of every column of mtcars\nmap_dbl(mtcars, mean)\n\n       mpg        cyl       disp         hp       drat         wt       qsec \n 20.090625   6.187500 230.721875 146.687500   3.596563   3.217250  17.848750 \n        vs         am       gear       carb \n  0.437500   0.406250   3.687500   2.812500 \n\n# find type of each column in nycflights\nmap_chr(flights, typeof)\n\n          year          month            day       dep_time sched_dep_time \n     \"integer\"      \"integer\"      \"integer\"      \"integer\"      \"integer\" \n     dep_delay       arr_time sched_arr_time      arr_delay        carrier \n      \"double\"      \"integer\"      \"integer\"       \"double\"    \"character\" \n        flight        tailnum         origin           dest       air_time \n     \"integer\"    \"character\"    \"character\"    \"character\"       \"double\" \n      distance           hour         minute      time_hour \n      \"double\"       \"double\"       \"double\"       \"double\" \n\n# find number of unique values in each column\nmap_int(iris, function(x) length(unique(x)))\n\nSepal.Length  Sepal.Width Petal.Length  Petal.Width      Species \n          35           23           43           22            3 \n\n# generate four samples of size ten with specified means\nmap(c(-10, 0, 10, 100), rnorm, n = 10)\n\n[[1]]\n [1]  -8.482869 -11.588905 -10.527597  -9.160736 -10.258725  -9.755317\n [7] -10.725900 -12.331893  -9.610715 -10.742107\n\n[[2]]\n [1]  0.6934757 -0.5325608  0.4105502  0.5090103 -0.2771815 -0.2426831\n [7] -0.2054497  1.1787998  1.1532223  0.5716889\n\n[[3]]\n [1]  9.614165 12.545525 11.414957 10.072266  9.430050 10.497848  9.850334\n [8]  7.950163 11.445005  9.112158\n\n[[4]]\n [1]  98.49483 100.35498 101.52416 100.94578  98.85780  99.70877  99.42872\n [8]  99.39081 101.40607 100.92163\n\n# read data\nfish &lt;- read_table('../../data/fish.txt')\n\n# function for population size\nN_hat &lt;- function(df){\n  fitted_model &lt;- lm(I(1/R) ~ I(1/S), data = df)\n  beta &lt;- unname(coef(fitted_model))\n  (1 - beta[2]) / beta[1]\n}\n\n# number of bootstrap replicates\nn_bootstrap_replicates &lt;- 1e3\n\n# create bootstrap samples\nfish_boot &lt;- map(1:n_bootstrap_replicates,\n                 function(x) slice_sample(fish,\n                                          n = nrow(fish),\n                                          replace = TRUE)\n                 )\n\n# evaluate n_hat on samples\nN_hat_boot &lt;- map_dbl(fish_boot, N_hat)\n\n# find standard error of result\n(N_hat_se &lt;- sd(N_hat_boot))\n\n[1] 3.868415\n\n# store linear models fit to each bootstrap\nlinear_models &lt;- map(fish_boot, function(x) lm(I(1/R) ~ I(1/S), data = x))\n\n# store coefficients of linear models\ncoef_boot &lt;- map(linear_models, coef)\n\n# function to estimate R from S\nbh_curve &lt;- function(beta, S) {\n  tibble(\n    S = S,\n    R = 1 / (beta[1] + (beta[2] / S))\n  )\n}\n\n# create curve using betas from coef_boot\nbh_boot &lt;- map(coef_boot, bh_curve, S = seq(50,500,by=1))\n\n# bind rows and store list # in id column\nbh_boot_df &lt;- bind_rows(bh_boot, .id = \"bootstrap_replicate\")\n\n# plot the curves\nggplot(fish, mapping = aes(x = S, y = R)) +\n  geom_point() +\n  geom_line(\n    data = bh_boot_df,\n    mapping = aes(group = bootstrap_replicate),\n    alpha = 1 / 20\n  )"
+  },
+  {
+    "objectID": "tasks/statistical-computing/purrr.html#see-also",
+    "href": "tasks/statistical-computing/purrr.html#see-also",
+    "title": "Functional Programming with purrr",
+    "section": "See also",
+    "text": "See also\n\nBootstrap Estimate\nBootstrap Confidence Interval\n\nData: fish.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/examine-dataframe.html",
+    "href": "tasks/statistical-computing/examine-dataframe.html",
+    "title": "Examine a Dataframe",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse str() and dplyr summaries to get oriented in a new dataframe before analysis.\npacman::p_load(dplyr                          # summarize()\n               )\n\n# read data\nload(\"../../data/fev.RData\")\n\n# check structure of dataframe; lists types\nstr(fevdata)\n\n'data.frame':   654 obs. of  5 variables:\n $ age   : int  9 8 7 9 9 8 6 6 8 9 ...\n $ fev   : num  1.71 1.72 1.72 1.56 1.9 ...\n $ height: num  57 67.5 54.5 53 57 61 58 56 58.5 60 ...\n $ sex   : Factor w/ 2 levels \"female\",\"male\": 1 1 1 2 2 1 1 1 1 1 ...\n $ smoke : Factor w/ 2 levels \"nonsmoker\",\"smoker\": 1 1 1 1 1 1 1 1 1 1 ...\n\n# break another variable into groups; add as column\nfevdata &lt;- mutate(fevdata, age_group = cut(age, breaks = 5))\n\n# calculate mean for each age\nfev_mean &lt;- summarize(group_by(fevdata, age), fev = mean(fev))\nfev_mean\n\n# A tibble: 17 × 2\n     age   fev\n   &lt;int&gt; &lt;dbl&gt;\n 1     3  1.24\n 2     4  1.28\n 3     5  1.55\n 4     6  1.66\n 5     7  1.87\n 6     8  2.12\n 7     9  2.43\n 8    10  2.69\n 9    11  3.04\n10    12  3.22\n11    13  3.48\n12    14  3.58\n13    15  3.48\n14    16  3.67\n15    17  4.30\n16    18  3.59\n17    19  3.99"
+  },
+  {
+    "objectID": "tasks/statistical-computing/examine-dataframe.html#see-also",
+    "href": "tasks/statistical-computing/examine-dataframe.html#see-also",
+    "title": "Examine a Dataframe",
+    "section": "See also",
+    "text": "See also\n\nScatterplots with ggplot2\nBoxplots with ggplot2\n\nData: fev.RData — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/facet-grid.html",
+    "href": "tasks/statistical-computing/facet-grid.html",
+    "title": "Facetting with facet_grid",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse facet_grid to break a plot into panels defined by the levels of one or two variables.\n# download necessary packages\npacman::p_load(dplyr,\n               ggplot2)                             # ggplot()\n\n# fevdata loaded and manipulated in the Examine a Dataframe task\nload(\"../../data/fev.RData\")\nfevdata &lt;- mutate(fevdata, age_group = cut(age, breaks = 5))\n\n# grid with specified rows and columns\np &lt;- ggplot(fevdata, aes(x = height, y = fev)) +\n  facet_grid(rows = vars(sex), cols = vars(age_group))\np + geom_point(aes(color = smoke))\n\n\n\n\n\n\n\n# grid with specified rows only\np &lt;- ggplot(fevdata, aes(x = height, y = fev)) +\n  facet_grid(rows = vars(sex))\np + geom_point(aes(color = smoke))"
+  },
+  {
+    "objectID": "tasks/statistical-computing/facet-grid.html#see-also",
+    "href": "tasks/statistical-computing/facet-grid.html#see-also",
+    "title": "Facetting with facet_grid",
+    "section": "See also",
+    "text": "See also\n\nScatterplots with ggplot2\nBoxplots with ggplot2\n\nData: fev.RData — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/scatter-ggplot.html",
+    "href": "tasks/statistical-computing/scatter-ggplot.html",
+    "title": "Scatterplots with ggplot2",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse geom_point to build scatterplots, mapping color and other aesthetics to variables.\n# download necessary packages\npacman::p_load(dplyr, ggplot2)                  # ggplot()\n\n# fevdata loaded and manipulated in the Examine a Dataframe task\nload(\"../../data/fev.RData\")\nfevdata &lt;- mutate(fevdata, age_group = cut(age, breaks = 5))\nfev_mean &lt;- summarize(group_by(fevdata, age), fev = mean(fev))\n\n# create ggplot; aesthetic map variables\ns &lt;- ggplot(fevdata, aes(x = age, y = fev))\ns + geom_point()                                # add points for each datum\n\n\n\n\n\n\n\n# demonstrate geom_jitter\ns &lt;- ggplot(fevdata, aes(x = age, y = fev))\ns + geom_jitter()\n\n\n\n\n\n\n\n# add color mapping by smoke variable\ns &lt;- ggplot(fevdata, aes(x = age, y = fev, color=smoke))\ns + geom_point()\n\n\n\n\n\n\n\n# add color mapping by age variable - those 13+\ns &lt;- ggplot(fevdata, aes(x = age, y = fev, color=age &lt; 13))\ns + geom_point()\n\n\n\n\n\n\n\n# add group mapping by smoke variable\np &lt;- ggplot(fevdata, aes(x = age, y = fev, group = smoke))\np + geom_point() + stat_smooth(aes(color = smoke))  # map color for only smooth component\n\n\n\n\n\n\n\n# specify border color and fill\nggplot(fevdata, aes(x = age, y = fev)) +\n  geom_point(color = \"black\",                   # needs to be defined in geom_point()\n             fill = \"white\",\n             shape = 21,\n             size = 4,\n             stroke = 1)\n\n\n\n\n\n\n\n# plot mean across each age\ns &lt;- ggplot(fevdata, aes(x = age, y = fev))     # basic ggplot\ns + geom_point() + geom_line(data = fev_mean)   # add line across averages\n\n\n\n\n\n\n\n# option to fix coordinate plane with 1:1 aspect ratio (supposedly)\ns + geom_point() + coord_fixed()"
+  },
+  {
+    "objectID": "tasks/statistical-computing/scatter-ggplot.html#see-also",
+    "href": "tasks/statistical-computing/scatter-ggplot.html#see-also",
+    "title": "Scatterplots with ggplot2",
+    "section": "See also",
+    "text": "See also\n\nExamine a Dataframe\nSmoothing with geom_smooth()\n\nData: fev.RData — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/statistical-computing/simulation-basics.html",
+    "href": "tasks/statistical-computing/simulation-basics.html",
+    "title": "Simulation Basics",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nGenerate random draws from uniform, normal, and exponential distributions, and reach for their density and CDF functions.\n# uniform distribution\nx_unif &lt;- runif(400, min = -3, max = 5)\nhist(x_unif,\n     col = \"cadetblue2\")\n\n\n\n\n\n\n\n# normal distribution\nx_norm &lt;- rnorm(n = 400, mean = 120, sd = 4)\n\n# exponential distribution\nx_exp &lt;- rexp(400, rate = 1)\nThe probability density/mass function and cumulative distribution function are shown by name below (each requires arguments to evaluate):\n# probability density/mass function\ndnorm()\n\n# cumulative distribution function\npnorm()"
+  },
+  {
+    "objectID": "tasks/statistical-computing/simulation-basics.html#see-also",
+    "href": "tasks/statistical-computing/simulation-basics.html#see-also",
+    "title": "Simulation Basics",
+    "section": "See also",
+    "text": "See also\n\nSampling\nMonte Carlo Simulation"
+  },
+  {
+    "objectID": "tasks/regression/model-selection.html",
+    "href": "tasks/regression/model-selection.html",
+    "title": "Model Selection",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse best-subsets and stepwise criteria to settle on a parsimonious set of predictors rather than keeping every candidate.\n# required package for regsubsets()\nlibrary(leaps)\n\n# read data\njob &lt;- read.table(\"../../data/CH09PR10-1.txt\", header=TRUE)\n\n# select model; methods = exhaustive, forward, or backward\nbest_subs &lt;- regsubsets(Job_Proficiency_Score ~ X_1 + X_2 + X_3 + X_4,\n                        data=job,\n                        method=\"exhaustive\",\n                        nvmax=2)                    #include 2 variables max\nsummary(best_subs)\n\nSubset selection object\nCall: regsubsets.formula(Job_Proficiency_Score ~ X_1 + X_2 + X_3 + \n    X_4, data = job, method = \"exhaustive\", nvmax = 2)\n4 Variables  (and intercept)\n    Forced in Forced out\nX_1     FALSE      FALSE\nX_2     FALSE      FALSE\nX_3     FALSE      FALSE\nX_4     FALSE      FALSE\n1 subsets of each size up to 2\nSelection Algorithm: exhaustive\n         X_1 X_2 X_3 X_4\n1  ( 1 ) \" \" \" \" \"*\" \" \"\n2  ( 1 ) \"*\" \" \" \"*\" \" \"\n\n# adjusted r squared plot\nplot(best_subs, scale=\"adjr2\", main=\"Adjusted R^2 Plot\")\n\n\n\n\n\n\n\n# mallows cp plot\nplot(best_subs, scale=\"Cp\", main=\"Mallows Cp Plot\")\n\n\n\n\n\n\n\n# bic plot\nplot(best_subs, scale=\"bic\", main=\"BIC Plot\")\n\n\n\n\n\n\n\n# required package for step()\nlibrary(car)\n\n# fit intercept and full model\ngfit_int &lt;- lm(Job_Proficiency_Score~1, data=job)\ngfit_full &lt;- lm(Job_Proficiency_Score~., data=job)\n\n# aic model selection\nforwstep_a &lt;- step(gfit_int, scope=list(upper=gfit_full), data=job, direction=\"both\")\n\nStart:  AIC=149.3\nJob_Proficiency_Score ~ 1\n\n       Df Sum of Sq    RSS    AIC\n+ X_3   1    7286.0 1768.0 110.47\n+ X_4   1    6843.3 2210.7 116.06\n+ X_1   1    2395.9 6658.1 143.62\n+ X_2   1    2236.5 6817.5 144.21\n&lt;none&gt;              9054.0 149.30\n\nStep:  AIC=110.47\nJob_Proficiency_Score ~ X_3\n\n       Df Sum of Sq    RSS     AIC\n+ X_1   1    1161.4  606.7  85.727\n+ X_4   1     656.7 1111.3 100.861\n&lt;none&gt;              1768.0 110.469\n+ X_2   1      12.2 1755.8 112.295\n- X_3   1    7286.0 9054.0 149.302\n\nStep:  AIC=85.73\nJob_Proficiency_Score ~ X_3 + X_1\n\n       Df Sum of Sq    RSS     AIC\n+ X_4   1     258.5  348.2  73.847\n&lt;none&gt;               606.7  85.727\n+ X_2   1       9.9  596.7  87.314\n- X_1   1    1161.4 1768.0 110.469\n- X_3   1    6051.5 6658.1 143.618\n\nStep:  AIC=73.85\nJob_Proficiency_Score ~ X_3 + X_1 + X_4\n\n       Df Sum of Sq     RSS     AIC\n&lt;none&gt;               348.20  73.847\n+ X_2   1     12.22  335.98  74.954\n- X_4   1    258.46  606.66  85.727\n- X_1   1    763.12 1111.31 100.861\n- X_3   1   1324.39 1672.59 111.081\n\nforwstep_a\n\n\nCall:\nlm(formula = Job_Proficiency_Score ~ X_3 + X_1 + X_4, data = job)\n\nCoefficients:\n(Intercept)          X_3          X_1          X_4  \n  -124.2000       1.3570       0.2963       0.5174  \n\n# bic model selection\nforwstep_b &lt;- step(gfit_int, scope=list(upper=gfit_full), data=job, direction=\"both\", k=log(nrow(job)))\n\nStart:  AIC=150.52\nJob_Proficiency_Score ~ 1\n\n       Df Sum of Sq    RSS    AIC\n+ X_3   1    7286.0 1768.0 112.91\n+ X_4   1    6843.3 2210.7 118.49\n+ X_1   1    2395.9 6658.1 146.06\n+ X_2   1    2236.5 6817.5 146.65\n&lt;none&gt;              9054.0 150.52\n\nStep:  AIC=112.91\nJob_Proficiency_Score ~ X_3\n\n       Df Sum of Sq    RSS     AIC\n+ X_1   1    1161.4  606.7  89.384\n+ X_4   1     656.7 1111.3 104.517\n&lt;none&gt;              1768.0 112.906\n+ X_2   1      12.2 1755.8 115.952\n- X_3   1    7286.0 9054.0 150.521\n\nStep:  AIC=89.38\nJob_Proficiency_Score ~ X_3 + X_1\n\n       Df Sum of Sq    RSS     AIC\n+ X_4   1     258.5  348.2  78.723\n&lt;none&gt;               606.7  89.384\n+ X_2   1       9.9  596.7  92.190\n- X_1   1    1161.4 1768.0 112.906\n- X_3   1    6051.5 6658.1 146.056\n\nStep:  AIC=78.72\nJob_Proficiency_Score ~ X_3 + X_1 + X_4\n\n       Df Sum of Sq     RSS     AIC\n&lt;none&gt;               348.20  78.723\n+ X_2   1     12.22  335.98  81.049\n- X_4   1    258.46  606.66  89.384\n- X_1   1    763.12 1111.31 104.517\n- X_3   1   1324.39 1672.59 114.738\n\nforwstep_b\n\n\nCall:\nlm(formula = Job_Proficiency_Score ~ X_3 + X_1 + X_4, data = job)\n\nCoefficients:\n(Intercept)          X_3          X_1          X_4  \n  -124.2000       1.3570       0.2963       0.5174"
+  },
+  {
+    "objectID": "tasks/regression/model-selection.html#see-also",
+    "href": "tasks/regression/model-selection.html#see-also",
+    "title": "Model Selection",
+    "section": "See also",
+    "text": "See also\n\nCheck Model Fit\n\nData: CH09PR10-1.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/outliers-influential-points.html",
+    "href": "tasks/regression/outliers-influential-points.html",
+    "title": "Outlier and Influential Points",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nScreen a fitted model for outliers and high-influence observations before relying on its coefficients.\n#uses patient data\n\n# patient data + model carried over from the Added Variable Plot task\nlibrary(car)\npatient &lt;- read.table(\"../../data/CH06PR15.txt\", header=TRUE)\ngfit2 &lt;- lm(Satisfaction ~ Age + Severity + Anxiety, data=patient)\n\n# visual check for outliers (none should be found)\nstudres &lt;- rstudent(gfit2)\nplot(studres, pch=18, col='red', main=\"Studentized Residuals\")\nabline(h=0)\n\n# identify 3 points with highest leverage (none should be found to be high)\n# informally 0.5 is considered as a threshold for high leverage points\nz &lt;- hatvalues(gfit2)\nsort(z, decreasing=TRUE)[1]\n\n       28 \n0.1860192 \n\nsort(z, decreasing=TRUE)[2]\n\n        9 \n0.1842585 \n\nsort(z, decreasing=TRUE)[3]\n\n       39 \n0.1809601 \n\n# check Cook's Distance for influential points (none should be found)\n# Use F(0.5,p,n-p) as cutoff for influential point in Cook's distance.\nlibrary(lindia)\n\n\n\n\n\n\n\ngg_cooksd(gfit2)\n\n\n\n\n\n\n\ncutoff &lt;- qf(.5, 4, 42)"
+  },
+  {
+    "objectID": "tasks/regression/outliers-influential-points.html#see-also",
+    "href": "tasks/regression/outliers-influential-points.html#see-also",
+    "title": "Outlier and Influential Points",
+    "section": "See also",
+    "text": "See also\n\nAdded Variable Plot\nMultiple Linear Regression\n\nData: CH06PR15.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/check-model-fit.html",
+    "href": "tasks/regression/check-model-fit.html",
+    "title": "Check Model Fit",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse the PRESS statistic and an out-of-sample MSPE to judge how well a fitted model predicts new data, not just how well it fits the training data.\n# required package for PRESS()\nlibrary(MPV)\n\n# job data + selected model carried over from the Model Selection task\njob &lt;- read.table(\"../../data/CH09PR10-1.txt\", header=TRUE)\njobfit &lt;- lm(Job_Proficiency_Score ~ X_3 + X_1 + X_4, data=job)\n\n# fit PRESS statistic\nfit_press &lt;- PRESS(jobfit)/nrow(job)\nanova(jobfit)\n\nAnalysis of Variance Table\n\nResponse: Job_Proficiency_Score\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nX_3        1 7286.0  7286.0 439.422 1.462e-15 ***\nX_1        1 1161.4  1161.4  70.043 3.966e-08 ***\nX_4        1  258.5   258.5  15.588 0.0007354 ***\nResiduals 21  348.2    16.6                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n# read and fit linear model jobs prediction dataset\njob2 &lt;- read.table(\"../../data/CH09PR22-1.txt\", header=TRUE)\njobfit2 &lt;- lm(Job_Proficiency_Score ~ X_3 + X_1 + X_4, data=job2)\n\n# compare summary and anova (coefficients, SE, MSE, R squared)\nsummary(jobfit2)\n\n\nCall:\nlm(formula = Job_Proficiency_Score ~ X_3 + X_1 + X_4, data = job2)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-9.4619 -2.3836  0.6834  2.1123  7.2394 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -122.76705   11.84783 -10.362 1.04e-09 ***\nX_3            1.40676    0.23262   6.048 5.31e-06 ***\nX_1            0.31238    0.04729   6.605 1.54e-06 ***\nX_4            0.42838    0.19749   2.169   0.0417 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.284 on 21 degrees of freedom\nMultiple R-squared:  0.9489,    Adjusted R-squared:  0.9416 \nF-statistic:   130 on 3 and 21 DF,  p-value: 1.017e-13\n\nsummary(jobfit)\n\n\nCall:\nlm(formula = Job_Proficiency_Score ~ X_3 + X_1 + X_4, data = job)\n\nResiduals:\n    Min      1Q  Median      3Q     Max \n-5.4579 -3.1563 -0.2057  1.8070  6.6083 \n\nCoefficients:\n              Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept) -124.20002    9.87406 -12.578 3.04e-11 ***\nX_3            1.35697    0.15183   8.937 1.33e-08 ***\nX_1            0.29633    0.04368   6.784 1.04e-06 ***\nX_4            0.51742    0.13105   3.948 0.000735 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 4.072 on 21 degrees of freedom\nMultiple R-squared:  0.9615,    Adjusted R-squared:  0.956 \nF-statistic:   175 on 3 and 21 DF,  p-value: 5.16e-15\n\nanova(jobfit2)\n\nAnalysis of Variance Table\n\nResponse: Job_Proficiency_Score\n          Df Sum Sq Mean Sq  F value    Pr(&gt;F)    \nX_3        1 5947.4  5947.4 324.0213 3.048e-14 ***\nX_1        1 1122.2  1122.2  61.1366 1.186e-07 ***\nX_4        1   86.4    86.4   4.7049    0.0417 *  \nResiduals 21  385.5    18.4                       \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nanova(jobfit)\n\nAnalysis of Variance Table\n\nResponse: Job_Proficiency_Score\n          Df Sum Sq Mean Sq F value    Pr(&gt;F)    \nX_3        1 7286.0  7286.0 439.422 1.462e-15 ***\nX_1        1 1161.4  1161.4  70.043 3.966e-08 ***\nX_4        1  258.5   258.5  15.588 0.0007354 ***\nResiduals 21  348.2    16.6                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n# compare MSPE to MSE\npred_job2 &lt;- predict(jobfit, newdata=job2)\nmspe &lt;- mean((job2$Job_Proficiency_Score-pred_job2)^2)"
+  },
+  {
+    "objectID": "tasks/regression/check-model-fit.html#see-also",
+    "href": "tasks/regression/check-model-fit.html#see-also",
+    "title": "Check Model Fit",
+    "section": "See also",
+    "text": "See also\n\nModel Selection\n\nData: CH09PR10-1.txt, CH09PR22-1.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/interaction-terms.html",
+    "href": "tasks/regression/interaction-terms.html",
+    "title": "Interaction Terms",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nAdd an interaction term when the slope for one predictor should change with the level of another.\n# data carried over from the Indicator Variables task\ngpa1 &lt;- read.table(\"../../data/CH01PR19-1.txt\", header=TRUE)\ngpa2 &lt;- read.table(\"../../data/CH08PR16.txt\", header=TRUE)\ngpa &lt;- cbind(gpa1, gpa2[1])\n\n#fit linear model\ngfit_int &lt;- lm(GPA ~ ACT + Indicator + ACT*Indicator, data=gpa)\nsummary(gfit_int)\n\n\nCall:\nlm(formula = GPA ~ ACT + Indicator + ACT * Indicator, data = gpa)\n\nResiduals:\n     Min       1Q   Median       3Q      Max \n-2.80187 -0.31392  0.04451  0.44337  1.47544 \n\nCoefficients:\n               Estimate Std. Error t value Pr(&gt;|t|)    \n(Intercept)    3.226318   0.549428   5.872 4.18e-08 ***\nACT           -0.002757   0.021405  -0.129   0.8977    \nIndicator     -1.649577   0.672197  -2.454   0.0156 *  \nACT:Indicator  0.062245   0.026487   2.350   0.0205 *  \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\nResidual standard error: 0.6124 on 116 degrees of freedom\nMultiple R-squared:  0.1194,    Adjusted R-squared:  0.09664 \nF-statistic: 5.244 on 3 and 116 DF,  p-value: 0.001982\nWhen no major field of concentration is indicated, the interaction term is dropped. However, when a major field of concentration is indicated by the student, the interaction coefficient contributes to the slope of the regression line pertaining to students who had indicated their preference of major, such that for one unit increase in ACT score, the student’s freshman GPA increased by 0.059488.\n# test interaction term not = 0\nt_star1 &lt;- .062245/.026487\nt1 &lt;- qt(.975, 116)\n\\(H_0: \\beta_3 = 0\\)\n\\(H_a: \\beta_3 \\neq 0\\)\nBecause t*, 2.3500208, is greater than t, 1.980626, we can reject the null hypothesis and conclude that the interaction term adds value to the regression function."
+  },
+  {
+    "objectID": "tasks/regression/interaction-terms.html#see-also",
+    "href": "tasks/regression/interaction-terms.html#see-also",
+    "title": "Interaction Terms",
+    "section": "See also",
+    "text": "See also\n\nIndicator Variables\n\nData: CH01PR19-1.txt, CH08PR16.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/multiple-logistic-regression.html",
+    "href": "tasks/regression/multiple-logistic-regression.html",
+    "title": "Multiple Logistic Regression",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse multiple logistic regression to model a binary outcome from several predictors, interpreting coefficients as odds ratios.\nA local health clinic sent fliers to its clients to encourage everyone, but especially older persons at high risk of complications, to get a flu shot in time for protection against an expected flu epidemic. In a pilot follow-up study, 159 clients were randomly selected and asked whether they actually received a flu shot. A client who received a flu shot was coded \\(Y=1\\), and a client who did not receive a flu shot was coded \\(Y=0\\). In addition, data were collected on their age (\\(X_1\\)), and their health awareness. The latter data were combined into a health awareness index (\\(X_2\\)), for which higher values indicate greater awareness. Also included in the dta was client gender, where males were coded \\(X_3=1\\) and females were coded \\(X_3=0\\).\nMultiple logistic regression model with three predictor variables in first- order terms is assumed to be appropriate.\n# read data\nvaxx &lt;- read.table(\"../../data/CH14PR14.txt\", header=TRUE)\n\n# fit logistic model\ngfit3 &lt;- glm(Y ~ X1 + X2 + X3, data=vaxx, family = binomial(link =\"logit\"))\nsummary(gfit3)\n\n\nCall:\nglm(formula = Y ~ X1 + X2 + X3, family = binomial(link = \"logit\"), \n    data = vaxx)\n\nDeviance Residuals: \n    Min       1Q   Median       3Q      Max  \n-1.4037  -0.5637  -0.3352  -0.1542   2.9394  \n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)   \n(Intercept) -1.17716    2.98242  -0.395  0.69307   \nX1           0.07279    0.03038   2.396  0.01658 * \nX2          -0.09899    0.03348  -2.957  0.00311 **\nX3           0.43397    0.52179   0.832  0.40558   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 134.94  on 158  degrees of freedom\nResidual deviance: 105.09  on 155  degrees of freedom\nAIC: 113.09\n\nNumber of Fisher Scoring iterations: 6\nThe fitted response function is \\[\\hat{\\pi} = \\frac{\\exp(-1.17716 + 0.07279X_1 - 0.09899X_2 + 0.43397X_3)}{1+\\exp(-1.17716 + 0.07279X_1 - 0.09899X_2 + 0.43397X_3)}\\]\n# find the odds ratio for each of the variables and interpret\nexp(gfit3$coefficients[2])\n\n      X1 \n1.075503 \n\nexp(gfit3$coefficients[3])\n\n       X2 \n0.9057549 \n\nexp(gfit3$coefficients[4])\n\n     X3 \n1.54338\nIt is expected that when all other variables are held constant, one unit increase in age increases the probability of having gotten a flu shot by 7.55%.\nIt is expected that when all other variables are held constant, one unit increase in a person’s health awareness score decreased the probability of them having gotten a flu shot by nearly 10%.\nIt is expected that when all other variables are held constant, a man is 54% more likely to have gotten a flu shot than a woman with the same age and health awareness.\n# find probability a 55 year old male with a health index of 60 receives vaccine\npi = (exp(-1.17716 + 0.07279*55 - 0.09899*60 + 0.43397*1))/(1+exp(-1.17716 + 0.07279*55 - 0.09899*60 + 0.43397*1))\n\n# confidence interval: males with ages differing 30 and index differing 25\nexp(30*gfit3$coefficients[2])\n\n     X1 \n8.87857 \n\nexp(25*gfit3$coefficients[3])\n\n        X2 \n0.08419141 \n\ntest1 &lt;- exp(30*(confint.default(gfit3, level=.95)))\ntest2 &lt;- exp(25*(confint.default(gfit3, level=.95)))\nThe 90% joint confidence intervals for the odds ratios are (1.4877695, 52.9846933) for male clients whose ages differ by 30 years and (0.0163246, 0.434203) for male clients whose health awareness index differs by 25.\nReviewing these intervals, I am 90% confident that the probability of receiving a flu shot increases if a subject is 30 years older and decreases if a subject has a health awareness index 25 points higher.\n# wald test for inclusion of x3: alpha = 0.05\nnorm &lt;- qnorm(.975)                             # cutoff for decision\nsummary(gfit3)                                  # p-value\n\n\nCall:\nglm(formula = Y ~ X1 + X2 + X3, family = binomial(link = \"logit\"), \n    data = vaxx)\n\nDeviance Residuals: \n    Min       1Q   Median       3Q      Max  \n-1.4037  -0.5637  -0.3352  -0.1542   2.9394  \n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)   \n(Intercept) -1.17716    2.98242  -0.395  0.69307   \nX1           0.07279    0.03038   2.396  0.01658 * \nX2          -0.09899    0.03348  -2.957  0.00311 **\nX3           0.43397    0.52179   0.832  0.40558   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 134.94  on 158  degrees of freedom\nResidual deviance: 105.09  on 155  degrees of freedom\nAIC: 113.09\n\nNumber of Fisher Scoring iterations: 6\n\nz_star &lt;- .43397/.52179                         # z* statistic\n\\(H_0: \\beta_3 = 0\\)\n\\(H_a: \\beta_3 \\neq 0\\)\nDecision Rule: If the test statistic is greater than 1.959964, then I will reject the null hypothesis and conclude that \\(X_3\\) should be included in the regression model.\nConclusion: The z* statistic is 0.8316947, which is less than 1.959964; therefore, I fail to reject the null hypothesis and do not have evidence to support including \\(X_3\\) in the model.\nP-value: The p-value is 0.40558, which is greater than \\(\\alpha\\). This supports my conclusion.\n# likelihood ratio test for inclusion of x3: alpha = 0.05\nchi4c &lt;- qchisq(.95, df=1)                      # chi squared cutoff\nlibrary(lmtest)                                 # required package\nnested &lt;- glm(Y ~ X1 + X2,                      # model without x3\n              data=vaxx,\n              family = binomial(link =\"logit\"))\nsummary(nested)\n\n\nCall:\nglm(formula = Y ~ X1 + X2, family = binomial(link = \"logit\"), \n    data = vaxx)\n\nDeviance Residuals: \n    Min       1Q   Median       3Q      Max  \n-1.4479  -0.5708  -0.3390  -0.1629   2.8430  \n\nCoefficients:\n            Estimate Std. Error z value Pr(&gt;|z|)   \n(Intercept) -1.45778    2.91534  -0.500  0.61705   \nX1           0.07787    0.02970   2.622  0.00873 **\nX2          -0.09547    0.03241  -2.946  0.00322 **\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 134.94  on 158  degrees of freedom\nResidual deviance: 105.80  on 156  degrees of freedom\nAIC: 111.8\n\nNumber of Fisher Scoring iterations: 6\n\nlrtest(nested, gfit3)                           # test\n\nLikelihood ratio test\n\nModel 1: Y ~ X1 + X2\nModel 2: Y ~ X1 + X2 + X3\n  #Df  LogLik Df  Chisq Pr(&gt;Chisq)\n1   3 -52.898                     \n2   4 -52.547  1 0.7022      0.402\nNOTE: the Likelihood Ratio Tests are the same as Deviance Statistic-based tests\nFull Model: \\([1+\\exp(-X'\\beta_F)]^{-1}\\) where \\(X'\\beta_F =  -1.17716 + 0.07279X_1 - 0.09899X_2 + 0.43397X_3\\)\nReduced Model: \\([1+\\exp(-X'\\beta_R)]^{-1}\\) where \\(X'\\beta_R = 1.45778 + 0.07787X_1 - 0.09547X_2\\)\n\\(H_0: \\beta_3 = 0\\)\n\\(H_a: \\beta_3 \\neq 0\\)\nDecision Rule: If the test statistic is greater than 3.8414588, then I will reject the null hypothesis and conclude that \\(X_3\\) should be included in the regression model.\nConclusion: The test statistic, \\(G^2\\), is 0.7022. Because it is less than 3.8414588, I fail to reject the null hypothesis and do not have enough evidence to include \\(X_3\\) in the model.\nP-value: The p-value is 0.402, which supports my conclusion.\nComparison to Wald: Both tests conclude that \\(X_3\\) does not improve the regression model. Their p-values were very close, both supporting this conclusion.\n# likelihood ratio test for inclusion of second-order terms: alpha = 0.05\nchi4d &lt;- qchisq(.95, df=3)                      # chi squared cutoff\n\nx_1sq &lt;- vaxx$X1^2                              # x1 squared term\nx_2sq &lt;- vaxx$X2^2                              # x2 squared term\nx_3sq &lt;- vaxx$X3^2                              # x3 squared term\ninteract12 &lt;- vaxx$X1*vaxx$X2                   # interaction of x1 and x2\ninteract13 &lt;- vaxx$X1*vaxx$X3                   # interaction of x1 and x3\ninteract23 &lt;- vaxx$X2*vaxx$X3                   # interaction of x2 and x3\n\ncomplex &lt;- glm(vaxx$Y ~ vaxx$X1 + vaxx$X2 + vaxx$X3 + x_1sq + x_2sq + interact12,\n               family = binomial(link =\"logit\"))\n\nsummary(complex)\n\n\nCall:\nglm(formula = vaxx$Y ~ vaxx$X1 + vaxx$X2 + vaxx$X3 + x_1sq + \n    x_2sq + interact12, family = binomial(link = \"logit\"))\n\nDeviance Residuals: \n    Min       1Q   Median       3Q      Max  \n-1.7540  -0.5678  -0.3189  -0.1609   2.6012  \n\nCoefficients:\n              Estimate Std. Error z value Pr(&gt;|z|)\n(Intercept) 19.6040080 24.1905242   0.810    0.418\nvaxx$X1     -0.0331617  0.4878396  -0.068    0.946\nvaxx$X2     -0.7529410  0.4877503  -1.544    0.123\nvaxx$X3      0.6200280  0.5543139   1.119    0.263\nx_1sq       -0.0005456  0.0030897  -0.177    0.860\nx_2sq        0.0040101  0.0028771   1.394    0.163\ninteract12   0.0033484  0.0037970   0.882    0.378\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 134.94  on 158  degrees of freedom\nResidual deviance: 102.97  on 152  degrees of freedom\nAIC: 116.97\n\nNumber of Fisher Scoring iterations: 6\n\nlrtest(gfit3, complex)                          # test\n\nLikelihood ratio test\n\nModel 1: Y ~ X1 + X2 + X3\nModel 2: vaxx$Y ~ vaxx$X1 + vaxx$X2 + vaxx$X3 + x_1sq + x_2sq + interact12\n  #Df  LogLik Df  Chisq Pr(&gt;Chisq)\n1   4 -52.547                     \n2   7 -51.483  3 2.1263     0.5466\nFull Model: \\([1+\\exp(-X'\\beta_F)]^{-1}\\) where \\(X'\\beta_F = 19.6040080 - 0.0331617X_1 - 0.7529410X_2 + 0.6200280X_3 - 0.0005456X_1^2 + 0.0040101X_2^2 + 0.0033484X_1X_2\\)\nReduced Model: \\([1+\\exp(-X'\\beta_R)]^{-1}\\) where \\(X'\\beta_R = -1.17716 + 0.07279X_1 - 0.09899X_2 + 0.43397X_3\\)\n\\(H_0: \\beta_4 = \\beta_5 = \\beta_6 = 0\\)\n\\(H_a:\\) At least one of \\(\\beta_4, \\beta_5,\\) or \\(\\beta_6 = 0\\)\nDecision Rule: If the test statistic is greater than 7.8147279, then I will reject the null hypothesis and conclude that the second-order terms should be included in the regression model.\nConclusion: The test statistic, \\(G^2\\), is 2.1263. Because it is less than 7.8147279, I fail to reject the null hypothesis and do not have enough evidence to support adding the second-order terms.\nP-value: The p-value is 0.5466, which supports my conclusion.\n# model selection with forward BIC\nfit0 &lt;- glm(Y ~ 1, family=binomial(), data=vaxx)  # null model\n\nfitfull &lt;- glm(vaxx$Y ~ vaxx$X1 + vaxx$X2 + vaxx$X3 +  interact12 + interact13 + interact23,\n               family = binomial(link =\"logit\"))  # all first order terms and interactions\n\nfitbic &lt;- step(fit0,\n               scope=list(upper=fitfull),\n               data=vaxx,\n               direction=\"forward\",\n               k=log(nrow(vaxx)))\n\nStart:  AIC=140.01\nY ~ 1\n\n             Df Deviance    AIC\n+ vaxx$X2     1   113.20 123.33\n+ vaxx$X1     1   116.27 126.41\n&lt;none&gt;            134.94 140.01\n+ interact13  1   130.44 140.57\n+ vaxx$X3     1   132.88 143.02\n+ interact12  1   133.75 143.89\n+ interact23  1   134.57 144.71\n\nStep:  AIC=123.33\nY ~ vaxx$X2\n\n             Df Deviance    AIC\n+ interact12  1   105.79 121.00\n+ vaxx$X1     1   105.80 121.00\n&lt;none&gt;            113.20 123.33\n+ interact13  1   110.03 125.24\n+ vaxx$X3     1   111.19 126.40\n+ interact23  1   111.37 126.58\n\nStep:  AIC=121\nY ~ vaxx$X2 + interact12\n\n             Df Deviance    AIC\n&lt;none&gt;            105.79 121.00\n+ interact13  1   105.01 125.28\n+ vaxx$X3     1   105.03 125.30\n+ interact23  1   105.07 125.35\n+ vaxx$X1     1   105.75 126.03\n\n# deviance residuals vs. estimated probabilities\nfitbic &lt;- glm(vaxx$Y ~ vaxx$X1 + vaxx$X2 + interact12,\n              family = binomial(link =\"logit\"))  # model selected using forward BIC\nr1 &lt;- loess(residuals(fitbic) ~ predict(fitbic)) # fit residuals against fitted pi's\ny &lt;- predict(r1, se=TRUE)                        # predict residual\n\nxvals &lt;- predict(fitbic)                         # linear predictors of fitbic\norderx &lt;- order(predict(fitbic))                 # order of lowest to highest xvals\nsummary(fitbic)                                  # print summary\n\n\nCall:\nglm(formula = vaxx$Y ~ vaxx$X1 + vaxx$X2 + interact12, family = binomial(link = \"logit\"))\n\nDeviance Residuals: \n    Min       1Q   Median       3Q      Max  \n-1.4239  -0.5872  -0.3409  -0.1469   2.8827  \n\nCoefficients:\n              Estimate Std. Error z value Pr(&gt;|z|)\n(Intercept)  1.2378112 13.0773400   0.095    0.925\nvaxx$X1      0.0377140  0.1917167   0.197    0.844\nvaxx$X2     -0.1455268  0.2397655  -0.607    0.544\ninteract12   0.0007486  0.0035400   0.211    0.833\n\n(Dispersion parameter for binomial family taken to be 1)\n\n    Null deviance: 134.94  on 158  degrees of freedom\nResidual deviance: 105.75  on 155  degrees of freedom\nAIC: 113.75\n\nNumber of Fisher Scoring iterations: 6\n\nplot(predict(fitbic), residuals(fitbic),         # predicted pi vs. residual\n     col=\"slateblue1\", pch=16,\n     ylab=\"Deviance Residuals\",\n     xlab=\"Fitted Probabilities\",\n     main=\"Residuals Plot\")\nabline(h=0, lty=2, col=\"grey\", lwd=2)            # grey line on y = 0\nlines(x=xvals[orderx],                           # linear predictors, ordered\n      y=y$fit[orderx],                           # corresponding predicted residual\n      lwd=2)                                     # loess line\nI have some concern about the adequacy of the model fit due to the departure of the loess line from an expected value of zero for fitted probabilities above zero."
+  },
+  {
+    "objectID": "tasks/regression/multiple-logistic-regression.html#see-also",
+    "href": "tasks/regression/multiple-logistic-regression.html#see-also",
+    "title": "Multiple Logistic Regression",
+    "section": "See also",
+    "text": "See also\n\nSimple Logistic Regression\nModel Selection\n\nData: CH14PR14.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/added-variable-plot.html",
+    "href": "tasks/regression/added-variable-plot.html",
+    "title": "Added Variable Plot",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse an added-variable (partial regression) plot to judge whether a predictor still contributes once the other predictors are already in the model.\n# required package\nlibrary(car)\n\n# patient data carried over from the Multiple Linear Regression task\npatient &lt;- read.table(\"../../data/CH06PR15.txt\", header=TRUE)\n\n# fit linear model\ngfit2 &lt;- lm(Satisfaction ~ Age + Severity + Anxiety, data=patient)\n\n# added variable plot\navPlots(gfit2)\nUpon visual inspection of the added variable plots, it appears that \\(X_1\\), which represents age, may have a linear relationship with patient satisfaction, while the relationship between \\(X_2\\) and \\(X_3\\) and patient satisfaction remains unclear. It is possible these variables do not significantly add value to the model."
+  },
+  {
+    "objectID": "tasks/regression/added-variable-plot.html#see-also",
+    "href": "tasks/regression/added-variable-plot.html#see-also",
+    "title": "Added Variable Plot",
+    "section": "See also",
+    "text": "See also\n\nMultiple Linear Regression\nOutliers & Influential Points\n\nData: CH06PR15.txt — see sources & provenance."
+  },
+  {
+    "objectID": "tasks/regression/anova-table.html",
+    "href": "tasks/regression/anova-table.html",
+    "title": "ANOVA Table",
+    "section": "",
+    "text": "NoteIntroduction\n\n\n\nUse the ANOVA table to partition sums of squares and F-test whether the predictors collectively improve on an intercept-only model.\n# read data\ngpa &lt;- read.table(\"../../data/CH03PR03.txt\", header=TRUE)\n\n# fit linear model (defined when checking assumptions on this data)\ngfit &lt;- lm(Y ~ X, data=gpa)\n\n# anova table\nanova(gfit)\n\nAnalysis of Variance Table\n\nResponse: Y\n           Df Sum Sq Mean Sq F value   Pr(&gt;F)   \nX           1  3.588  3.5878  9.2402 0.002917 **\nResiduals 118 45.818  0.3883                    \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n# f-test for value of variables in model (H_0: intercept-only model)\nf &lt;- qf(.95, 1, 118) #f*\nMSR &lt;- 3.588\nMSE &lt;- 0.388\nFstar &lt;- MSR/MSE #f statistic\n\n# calculate r-squared\nSSR &lt;- 3.588\nSSE &lt;- 45.818\nSSTO &lt;- SSR+SSE\nRsquared &lt;- SSR/SSTO\n\n# not sure????\nconc &lt;- read.table(\"../../data/CH03PR15.txt\", header=TRUE)\ngfit_conc &lt;- lm(conc$Concentration ~ conc$Hours)\ngfit_conc_full &lt;- lm(conc$Concentration ~ 0 + factor(conc$Hours))\nanova(gfit_conc, gfit_conc_full)\n\nAnalysis of Variance Table\n\nModel 1: conc$Concentration ~ conc$Hours\nModel 2: conc$Concentration ~ 0 + factor(conc$Hours)\n  Res.Df    RSS Df Sum of Sq      F    Pr(&gt;F)    \n1     13 2.9247                                  \n2     10 0.1574  3    2.7673 58.603 1.194e-06 ***\n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\ncompare &lt;- qf(.975, 3, 10)\nf_star &lt;- (2.7673/3)/(.1574/10)"
+  },
+  {
+    "objectID": "tasks/regression/anova-table.html#answers",
+    "href": "tasks/regression/anova-table.html#answers",
+    "title": "ANOVA Table",
+    "section": "Answers",
+    "text": "Answers\n\nF Test\nNull Hypothesis: \\(H_0: \\beta_1 = 0\\)\nAlternate Hypothesis: \\(H_a: \\beta_1 \\neq 0\\)\nBecause the test statistic is larger than F*, I can reject the null hypothesis with 95% confidence. I conclude that the full regression model is better than an intercept-only model.\n\n\nUnknown Test????\n\\(H_0: \\hat{Y} = -0.3240X + 2.5753\\); \\(H_a: \\hat{Y} \\neq -0.3240X + 2.5753\\)\nThis information does not indicate what regression function is appropriate, since all other regression functions are included in the alternate hypothesis. If we want to explore alternate regression functions, we can look to other diagnostics and examine the residuals."
+  },
+  {
+    "objectID": "tasks/regression/anova-table.html#see-also",
+    "href": "tasks/regression/anova-table.html#see-also",
+    "title": "ANOVA Table",
+    "section": "See also",
+    "text": "See also\n\nSimple Linear Regression\nCheck Assumptions\n\nData: CH03PR03.txt, CH03PR15.txt — see sources & provenance."
+  }
+]
