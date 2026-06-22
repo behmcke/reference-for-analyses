@@ -6,9 +6,10 @@ project:
   render:
     - index.qmd
     - tasks/
+    - data/README.md
 
 website:
-  title: "Reference for Analyses"
+  title: "Betsy's Stats Cookbook"
   description: "A cookbook of applied-statistics code snippets, organized by course and by task."
   search:
     location: navbar
@@ -16,29 +17,127 @@ website:
   navbar:
     background: primary
     search: true
+    # Courses are top-navbar dropdowns (alphabetical); tasks within each are
+    # ordered by workflow (fit → diagnose → select → special cases).
     left:
       - text: "Home"
         href: index.qmd
+      - text: "Experiments"
+        menu:
+          - text: "Assign Random Treatments"
+            href: tasks/experiments/assign-random-treatments.qmd
+          - text: "Sample Size"
+            href: tasks/experiments/sample-size.qmd
+          - text: "Conservative Estimate of Variance"
+            href: tasks/experiments/conservative-estimate-of-variance.qmd
+          - text: "Test Treatment Effect"
+            href: tasks/experiments/test-treatment-effect.qmd
+          - text: "Fit 2-Way Complete Model"
+            href: tasks/experiments/fit-2-way-complete-model.qmd
+          - text: "Interaction Terms"
+            href: tasks/experiments/interaction-terms.qmd
+          - text: "Choosing Contrasts"
+            href: tasks/experiments/choosing-contrasts.qmd
+          - text: "Family-wise Confidence Intervals"
+            href: tasks/experiments/familywise-confidence-intervals.qmd
+          - text: "Linear and Quadratic Trends"
+            href: tasks/experiments/linear-and-quadratic-trends.qmd
+          - text: "Check Assumptions"
+            href: tasks/experiments/check-assumptions.qmd
+          - text: "Transformations"
+            href: tasks/experiments/transformations.qmd
+          - text: "Impossible to Interpret"
+            href: tasks/experiments/impossible-to-interpret.qmd
+      - text: "Multivariate"
+        menu:
+          - text: "Descriptive Statistics"
+            href: tasks/multivariate/descriptive-statistics.qmd
+          - text: "Check Normality"
+            href: tasks/multivariate/check-normality.qmd
+          - text: "Principal Component Analysis"
+            href: tasks/multivariate/principal-component-analysis.qmd
+      - text: "Regression"
+        menu:
+          - text: "Simple Linear Regression"
+            href: tasks/regression/simple-linear-regression.qmd
+          - text: "Multiple Linear Regression"
+            href: tasks/regression/multiple-linear-regression.qmd
+          - text: "ANOVA Table"
+            href: tasks/regression/anova-table.qmd
+          - text: "Transformations"
+            href: tasks/regression/transformations.qmd
+          - text: "Interaction Terms"
+            href: tasks/regression/interaction-terms.qmd
+          - text: "Indicator Variables"
+            href: tasks/regression/indicator-variables.qmd
+          - text: "Piecewise Linear Model"
+            href: tasks/regression/piecewise-linear-model.qmd
+          - text: "Check Assumptions"
+            href: tasks/regression/check-assumptions.qmd
+          - text: "Added Variable Plot"
+            href: tasks/regression/added-variable-plot.qmd
+          - text: "Outliers & Influential Points"
+            href: tasks/regression/outliers-influential-points.qmd
+          - text: "Check Model Fit"
+            href: tasks/regression/check-model-fit.qmd
+          - text: "Model Selection"
+            href: tasks/regression/model-selection.qmd
+          - text: "Simple Logistic Regression"
+            href: tasks/regression/simple-logistic-regression.qmd
+          - text: "Multiple Logistic Regression"
+            href: tasks/regression/multiple-logistic-regression.qmd
+      - text: "Statistical Computing"
+        menu:
+          - text: "Examine a Dataframe"
+            href: tasks/statistical-computing/examine-dataframe.qmd
+          - text: "Functional Programming with purrr"
+            href: tasks/statistical-computing/purrr.qmd
+          - text: "Scatterplots with ggplot2"
+            href: tasks/statistical-computing/scatter-ggplot.qmd
+          - text: "Bar Plots"
+            href: tasks/statistical-computing/bar-plots.qmd
+          - text: "Pie Charts"
+            href: tasks/statistical-computing/pie-chart.qmd
+          - text: "Boxplots with ggplot2"
+            href: tasks/statistical-computing/boxplots-ggplot.qmd
+          - text: "Facetting with facet_grid"
+            href: tasks/statistical-computing/facet-grid.qmd
+          - text: "Smoothing with geom_smooth()"
+            href: tasks/statistical-computing/geom-smooth.qmd
+          - text: "Manual Smoothing"
+            href: tasks/statistical-computing/manual-smoothing.qmd
+          - text: "Sampling"
+            href: tasks/statistical-computing/sampling.qmd
+          - text: "Simulation Basics"
+            href: tasks/statistical-computing/simulation-basics.qmd
+          - text: "Monte Carlo Simulation"
+            href: tasks/statistical-computing/monte-carlo-simulation.qmd
+          - text: "Bootstrap Estimate"
+            href: tasks/statistical-computing/bootstrap-estimate.qmd
+          - text: "Bootstrap Confidence Interval"
+            href: tasks/statistical-computing/bootstrap-confidence-interval.qmd
+          - text: "Permutation Tests"
+            href: tasks/statistical-computing/permutation-tests.qmd
+          - text: "Cross-Validation"
+            href: tasks/statistical-computing/cross-validation.qmd
+      - text: "Time Series"
+        menu:
+          - text: "Detrending"
+            href: tasks/time-series/detrending.qmd
+          - text: "Deseasoning"
+            href: tasks/time-series/deseasoning.qmd
+          - text: "ACF and PACF"
+            href: tasks/time-series/acf-and-pacf.qmd
+          - text: "Check Assumptions"
+            href: tasks/time-series/check-assumptions.qmd
+          - text: "Fit ARIMA Model"
+            href: tasks/time-series/fit-arima-model.qmd
+          - text: "Forecasting"
+            href: tasks/time-series/forecasting.qmd
     right:
       - icon: github
         href: https://github.com/behmcke/reference-for-analyses
         aria-label: GitHub
-  sidebar:
-    style: floating
-    search: true
-    contents:
-      - text: "All tasks"
-        href: index.qmd
-      - section: "Regression"
-        contents: tasks/regression/*.qmd
-      - section: "Experiments"
-        contents: tasks/experiments/*.qmd
-      - section: "Time Series"
-        contents: tasks/time-series/*.qmd
-      - section: "Multivariate"
-        contents: tasks/multivariate/*.qmd
-      - section: "Statistical Computing"
-        contents: tasks/statistical-computing/*.qmd
 
 format:
   html:

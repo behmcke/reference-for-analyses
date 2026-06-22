@@ -1,9 +1,10 @@
 # Refactor Plan: reference-for-analyses → Quarto cookbook
 
-Status: **base conversion built (steps 0–5), uncommitted; publish + cleanup
-(steps 6–7) pending.** This revision adds a **discoverability & readability
-pass** to be applied to the 51 existing task pages before publish — see
-*Discoverability & readability enhancements (revised)* below.
+Status: **base conversion (steps 0–5) and the discoverability & readability pass
+are both done (2026-06-22), uncommitted; publish + cleanup (steps 6–7) pending.**
+The enhancement pass as actually built — including where it diverged from the
+original sketch — is recorded in *Discoverability & readability enhancements*
+below.
 
 ## Goal
 
@@ -15,14 +16,15 @@ of the existing content (code, prose, or statistical answers move verbatim).
 
 | Question | Decision |
 |---|---|
-| Scope of display refactor | **Full Quarto site** (navbar + sidebar + built-in search) |
+| Scope of display refactor | **Full Quarto site** (top-navbar course dropdowns + built-in search; no left sidebar) |
+| Site title | **"Betsy's Stats Cookbook"**; an *Organized using Claude Code* credit on the homepage and the data-provenance page |
 | Rendered HTML in git | **Stop committing renders** — render to `_site/` (gitignored); publish with `quarto publish gh-pages` |
 | Datasets | **Vendor a `data/` folder** so chunks are reproducible, with a `data/README.md` citing sources |
 | Class tagging granularity | **Page per task** — each task is its own `.qmd`, tagged with its course **and** with cross-cutting concept tags (see *Discoverability & readability enhancements*) |
 | Concept tags | **Add a shared concept-tag vocabulary** spanning courses; **drop the per-page singleton task-name tag** (it filtered to one page and added no value) |
 | Per-page descriptions | **One-line `description:` on every page**, surfaced in the index listing and search index |
-| Lead sentences | **Allowed (non-verbatim), but always inside a colored Quarto callout** so they're visually distinct from verbatim content (see Lead-sentence policy) |
-| Sidebar ordering | **Workflow order within each course** (fit → diagnose → select → special cases), not alphabetical |
+| Lead sentences | **Allowed (non-verbatim), but always inside a colored Quarto callout titled "Introduction"** so they're visually distinct from verbatim content (see Lead-sentence policy) |
+| Navigation | **Courses are top-navbar dropdowns** (alphabetical), each listing its tasks in **workflow order** (fit → diagnose → select → special cases); the left sidebar was dropped. Homepage listing is a **table** (avoids the default layout's thumbnail indent). |
 | 5 missing Regression datasets | **Fetch from a public Kutner ALSM mirror** into `data/` (mirror verified at execution; `eval: false` fallback) |
 | Chunk execution on render | **`freeze: auto` site-wide; Time Series pages `eval: false`** (see Execution policy) |
 | Model running this work | Opus 4.8, high/xhigh effort |
@@ -179,15 +181,17 @@ formatted. This makes the answers readable instead of inert grey comments.
 
 ## Discoverability & readability enhancements (revised)
 
-Applied as a pass over the 51 existing task pages before publish. None of this
-touches statistical answers, values, or code logic.
+**Status: done 2026-06-22 (uncommitted).** Applied as a pass over all 51 task
+pages plus the site config. None of it touches statistical answers, values, or
+code logic. Subsections below describe what was built; #5–#6 note where the
+result diverged from the original sketch.
 
 ### 1. Concept tags (controlled vocabulary)
 
 Every page keeps its single course tag and gains one or more **concept tags**
 drawn from a fixed vocabulary. The old per-page task-name tag is dropped (it
-only ever matched one page). Proposed starting vocabulary — refined during
-assignment so every tag aggregates at least ~3 pages:
+only ever matched one page). Final vocabulary (9 tags; each aggregates ≥2 pages,
+*Model Selection* the smallest at 3):
 
 - **Model Fitting** · **Diagnostics** · **Model Selection**
   · **Inference & Prediction** · **Visualization** · **Resampling & Simulation**
@@ -218,16 +222,16 @@ callout** — never as plain body text. Use a single, consistent callout type
 site-wide:
 
 ```markdown
-::: {.callout-note}
+::: {.callout-note title="Introduction"}
 Use an added-variable plot to judge whether one predictor still contributes
 once the others are already in the model.
 :::
 ```
 
-`callout-note` (blue) is the default choice; the type is configurable but must
-be uniform across all pages so the lead box reads as a recognizable convention.
-Everything below the callout (code, results, interpretation, answers) stays
-verbatim per the rules below.
+Built as a blue `callout-note` titled **"Introduction"**, uniform across all 51
+pages so the lead box reads as a recognizable convention. Everything below the
+callout (code, results, interpretation, answers) stays verbatim per the rules
+below.
 
 ### 4. Disambiguate duplicate titles
 
@@ -235,15 +239,29 @@ Several titles repeat across courses ("Check Assumptions", "Interaction Terms",
 "Transformations"). The `description` and concept tags disambiguate them in
 search and listings; no title rename required.
 
-### 5. Workflow ordering & cross-links
+### 5. Navigation, cross-links & provenance
 
-- Order each sidebar section by **workflow** (fit → diagnose → select → special
-  cases) rather than alphabetically, via Quarto's `order` field or explicit
-  `sidebar.contents` ordering.
-- Where a page already references another task in prose or a comment (e.g. the
-  added-variable-plot page points back to Multiple Linear Regression), make it a
-  real **"See also"** link so related tasks form a navigable web.
-- Link each page's dataset to its `data/README.md` provenance entry.
+- **Navigation moved from a left sidebar to top-navbar course dropdowns**
+  (alphabetical courses; tasks within each in workflow order fit → diagnose →
+  select → special cases). The left sidebar was removed so pages render
+  full-width. *(Diverges from the original "navbar + sidebar" decision.)*
+- The homepage listing was switched from `type: default` to **`type: table`**:
+  the default layout reserved an empty image gutter that showed as a large left
+  indent.
+- **"See also" footers** added to all 51 pages, linking related tasks — including
+  cross-course links (the three *Check Assumptions* pages and the two
+  *Transformations* pages point at each other).
+- **Dataset → provenance links** added to the 36 data-using pages.
+  `data/README.md` is now a **rendered site page** (`data/README.html`, added to
+  the render list) with explicit per-course anchors (`#regression`,
+  `#experiments`, `#multivariate`, `#time-series`, `#statistical-computing`);
+  each page links its dataset(s) to the matching section.
+
+### 6. Site identity
+
+- Site renamed to **"Betsy's Stats Cookbook"** (navbar + homepage title).
+- An *Organized using Claude Code* credit line sits on the homepage (after the
+  intro paragraphs) and on the data-provenance page.
 
 ## Explicitly out of scope
 

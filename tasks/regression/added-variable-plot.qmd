@@ -1,7 +1,13 @@
 ---
 title: "Added Variable Plot"
-categories: [Regression, "Added Variable Plot"]
+description: "Isolate one predictor's contribution to a fitted model with an added-variable plot."
+categories: [Regression, Diagnostics, Visualization]
 ---
+
+::: {.callout-note title="Introduction"}
+Use an added-variable (partial regression) plot to judge whether a predictor
+still contributes once the other predictors are already in the model.
+:::
 
 ```{r}
 #| message: false
@@ -24,3 +30,11 @@ which represents age, may have a linear relationship with patient
 satisfaction, while the relationship between $X_2$ and $X_3$ and patient
 satisfaction remains unclear. It is possible these variables do not
 significantly add value to the model.
+
+
+## See also
+
+- [Multiple Linear Regression](multiple-linear-regression.qmd)
+- [Outliers & Influential Points](outliers-influential-points.qmd)
+
+*Data: `CH06PR15.txt` — see [sources & provenance](../../data/README.md#regression).*

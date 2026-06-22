@@ -1,7 +1,13 @@
 ---
 title: "Check Assumptions"
-categories: [Regression, "Check Assumptions"]
+description: "Check normality, constant variance, independence, and outliers for a linear model."
+categories: [Regression, Diagnostics]
 ---
+
+::: {.callout-note title="Introduction"}
+Run these residual plots and tests to verify the core linear-model assumptions
+before trusting any inference from the fit.
+:::
 
 Assumptions to check:
 
@@ -51,3 +57,12 @@ abline(h=0)
 plot(gpa$V3, gpa.e, col="orange", pch=18, xlab="V3", ylab="Residuals", main="V3 Residual Plot")
 abline(h=0)
 ```
+
+
+## See also
+
+- [Simple Linear Regression](simple-linear-regression.qmd)
+- [Outliers & Influential Points](outliers-influential-points.qmd)
+- [Check Assumptions](../experiments/check-assumptions.qmd)
+
+*Data: `CH03PR03.txt` — see [sources & provenance](../../data/README.md#regression).*

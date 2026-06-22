@@ -1,7 +1,13 @@
 ---
 title: "Assign Random Treatments"
-categories: [Experiments, "Assign Random Treatments"]
+description: "Randomly allocate experimental units to treatment levels for a completely randomized design."
+categories: [Experiments, "Experimental Design"]
 ---
+
+::: {.callout-note title="Introduction"}
+Use this to randomly assign experimental units across treatment levels so each
+treatment receives its planned number of replicates.
+:::
 
 Suppose that you are planning to run an experiment with one treatment factor
 having four levels and no blocking factors. Suppose that the calculation of
@@ -30,3 +36,8 @@ data = data.frame(data,
                   exper_unit = seq(1:20))               #number experimental units
 data
 ```
+
+
+## See also
+
+- [Sample Size](sample-size.qmd)

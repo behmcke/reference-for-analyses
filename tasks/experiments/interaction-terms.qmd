@@ -1,7 +1,13 @@
 ---
 title: "Interaction Terms"
-categories: [Experiments, "Interaction Terms"]
+description: "Test and visualize a two-factor interaction; switch to a cell-means model when it matters."
+categories: [Experiments, "Model Fitting", Visualization]
 ---
+
+::: {.callout-note title="Introduction"}
+Test for a two-factor interaction and read an interaction plot; when interaction
+is present, compare treatments rather than individual factor levels.
+:::
 
 ```{r}
 #| message: false
@@ -88,3 +94,10 @@ ggplot(weld2,
 Predictably, the treatments with the highest weld strength belong to those
 with the gage level at 1 or 2 and the time level of 3. These were also shown
 to be highest on the interaction plot.
+
+
+## See also
+
+- [Fit 2-Way Complete Model](fit-2-way-complete-model.qmd)
+
+*Data: `weld.strength.txt` — see [sources & provenance](../../data/README.md#experiments).*

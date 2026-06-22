@@ -1,7 +1,13 @@
 ---
 title: "Fit Piecewise Linear Model"
-categories: [Regression, "Fit Piecewise Linear Model"]
+description: "Fit a piecewise (segmented) linear regression with a breakpoint."
+categories: [Regression, "Model Fitting"]
 ---
+
+::: {.callout-note title="Introduction"}
+Fit a piecewise linear model when the relationship changes slope at a known
+breakpoint.
+:::
 
 ```{r}
 
@@ -31,3 +37,10 @@ predictions <- predict(piecewise.fit, newdata=data.frame(Age = a.grid), interval
 # add lines to graph (run entire chunk for success)
 lines(x=a.grid, y=predictions[,1], col="gray3")
 ```
+
+
+## See also
+
+- [Multiple Linear Regression](multiple-linear-regression.qmd)
+
+*Data: `CH06PR18-1.txt` — see [sources & provenance](../../data/README.md#regression).*

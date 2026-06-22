@@ -1,23 +1,26 @@
 ---
-title: "Reference for Analyses"
+title: "Betsy's Stats Cookbook"
 listing:
   id: tasks
   contents: tasks
-  type: default
+  type: table
   sort: "title"
   categories: true
   sort-ui: true
   filter-ui: true
-  fields: [title, categories]
+  fields: [title, description, categories]
 ---
 
 A cookbook of applied-statistics code snippets accumulated while completing
 coursework for an applied-statistics degree. Each **task** is its own page,
-tagged with the **course** it came from, so the same content is browsable by
-course *and* by task — and fully searchable.
+tagged with the **course** it came from *and* with cross-cutting **concept
+tags** (Model Fitting, Diagnostics, Visualization, …), so the same content is
+browsable by course and by concept — and fully searchable.
 
-Use the category tags below to filter by course or by task type, or the search
-box (top right) to find a specific technique.
+Use the category tags to the right to filter by course or by concept, or the
+search box (top right) to find a specific technique.
+
+*Organized using Claude Code*
 
 ::: {#tasks}
 :::

@@ -1,7 +1,13 @@
 ---
 title: "ANOVA Table"
-categories: [Regression, "ANOVA Table"]
+description: "Partition regression variation and run F-tests with an ANOVA table."
+categories: [Regression, "Inference & Prediction"]
 ---
+
+::: {.callout-note title="Introduction"}
+Use the ANOVA table to partition sums of squares and F-test whether the
+predictors collectively improve on an intercept-only model.
+:::
 
 ```{r}
 
@@ -53,3 +59,11 @@ This information does not indicate what regression function is appropriate,
 since all other regression functions are included in the alternate hypothesis.
 If we want to explore alternate regression functions, we can look to other
 diagnostics and examine the residuals.
+
+
+## See also
+
+- [Simple Linear Regression](simple-linear-regression.qmd)
+- [Check Assumptions](check-assumptions.qmd)
+
+*Data: `CH03PR03.txt`, `CH03PR15.txt` — see [sources & provenance](../../data/README.md#regression).*

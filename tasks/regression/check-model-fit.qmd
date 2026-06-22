@@ -1,7 +1,13 @@
 ---
 title: "Check Model Fit"
-categories: [Regression, "Check Model Fit"]
+description: "Assess predictive fit with PRESS and compare MSPE against MSE on a validation set."
+categories: [Regression, Diagnostics]
 ---
+
+::: {.callout-note title="Introduction"}
+Use the PRESS statistic and an out-of-sample MSPE to judge how well a fitted
+model predicts new data, not just how well it fits the training data.
+:::
 
 ```{r}
 #| message: false
@@ -31,3 +37,10 @@ anova(jobfit)
 pred_job2 <- predict(jobfit, newdata=job2)
 mspe <- mean((job2$Job_Proficiency_Score-pred_job2)^2)
 ```
+
+
+## See also
+
+- [Model Selection](model-selection.qmd)
+
+*Data: `CH09PR10-1.txt`, `CH09PR22-1.txt` — see [sources & provenance](../../data/README.md#regression).*

@@ -1,7 +1,13 @@
 ---
 title: "Impossible to Interpret (Limited Sample Size)"
-categories: [Experiments, "Impossible to Interpret (limited sample size)"]
+description: "See how too few observations and empty cells leave factorial effects unmeasurable."
+categories: [Experiments, "Experimental Design"]
 ---
+
+::: {.callout-note title="Introduction"}
+A cautionary example: with empty cells and too few observations, some factorial
+effects simply cannot be estimated.
+:::
 
 ```{r}
 #| message: false
@@ -48,3 +54,10 @@ kable(drop1(model7.13b, ~., test="F")) %>%
 No, not all of the effects can be measured. We can consider models that
 include Factor A, Factor B, both Factors A and B, or both Factor A and B as
 well as their interaction effect.
+
+
+## See also
+
+- [Fit 2-Way Complete Model](fit-2-way-complete-model.qmd)
+
+*Data: `paper.towel.strength.txt` — see [sources & provenance](../../data/README.md#experiments).*

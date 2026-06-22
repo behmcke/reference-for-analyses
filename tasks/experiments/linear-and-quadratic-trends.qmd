@@ -1,7 +1,13 @@
 ---
 title: "Linear and Quadratic Trends"
-categories: [Experiments, "Linear and Quadratic Trends"]
+description: "Test for linear and quadratic trends across ordered treatment levels with polynomial contrasts."
+categories: [Experiments, "Inference & Prediction"]
 ---
+
+::: {.callout-note title="Introduction"}
+Use polynomial trend contrasts to test whether the response changes linearly or
+quadratically across ordered treatment levels.
+:::
 
 ```{r}
 #| message: false
@@ -76,3 +82,11 @@ quad_summary
 Because 0 is contained in the confidence interval and the p-value is greater
 than 0.01, I reject that there exists a quadratic trend between teaspoons of
 salt added to water and time to boil.
+
+
+## See also
+
+- [Family-wise Confidence Intervals](familywise-confidence-intervals.qmd)
+- [Choosing Contrasts](choosing-contrasts.qmd)
+
+*Data: `water.boiling.txt` — see [sources & provenance](../../data/README.md#experiments).*

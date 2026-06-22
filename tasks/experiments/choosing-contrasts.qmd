@@ -1,7 +1,13 @@
 ---
 title: "Choosing Contrasts"
-categories: [Experiments, "Choosing Contrasts"]
+description: "Define treatment contrasts that capture the comparisons of primary interest."
+categories: [Experiments, "Experimental Design", "Inference & Prediction"]
 ---
+
+::: {.callout-note title="Introduction"}
+Set up contrasts to express the specific treatment comparisons you care about —
+main effects, pairwise differences, or interactions.
+:::
 
 The experiment was run to compare the effects of auditory and visual cues on
 speed of response of a human subject. The experimenters were interested in
@@ -49,3 +55,8 @@ $$w_T = q_{v,\,n-v,\,\alpha} / \sqrt{2}$$
 
 Bonferroni Multiplier:
 $$w_B = t_{n-v,\,\alpha/(2m)}$$
+
+
+## See also
+
+- [Family-wise Confidence Intervals](familywise-confidence-intervals.qmd)

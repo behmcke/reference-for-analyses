@@ -1,7 +1,13 @@
 ---
 title: "Family-wise Confidence Intervals for Contrasts"
-categories: [Experiments, "Family-wise Confidence Intervals for Contrasts"]
+description: "Build family-wise confidence intervals for contrasts with Bonferroni and Scheffé adjustments."
+categories: [Experiments, "Inference & Prediction"]
 ---
+
+::: {.callout-note title="Introduction"}
+Use Bonferroni or Scheffé multipliers to control the family-wise error rate
+across several contrast intervals at once.
+:::
 
 ```{r}
 #| message: false
@@ -46,3 +52,11 @@ I conclude that there is a significant difference in reaction time depending
 on the method of alerting the subject of the cue; however, no significant
 difference was found among the amounts of time subjects were given between the
 cue and the stimulus.
+
+
+## See also
+
+- [Choosing Contrasts](choosing-contrasts.qmd)
+- [Check Assumptions](check-assumptions.qmd)
+
+*Data: `reaction.time.txt` — see [sources & provenance](../../data/README.md#experiments).*

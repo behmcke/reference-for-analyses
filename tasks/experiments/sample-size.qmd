@@ -1,7 +1,13 @@
 ---
 title: "Sample Size"
-categories: [Experiments, "Sample Size"]
+description: "Compute the per-group sample size needed for a target power in a one-way ANOVA."
+categories: [Experiments, "Experimental Design"]
 ---
+
+::: {.callout-note title="Introduction"}
+Use a power calculation to find how many observations per treatment you need to
+detect a given effect size.
+:::
 
 ```{r}
 #| message: false
@@ -25,3 +31,8 @@ pwr.anova.test(4,
 
 The recommended sample size from each treatment group is 39, with a total
 sample size of 156.
+
+
+## See also
+
+- [Conservative Estimate of Variance](conservative-estimate-of-variance.qmd)

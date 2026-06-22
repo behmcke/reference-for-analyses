@@ -1,7 +1,13 @@
 ---
 title: "Indicator Variables"
-categories: [Regression, "Indicator Variables"]
+description: "Add a categorical predictor to a regression with an indicator (dummy) variable."
+categories: [Regression, "Model Fitting"]
 ---
+
+::: {.callout-note title="Introduction"}
+Use an indicator variable to let a single regression capture the shift between
+two categories (coded 0/1).
+:::
 
 ```{r}
 # read data: gpa1 (original) + gpa2 (indicator) = gpa (full dataset)
@@ -32,3 +38,10 @@ plot(gpa$ACT, gpa.e, col=test, pch=18,
      main="Residual Plot Against ACT Score Separated by Indicator",
      xlab="ACT Score", ylab="Residuals")
 ```
+
+
+## See also
+
+- [Interaction Terms](interaction-terms.qmd)
+
+*Data: `CH01PR19-1.txt`, `CH08PR16.txt` — see [sources & provenance](../../data/README.md#regression).*

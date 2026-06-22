@@ -1,7 +1,13 @@
 ---
 title: "Model Selection"
+description: "Choose predictors with best-subsets, adjusted R², Mallows' Cp, BIC, and stepwise search."
 categories: [Regression, "Model Selection"]
 ---
+
+::: {.callout-note title="Introduction"}
+Use best-subsets and stepwise criteria to settle on a parsimonious set of
+predictors rather than keeping every candidate.
+:::
 
 ```{r}
 #| message: false
@@ -43,3 +49,10 @@ forwstep_a
 forwstep_b <- step(gfit_int, scope=list(upper=gfit_full), data=job, direction="both", k=log(nrow(job)))
 forwstep_b
 ```
+
+
+## See also
+
+- [Check Model Fit](check-model-fit.qmd)
+
+*Data: `CH09PR10-1.txt` — see [sources & provenance](../../data/README.md#regression).*

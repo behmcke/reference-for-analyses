@@ -1,7 +1,13 @@
 ---
 title: "Simple Logistic Regression"
-categories: [Regression, "Simple Logistic Regression"]
+description: "Model a binary outcome from one predictor and interpret the odds ratio."
+categories: [Regression, "Model Fitting"]
 ---
+
+::: {.callout-note title="Introduction"}
+Use simple logistic regression to model a binary outcome from a single
+predictor, reading the slope as an odds ratio.
+:::
 
 ```{r}
 #| message: false
@@ -70,3 +76,10 @@ pi_2d <- exp(dues_b[1]+dues_b[2]*40)/(1+exp(dues_b[1]+dues_b[2]*40))
 Y <- exp(dues_b[1]+dues_b[2]*X)/(1+exp(dues_b[1]+dues_b[2]*X)) # equation
 answer <- X[which(Y > .74 & Y < 0.76)]              # find Y = .75
 ```
+
+
+## See also
+
+- [Multiple Logistic Regression](multiple-logistic-regression.qmd)
+
+*Data: `CH14PR07.txt` — see [sources & provenance](../../data/README.md#regression).*

@@ -1,7 +1,13 @@
 ---
 title: "Multiple Logistic Regression"
-categories: [Regression, "Multiple Logistic Regression"]
+description: "Model a binary outcome from several predictors; test with Wald and likelihood-ratio tests."
+categories: [Regression, "Model Fitting", "Model Selection"]
 ---
+
+::: {.callout-note title="Introduction"}
+Use multiple logistic regression to model a binary outcome from several
+predictors, interpreting coefficients as odds ratios.
+:::
 
 A local health clinic sent fliers to its clients to encourage everyone, but
 especially older persons at high risk of complications, to get a flu shot in
@@ -216,3 +222,11 @@ lines(x=xvals[orderx],                           # linear predictors, ordered
 I have some concern about the adequacy of the model fit due to the departure
 of the loess line from an expected value of zero for fitted probabilities
 above zero.
+
+
+## See also
+
+- [Simple Logistic Regression](simple-logistic-regression.qmd)
+- [Model Selection](model-selection.qmd)
+
+*Data: `CH14PR14.txt` — see [sources & provenance](../../data/README.md#regression).*

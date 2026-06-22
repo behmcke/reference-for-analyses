@@ -1,7 +1,13 @@
 ---
 title: "Fit Multiple Linear Regression Model"
-categories: [Regression, "Fit Multiple Linear Regression Model"]
+description: "Fit, test, and interpret a multiple linear regression with several predictors."
+categories: [Regression, "Model Fitting"]
 ---
+
+::: {.callout-note title="Introduction"}
+Fit a multiple linear regression to relate a response to several predictors at
+once, then check residuals and test the coefficients.
+:::
 
 ```{r}
 
@@ -103,3 +109,11 @@ sense because the reduction in variability of Y has the opportunity to be
 attributed to other variables first and will not be double-counted.
 
 $SSR(X_2 \mid X_1, X_3)$ has 1 DF.
+
+
+## See also
+
+- [Added Variable Plot](added-variable-plot.qmd)
+- [Outliers & Influential Points](outliers-influential-points.qmd)
+
+*Data: `CH06PR15.txt` — see [sources & provenance](../../data/README.md#regression).*

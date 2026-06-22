@@ -1,7 +1,13 @@
 ---
 title: "Test Treatment Effect"
-categories: [Experiments, "Test Treatment Effect"]
+description: "Fit a one-way ANOVA and test whether treatment means differ."
+categories: [Experiments, "Inference & Prediction", Visualization]
 ---
+
+::: {.callout-note title="Introduction"}
+Fit a one-way model and use ANOVA to test whether the treatment has any effect
+on the response.
+:::
 
 ```{r}
 #| message: false
@@ -56,3 +62,11 @@ treatment groups have unequal tau_i.
 I will not keep the model that considers all treatments equal and instead
 adopt a model that suggests sulfamerazine does have an effect on hemoglobin
 content.
+
+
+## See also
+
+- [Conservative Estimate of Variance](conservative-estimate-of-variance.qmd)
+- [Check Assumptions](check-assumptions.qmd)
+
+*Data: `trout.txt` — see [sources & provenance](../../data/README.md#experiments).*

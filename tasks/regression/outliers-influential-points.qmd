@@ -1,7 +1,13 @@
 ---
 title: "Outlier and Influential Points"
-categories: [Regression, "Outlier and Influential Points"]
+description: "Flag outliers and influential points with studentized residuals, leverage, and Cook's distance."
+categories: [Regression, Diagnostics]
 ---
+
+::: {.callout-note title="Introduction"}
+Screen a fitted model for outliers and high-influence observations before
+relying on its coefficients.
+:::
 
 ```{r}
 #| message: false
@@ -30,3 +36,11 @@ library(lindia)
 gg_cooksd(gfit2)
 cutoff <- qf(.5, 4, 42)
 ```
+
+
+## See also
+
+- [Added Variable Plot](added-variable-plot.qmd)
+- [Multiple Linear Regression](multiple-linear-regression.qmd)
+
+*Data: `CH06PR15.txt` — see [sources & provenance](../../data/README.md#regression).*

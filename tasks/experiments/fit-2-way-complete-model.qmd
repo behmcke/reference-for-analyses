@@ -1,7 +1,13 @@
 ---
 title: "Fit 2-Way Complete Model"
-categories: [Experiments, "Fit 2-Way Complete Model"]
+description: "Fit a two-way complete (factorial) model and test which effects to keep."
+categories: [Experiments, "Model Fitting"]
 ---
+
+::: {.callout-note title="Introduction"}
+Fit a two-way complete model with both main effects and their interaction, then
+test which terms to retain.
+:::
 
 ```{r}
 #| message: false
@@ -42,3 +48,11 @@ drop1(model7.8, ~., test="F")
 Only factors B and C should be included in the model, since both have
 p-values < 0.01 via F testing. Factor A and the interaction between factors
 A and B are considered insignificant to this model.
+
+
+## See also
+
+- [Impossible to Interpret](impossible-to-interpret.qmd)
+- [Interaction Terms](interaction-terms.qmd)
+
+*Data: `paper.towel.strength.txt` — see [sources & provenance](../../data/README.md#experiments).*

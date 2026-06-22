@@ -20,7 +20,6 @@
 **/*.quarto_ipynb
 
 # Raw class files
-data/
 multivariate/
 time-series/
 statistical-computing/

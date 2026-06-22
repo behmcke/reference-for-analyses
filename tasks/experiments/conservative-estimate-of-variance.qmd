@@ -1,7 +1,13 @@
 ---
 title: "Conservative Estimate of Variance"
-categories: [Experiments, "Conservative Estimate of Variance"]
+description: "Get a conservative upper bound on the error variance for experiment planning."
+categories: [Experiments, "Experimental Design", "Inference & Prediction"]
 ---
+
+::: {.callout-note title="Introduction"}
+Use the upper confidence limit for σ² as a conservative variance when planning a
+future experiment.
+:::
 
 ```{r}
 #| message: false
@@ -26,3 +32,11 @@ sigma2 <- sse/chi                                       #upper limit for sigma^2
 The upper confidence limit for a 95% confidence interval estimating $\sigma^2$
 would be 2.4269. I would use this variance when conservatively planning an
 experiment.
+
+
+## See also
+
+- [Sample Size](sample-size.qmd)
+- [Test Treatment Effect](test-treatment-effect.qmd)
+
+*Data: `trout.txt` — see [sources & provenance](../../data/README.md#experiments).*

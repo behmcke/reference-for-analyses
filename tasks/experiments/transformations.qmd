@@ -1,7 +1,13 @@
 ---
 title: "Transformations"
-categories: [Experiments, "Transformations"]
+description: "Choose a variance-stabilizing power transformation from the mean–variance relationship."
+categories: [Experiments, Transformations]
 ---
+
+::: {.callout-note title="Introduction"}
+Use the relationship between treatment means and variances to pick a
+variance-stabilizing power transformation.
+:::
 
 ```{r}
 #| message: false
@@ -30,3 +36,11 @@ $$h(y_{it}) = (y_{it})^{1-(q/2)}$$
 I find q to be -1.9187.
 
 \*\*\*\*\*\* Double check that this is best formula - there are others.
+
+
+## See also
+
+- [Check Assumptions](check-assumptions.qmd)
+- [Transformations](../regression/transformations.qmd)
+
+*Data: `bicycle.txt` — see [sources & provenance](../../data/README.md#experiments).*

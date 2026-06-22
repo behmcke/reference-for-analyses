@@ -1,7 +1,13 @@
 ---
 title: "Fit Simple Linear Regression Model"
-categories: [Regression, "Fit Simple Linear Regression Model"]
+description: "Fit, test, and predict from a simple linear regression on a single predictor."
+categories: [Regression, "Model Fitting"]
 ---
+
+::: {.callout-note title="Introduction"}
+Fit a simple linear regression to relate a response to one predictor, with
+coefficient tests, confidence intervals, and predictions.
+:::
 
 Grade point average. The director of admissions of a small college selected 120
 students at random from the new freshman class in a study to determine whether
@@ -101,3 +107,11 @@ wider than the confidence interval, which predicts the mean exclusively.
 If there were no linear association between Y and X, 0 would be included in
 the confidence interval for slope. However, 0 is not included in the
 confidence interval, so this conclusion is valid with a significance of 0.05.
+
+
+## See also
+
+- [Multiple Linear Regression](multiple-linear-regression.qmd)
+- [Check Assumptions](check-assumptions.qmd)
+
+*Data: `gpa.txt` — see [sources & provenance](../../data/README.md#regression).*

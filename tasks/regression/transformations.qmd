@@ -1,7 +1,13 @@
 ---
 title: "Transformations"
-categories: [Regression, "Transformations"]
+description: "Stabilize variance by choosing a response transformation with Box-Cox."
+categories: [Regression, Transformations]
 ---
+
+::: {.callout-note title="Introduction"}
+Use a Box-Cox plot to choose a response transformation when constant-variance or
+normality assumptions are violated.
+:::
 
 ```{r}
 #| message: false
@@ -28,3 +34,11 @@ appropriate.
 ### Interpret Transformed Data
 For each one-year increase, the expected change in square root of sales in
 thousands is 1.07629.
+
+
+## See also
+
+- [Check Assumptions](check-assumptions.qmd)
+- [Transformations](../experiments/transformations.qmd)
+
+*Data: `CH03PR17.txt` — see [sources & provenance](../../data/README.md#regression).*

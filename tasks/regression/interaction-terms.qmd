@@ -1,7 +1,13 @@
 ---
 title: "Interaction Terms"
-categories: [Regression, "Interaction Terms"]
+description: "Let one predictor's effect depend on another using an interaction term."
+categories: [Regression, "Model Fitting"]
 ---
+
+::: {.callout-note title="Introduction"}
+Add an interaction term when the slope for one predictor should change with the
+level of another.
+:::
 
 ```{r}
 # data carried over from the Indicator Variables task
@@ -34,3 +40,10 @@ $H_a: \beta_3 \neq 0$
 Because t\*, `r t_star1`, is greater than t, `r t1`, we can reject the null
 hypothesis and conclude that the interaction term adds value to the
 regression function.
+
+
+## See also
+
+- [Indicator Variables](indicator-variables.qmd)
+
+*Data: `CH01PR19-1.txt`, `CH08PR16.txt` — see [sources & provenance](../../data/README.md#regression).*

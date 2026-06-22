@@ -1,7 +1,13 @@
 ---
 title: "Check Assumptions"
-categories: [Experiments, "Check Assumptions"]
+description: "Check constant variance, independence, normality, and fit for a one-way ANOVA."
+categories: [Experiments, Diagnostics]
 ---
+
+::: {.callout-note title="Introduction"}
+Use these residual diagnostics to verify the ANOVA assumptions before
+interpreting treatment effects.
+:::
 
 ```{r}
 #| message: false
@@ -52,3 +58,11 @@ Check:
 There is an acceptable amount of variance if the following condition is met:
 
 $$\sigma_{max} / \sigma_{min} < 3$$
+
+
+## See also
+
+- [Test Treatment Effect](test-treatment-effect.qmd)
+- [Check Assumptions](../regression/check-assumptions.qmd)
+
+*Data: `reaction.time.txt` — see [sources & provenance](../../data/README.md#experiments).*
