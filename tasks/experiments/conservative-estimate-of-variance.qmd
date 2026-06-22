@@ -1,0 +1,28 @@
+---
+title: "Conservative Estimate of Variance"
+categories: [Experiments, "Conservative Estimate of Variance"]
+---
+
+```{r}
+#| message: false
+#| warning: false
+pacman::p_load(dplyr, lsmeans)
+
+# load data
+trout <- read.table("../../data/trout.txt", header=TRUE)
+trout$Sulfa <- as.factor(trout$Sulfa)
+
+model <- lm(Hemo ~ Sulfa, data=trout)                   #fit linear model
+lsmeans(model, "Sulfa")                                 #find least squares means
+anova(model)                                            #anova model
+
+chi <- qchisq(.95,                                      #confidence level
+              36,                                       #degrees of freedom
+              lower.tail = FALSE)
+sse <- 56.471                                           #SSE
+sigma2 <- sse/chi                                       #upper limit for sigma^2
+```
+
+The upper confidence limit for a 95% confidence interval estimating $\sigma^2$
+would be 2.4269. I would use this variance when conservatively planning an
+experiment.

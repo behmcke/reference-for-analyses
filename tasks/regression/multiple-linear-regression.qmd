@@ -1,0 +1,105 @@
+---
+title: "Fit Multiple Linear Regression Model"
+categories: [Regression, "Fit Multiple Linear Regression Model"]
+---
+
+```{r}
+
+# read data
+patient <- read.table("../../data/CH06PR15.txt", header=TRUE)
+
+# scatter plot matrix
+pairs(patient, col="slategray4")
+
+# correlation matrix
+cor(patient)
+
+# fit linear model
+gfit <- lm(Satisfaction ~ Age + Severity + Anxiety, data=patient)
+
+# plot residuals against fitted values
+patient.e <- resid(gfit)
+plot(gfit$fitted.values, patient.e, col="slategray4", pch=18)
+
+# plot against single variables
+par(mfrow=c(2,2))
+plot(patient$Age, patient.e, col="slategray4", pch=18)
+plot(patient$Severity, patient.e, col="slategray4", pch=18)
+plot(patient$Anxiety, patient.e, col="slategray4", pch=18)
+
+# plot against interaction variables
+plot(patient$Age*patient$Severity, patient.e, col="slategray4", pch=18)
+plot(patient$Age*patient$Anxiety, patient.e, col="slategray4", pch=18)
+plot(patient$Severity*patient$Anxiety, patient.e, col="slategray4", pch=18)
+
+# f test for not all coefficients = 0
+summary(gfit)
+anova(gfit)
+MSR <- (8275.4+480.9+364.2)/3
+MSE <- 4248.8/42
+F_stat <- MSR/MSE #f stat
+compare <- qf(.90, 3, 42) #f*
+
+# coefficient of multiple determination
+SSR <- MSR*3
+SSTO <- SSR+ (MSE*42)
+R2 <- SSR/SSTO
+
+# estimate mean Y
+ci <- predict(gfit, newdata=data.frame(Age=35, Severity=45, Anxiety=2.2), interval="confidence", level=.90)
+
+# predict Y
+pi <- predict(gfit, newdata=data.frame(Age=35, Severity=45, Anxiety=2.2), interval="prediction", level=.90)
+
+# f test for b3 not = 0
+anova(gfit)
+f_stat_x3 <- (364.2/101.2)
+f4 <- qf(.975, 1, 42)
+
+# f test for b2 and b3 not = 0
+msr_2and3 <- (480.9+364.2)/2
+f_star_2and3 <- msr_2and3/101.2
+```
+
+## Answers
+
+### F Test for all Coefficients
+
+The alternatives are as follows:
+
+$H_0: \beta_1 = \beta_2 = \beta_3 = 0$
+
+$H_a:$ not all $\beta_k = 0$
+
+If the f-statistic is greater than F\*, I will reject the null hypothesis. If
+it is less than or equal to `r compare`, I will fail to reject the null
+hypothesis.
+
+Because the f-statistic is greater than the f-value, I can reject the null
+hypothesis and conclude that at least one of the beta terms is not equal to
+zero.
+
+The p-value is 1.542e-10, which makes sense as it is less than .10, which was
+the required level of significance in order to reject the null.
+
+### Coefficient of Multiple Determination
+
+The coefficient of multiple determination indicates that the inclusion of
+these three predictor variables reduces the variability in Y by 68.21973%.
+
+### F Test for B_3
+
+$H_0: \beta_3 = 0$
+
+$H_a: \beta_3 \neq 0$
+
+Because F-statistic is NOT greater than F\*, I fail to reject the null
+hypothesis. The P-value is 0.06468, which does not meet a significance
+level of .025.
+
+The degree of marginal linear association between $Y$ and $X_1$ is reduced
+for each predictor variable considered before $X_1$ is added. This makes
+sense because the reduction in variability of Y has the opportunity to be
+attributed to other variables first and will not be double-counted.
+
+$SSR(X_2 \mid X_1, X_3)$ has 1 DF.

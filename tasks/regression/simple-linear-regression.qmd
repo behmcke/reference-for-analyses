@@ -1,0 +1,103 @@
+---
+title: "Fit Simple Linear Regression Model"
+categories: [Regression, "Fit Simple Linear Regression Model"]
+---
+
+Grade point average. The director of admissions of a small college selected 120
+students at random from the new freshman class in a study to determine whether
+a student’s grade point average (GPA) at the end of freshman year (Y) can be
+predicted from the ACT test score (X). The results of the study follow. Assume
+that first-order regression model (1.1) is appropriate.
+
+```{r}
+
+# read data
+gpa <- read.table("../../data/gpa.txt", header = TRUE)
+
+# fit linear model + print summary
+gfit <- lm(GPA ~ ACT, data=gpa)
+summary(gfit)
+
+# plot data with fitted regression line
+plot(gpa$ACT, gpa$GPA, cex=.5, main="Data and Fitted Regression Model", ylab="Freshman GPA", xlab="ACT Score")
+abline(gfit,lwd = 3)
+
+# produce confidence interval for B_1
+confint(gfit, 'ACT', level = 0.99)
+
+# t-test for relationship
+beta0 <- coef(gfit)[1] #coefficient b_0
+beta1 <- coef(gfit)[2] #coefficient b_1
+fitted_values <- beta0 + beta1 * gpa$ACT #y_hat values
+
+sse <- sum((gpa$GPA - fitted_values) ^2) #sse
+mse <- sse / (nrow(gpa)-2) #mse
+sigma.hat<-sqrt(mse) #estimated standard dev
+sxx <- sum((gpa$ACT - mean(gpa$ACT))^2) #msr
+se.beta.hat.1 <- sqrt(mse / sxx) #standard error
+T.statistic <- beta1 / se.beta.hat.1 #t statistic
+p_value <- 2*pt(T.statistic, df=nrow(gpa)-2, lower.tail=FALSE)
+t.star <- qt(.995, nrow(gpa)-2) #t*
+
+# estimate mean y value
+newdata <- data.frame(ACT = c(28))
+ci <- predict(gfit, newdata, interval = "confidence", level = .95)
+
+# predict y for known x value
+pi <- predict(gfit,newdata,interval = "predict", level = .95)
+```
+
+## Answers
+
+### Least Squares Estimates
+$\hat{\beta}_{0} = 2.11405$
+
+$\hat{\beta}_{1} = 0.03883$
+
+### Equation of a Line
+$\hat{Y} = 2.11405 + 0.03883X$
+
+### Describe Plot
+The estimated regression function appears to fit the data poorly. The
+majority of the data appears to show a stronger relationship between ACT
+score and freshman GPA; however, points (29, 0.5) and (31, 1.486) among a
+handful of others prevent the regression function from having a steeper slope.
+
+### Interpret Confidence Interval
+If the observational study were repeated again and again, the coefficient for
+$\beta_1$ is expected to be in theconfidence interval, calculated with this method,
+99% of the time.
+If the CI included 0, the director of admissions could ignore ACT score as a
+predictor of Freshman GPA since the results would suggest the observed
+relationship may be due to error.
+
+### Hypothesis Test for Relationship
+$H_0: \beta_1 = 0$
+
+$H_a: \beta_1 \neq 0$
+
+I will be able to reject the null hypothesis if $T < -2.618137$ or $T > 2.618137$.
+The t-statistic is 3.04; therefore, I can reject the null hypothesis.
+
+The P-value is 0.002. The probability of getting a T-statistic of 3.04 would
+be less than .01 if the null hypothesis were true, satisfying the 99%
+confidence interval. I can conclude there is a linear association between ACT
+score and freshman GPA.
+
+### Estimate Mean Y
+If the observational study were conducted again and again, the mean freshman
+GPA for a student scoring 28 on the ACT is expected to be in the created
+confidence interval 95% of the time.
+
+### Predict Y
+The prediction interval when calculated with this method will contain the
+student's actual Freshman GPA 95% of the time.
+
+### Note on Difference
+The prediction interval includes the prediction of error and will always be
+wider than the confidence interval, which predicts the mean exclusively.
+
+### Additional - Relationship test
+If there were no linear association between Y and X, 0 would be included in
+the confidence interval for slope. However, 0 is not included in the
+confidence interval, so this conclusion is valid with a significance of 0.05.

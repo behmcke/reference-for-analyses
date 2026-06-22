@@ -1,0 +1,78 @@
+---
+title: "Linear and Quadratic Trends"
+categories: [Experiments, "Linear and Quadratic Trends"]
+---
+
+```{r}
+#| message: false
+#| warning: false
+pacman::p_load(lsmeans)
+
+# read data
+water <- read.table("../../data/water.boiling.txt", header=TRUE)
+
+water$salt <- as.factor(water$salt)                 # as factor
+water$burner <- as.factor(water$burner)             # as factor
+
+water_model <- aov(time ~ salt + burner,            # main effects model
+                   data=water)
+```
+
+### Linear Trend
+
+$H_0$: there is no linear trend
+
+$H_a$: there is a linear trend
+
+Decision Rule: If p < 0.01, I will reject the null hypothesis and conclude
+there is a linear trend.
+
+```{r}
+#| message: false
+#| warning: false
+
+water_model_means <- lsmeans(water_model, ~salt)    # find least square means
+linear_summary <- summary(contrast(water_model_means,
+
+                                   # linear trend contrasts
+                                   list(`Linear Trend` = c(-3, -1, 1, 3)),
+
+                                   adjust = "tukey"), #tukey method
+                          infer=c(T,T),
+                          level=.99,               # 99% family-wise confidence
+                          side="two-sided")
+linear_summary
+```
+
+Because 0 is contained in the confidence interval and the p-value is greater
+than 0.01, I reject that there exists a linear trend between teaspoons of salt
+added to water and time to boil.
+
+### Quadratic Trend
+
+$H_0$: there is no quadratic trend
+
+$H_a$: there is a quadratic trend
+
+Decision Rule: If p < 0.01, I will reject the null hypothesis and conclude
+there is a quadratic trend.
+
+```{r}
+#| message: false
+#| warning: false
+
+quad_summary <- summary(contrast(water_model_means,
+
+                                 # quadratic trend contrasts
+                                 list(`Quadratic Trend` = c(1, -1, -1, 1)),
+
+                                 adjust = "tukey"), # tukey method
+                        infer=c(T,T),
+                        level=.99,                  # 99% family-wise confidence
+                        side="two-sided")
+quad_summary
+```
+
+Because 0 is contained in the confidence interval and the p-value is greater
+than 0.01, I reject that there exists a quadratic trend between teaspoons of
+salt added to water and time to boil.

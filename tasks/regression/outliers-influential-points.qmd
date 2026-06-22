@@ -1,0 +1,32 @@
+---
+title: "Outlier and Influential Points"
+categories: [Regression, "Outlier and Influential Points"]
+---
+
+```{r}
+#| message: false
+#uses patient data
+
+# patient data + model carried over from the Added Variable Plot task
+library(car)
+patient <- read.table("../../data/CH06PR15.txt", header=TRUE)
+gfit2 <- lm(Satisfaction ~ Age + Severity + Anxiety, data=patient)
+
+# visual check for outliers (none should be found)
+studres <- rstudent(gfit2)
+plot(studres, pch=18, col='red', main="Studentized Residuals")
+abline(h=0)
+
+# identify 3 points with highest leverage (none should be found to be high)
+# informally 0.5 is considered as a threshold for high leverage points
+z <- hatvalues(gfit2)
+sort(z, decreasing=TRUE)[1]
+sort(z, decreasing=TRUE)[2]
+sort(z, decreasing=TRUE)[3]
+
+# check Cook's Distance for influential points (none should be found)
+# Use F(0.5,p,n-p) as cutoff for influential point in Cook's distance.
+library(lindia)
+gg_cooksd(gfit2)
+cutoff <- qf(.5, 4, 42)
+```

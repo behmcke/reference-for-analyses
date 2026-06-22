@@ -1,0 +1,45 @@
+---
+title: "Model Selection"
+categories: [Regression, "Model Selection"]
+---
+
+```{r}
+#| message: false
+
+# required package for regsubsets()
+library(leaps)
+
+# read data
+job <- read.table("../../data/CH09PR10-1.txt", header=TRUE)
+
+# select model; methods = exhaustive, forward, or backward
+best_subs <- regsubsets(Job_Proficiency_Score ~ X_1 + X_2 + X_3 + X_4,
+                        data=job,
+                        method="exhaustive",
+                        nvmax=2)                    #include 2 variables max
+summary(best_subs)
+
+# adjusted r squared plot
+plot(best_subs, scale="adjr2", main="Adjusted R^2 Plot")
+
+# mallows cp plot
+plot(best_subs, scale="Cp", main="Mallows Cp Plot")
+
+# bic plot
+plot(best_subs, scale="bic", main="BIC Plot")
+
+# required package for step()
+library(car)
+
+# fit intercept and full model
+gfit_int <- lm(Job_Proficiency_Score~1, data=job)
+gfit_full <- lm(Job_Proficiency_Score~., data=job)
+
+# aic model selection
+forwstep_a <- step(gfit_int, scope=list(upper=gfit_full), data=job, direction="both")
+forwstep_a
+
+# bic model selection
+forwstep_b <- step(gfit_int, scope=list(upper=gfit_full), data=job, direction="both", k=log(nrow(job)))
+forwstep_b
+```

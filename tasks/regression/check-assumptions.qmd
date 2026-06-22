@@ -1,0 +1,53 @@
+---
+title: "Check Assumptions"
+categories: [Regression, "Check Assumptions"]
+---
+
+Assumptions to check:
+
+1. Normality
+2. Constant Variance
+3. Independence
+4. Outliers
+
+```{r}
+#| message: false
+
+# read data
+gpa <- read.table("../../data/CH03PR03.txt", header=TRUE)
+
+# plot data
+plot(gpa$X,gpa$Y, ylab="Freshman GPA", xlab="ACT Score", main="Scatter Plot", pch=18, col="orange")
+
+# plot normality
+hist(gpa$X, xlab="ACT Scores", ylab="Frequency of Score", main="Histogram", col="orange")
+
+# plot residuals
+gfit <- lm(Y ~ X, data=gpa) #fit linear model
+gpa.e <- resid(gfit) #residuals
+plot(gpa$X, gpa.e, xlab="ACT Score", ylab="Residual", main="Residual Plot", col="orange", pch=18)
+abline(h=0) #horizontal line
+abline(h=1, lty=c(2)) #dotted line
+abline(h=-1, lty=c(2)) #dotted line
+
+# plot QQ plot
+library(car)
+qqPlot(rstandard(gfit), col="orange", pch=18)
+
+# test normality (reject if < 0.05)
+shapiro.test(gpa.e)
+```
+
+::: callout-note
+## Extra
+View residuals against other variables to see if they should be included in
+the linear model.
+:::
+
+```{r}
+# plot residuals against unused variables
+plot(gpa$V2, gpa.e, col="orange", pch=18, xlab="V2", ylab="Residuals", main="V2 Residual Plot")
+abline(h=0)
+plot(gpa$V3, gpa.e, col="orange", pch=18, xlab="V3", ylab="Residuals", main="V3 Residual Plot")
+abline(h=0)
+```

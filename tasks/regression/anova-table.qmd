@@ -1,0 +1,55 @@
+---
+title: "ANOVA Table"
+categories: [Regression, "ANOVA Table"]
+---
+
+```{r}
+
+# read data
+gpa <- read.table("../../data/CH03PR03.txt", header=TRUE)
+
+# fit linear model (defined when checking assumptions on this data)
+gfit <- lm(Y ~ X, data=gpa)
+
+# anova table
+anova(gfit)
+
+# f-test for value of variables in model (H_0: intercept-only model)
+f <- qf(.95, 1, 118) #f*
+MSR <- 3.588
+MSE <- 0.388
+Fstar <- MSR/MSE #f statistic
+
+# calculate r-squared
+SSR <- 3.588
+SSE <- 45.818
+SSTO <- SSR+SSE
+Rsquared <- SSR/SSTO
+
+# not sure????
+conc <- read.table("../../data/CH03PR15.txt", header=TRUE)
+gfit_conc <- lm(conc$Concentration ~ conc$Hours)
+gfit_conc_full <- lm(conc$Concentration ~ 0 + factor(conc$Hours))
+anova(gfit_conc, gfit_conc_full)
+compare <- qf(.975, 3, 10)
+f_star <- (2.7673/3)/(.1574/10)
+```
+
+## Answers
+
+### F Test
+Null Hypothesis: $H_0: \beta_1 = 0$
+
+Alternate Hypothesis: $H_a: \beta_1 \neq 0$
+
+Because the test statistic is larger than F\*, I can reject the null hypothesis
+with 95% confidence. I conclude that the full regression model is better than
+an intercept-only model.
+
+### Unknown Test????
+$H_0: \hat{Y} = -0.3240X + 2.5753$; $H_a: \hat{Y} \neq -0.3240X + 2.5753$
+
+This information does not indicate what regression function is appropriate,
+since all other regression functions are included in the alternate hypothesis.
+If we want to explore alternate regression functions, we can look to other
+diagnostics and examine the residuals.

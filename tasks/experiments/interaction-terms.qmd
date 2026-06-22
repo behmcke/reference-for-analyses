@@ -1,0 +1,90 @@
+---
+title: "Interaction Terms"
+categories: [Experiments, "Interaction Terms"]
+---
+
+```{r}
+#| message: false
+#| warning: false
+pacman::p_load(dplyr, ggplot2)
+
+# read data
+weld <- read.table("../../data/weld.strength.txt", header=TRUE)
+
+weld$gage <- as.factor(weld$gage)                 # gage as factor
+weld$time <- as.factor(weld$time)                 # time as factor
+
+weld_model <- aov(strength ~ gage * time,         # two-way complete model
+                  data=weld)
+anova(weld_model)                                 # anova table
+
+# determine cut-off for decision rule
+qf(.95, 8, 15)                                   # (alpha, (a-1)(b-1), ab)
+```
+
+### Test for Interaction Term
+
+$H_0^{AB}: (\alpha\beta)_{ij}-(\overline{\alpha\beta})_{i.}-(\overline{\alpha\beta})_{j.}+(\overline{\alpha\beta})_{..} = 0$
+
+$H_a^{AB}: (\alpha\beta)_{ij}-(\overline{\alpha\beta})_{i.}-(\overline{\alpha\beta})_{j.}+(\overline{\alpha\beta})_{..} \neq 0$
+
+Decision Rule:
+I will reject the null hypothesis if $\frac{msAB}{msE} > F_{(a-1)(b-1,\, n-ab)}$
+in which case the corresponding p-value will be less than 0.05.
+
+Conclusion:
+Because 6.826 > 2.640797 and the corresponding p-value is 0.0007, I reject
+the null hypothesis and conclude that the interaction between gauge level and
+weld time is not negligible.
+
+```{r}
+#| message: false
+#| warning: false
+attach(weld)
+interaction.plot(gage, time, strength,            # interaction plot
+                 type="b",
+                 main="Interaction Plot Between Gage Setting and Time")
+```
+
+The plot supports my conclusion that interaction has an effect. I see that
+levels 1 and 3 for time of weld cross the other plots of time, which is
+generally indicative of interaction.
+
+**Should we consider effect of gage bar setting?**
+
+If we determine that interaction is not negligible, as is the case for this
+study, we should proceed with a cell means model and consider possible
+treatments rather than levels of an individual factor. This seems well-suited
+for this study in particular, because we wish to determine the procedure which
+results in the strongest weld.
+
+Instead of considering main effects individually, we would consider the
+"treatment" of gauge and time as one effect as shown below...
+
+```{r}
+#| message: false
+#| warning: false
+
+weld2 <- weld %>%
+  mutate(Treatment = ifelse(trtmt == 11, 1,         # rename treatments
+                            ifelse(trtmt == 12, 2,
+                                   ifelse(trtmt == 13, 3,
+                                          ifelse(trtmt == 14, 4,
+                                                 ifelse(trtmt == 15, 5,
+                                                        ifelse(trtmt == 21, 6,
+                                                               ifelse(trtmt == 22, 7,
+                                                                      ifelse(trtmt == 23, 8,
+                                                                             ifelse(trtmt == 24, 9,
+                                                                                    ifelse(trtmt == 25, 10,
+                                                                                           ifelse(trtmt == 31, 11,
+                                                                                                  ifelse(trtmt == 32, 12,
+                                                                                                         ifelse(trtmt == 33, 13,
+                                                                                                                ifelse(trtmt == 34, 14, 15)))))))))))))))
+ggplot(weld2,
+       aes(x = Treatment, y = strength, group=Treatment)) +
+  geom_boxplot()                                    # view treatment boxplots
+```
+
+Predictably, the treatments with the highest weld strength belong to those
+with the gage level at 1 or 2 and the time level of 3. These were also shown
+to be highest on the interaction plot.

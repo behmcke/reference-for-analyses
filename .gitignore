@@ -1,0 +1,26 @@
+# Legacy RStudio notebook renders (untracked; superseded by Quarto site)
+*.nb.html
+
+# Quarto
+/_site/
+/.quarto/
+/_freeze/
+*_cache/
+*_files/
+
+# RStudio
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+
+# OS
+.DS_Store
+
+**/*.quarto_ipynb
+
+# Raw class files
+data/
+multivariate/
+time-series/
+statistical-computing/

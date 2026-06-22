@@ -1,0 +1,30 @@
+---
+title: "Transformations"
+categories: [Regression, "Transformations"]
+---
+
+```{r}
+#| message: false
+
+# read data
+sales <- read.table("../../data/CH03PR17.txt", header=TRUE)
+
+# view boxcox plot
+gfit <- lm(Y ~ X, data=sales)
+library(MASS)
+boxcox(gfit)
+
+# transform data
+gfit_trfm <- lm(sqrt(Y) ~ X, data=sales)
+summary(gfit_trfm)
+```
+
+## Answers
+
+### Box-Cox Plot
+The Box-Cox procedure suggests a lambda = .5 transformation would be
+appropriate.
+
+### Interpret Transformed Data
+For each one-year increase, the expected change in square root of sales in
+thousands is 1.07629.

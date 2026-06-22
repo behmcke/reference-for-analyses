@@ -1,0 +1,32 @@
+---
+title: "Transformations"
+categories: [Experiments, "Transformations"]
+---
+
+```{r}
+#| message: false
+#| warning: false
+
+# load data
+bicycle <- read.table("../../data/bicycle.txt", header=TRUE)
+
+attach(bicycle)
+means <- tapply(rate, trtmt, mean)                    #mean for each treatment
+variance <- tapply(rate, trtmt, var)                  #variance for each treatment
+compare <- rbind(means, variance)                     #combine for table
+compare
+
+slr <- lm(log(variance) ~ log(means))                 #fit linear model of log means & variances
+summary(slr)                                          #view summary for slope
+
+bicycle$newrate <- bicycle$rate^(1+(1.9187/2))        #complete transformation
+```
+
+I will use the following transformation and find q using simple linear
+regression on the log of both variances and means.
+
+$$h(y_{it}) = (y_{it})^{1-(q/2)}$$
+
+I find q to be -1.9187.
+
+\*\*\*\*\*\* Double check that this is best formula - there are others.

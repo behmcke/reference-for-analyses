@@ -1,0 +1,33 @@
+---
+title: "Check Model Fit"
+categories: [Regression, "Check Model Fit"]
+---
+
+```{r}
+#| message: false
+
+# required package for PRESS()
+library(MPV)
+
+# job data + selected model carried over from the Model Selection task
+job <- read.table("../../data/CH09PR10-1.txt", header=TRUE)
+jobfit <- lm(Job_Proficiency_Score ~ X_3 + X_1 + X_4, data=job)
+
+# fit PRESS statistic
+fit_press <- PRESS(jobfit)/nrow(job)
+anova(jobfit)
+
+# read and fit linear model jobs prediction dataset
+job2 <- read.table("../../data/CH09PR22-1.txt", header=TRUE)
+jobfit2 <- lm(Job_Proficiency_Score ~ X_3 + X_1 + X_4, data=job2)
+
+# compare summary and anova (coefficients, SE, MSE, R squared)
+summary(jobfit2)
+summary(jobfit)
+anova(jobfit2)
+anova(jobfit)
+
+# compare MSPE to MSE
+pred_job2 <- predict(jobfit, newdata=job2)
+mspe <- mean((job2$Job_Proficiency_Score-pred_job2)^2)
+```

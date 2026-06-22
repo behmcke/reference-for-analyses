@@ -1,0 +1,51 @@
+---
+title: "Choosing Contrasts"
+categories: [Experiments, "Choosing Contrasts"]
+---
+
+The experiment was run to compare the effects of auditory and visual cues on
+speed of response of a human subject. The experimenters were interested in
+the effects on the subjects' reaction time of the auditory and visual cues
+and also in different elapsed times between cue and stimulus. Thus, there were
+two different treatment factors: "cue stimulus" at two levels "auditory" or
+"visual," and "elapsed time between cue and stimulus" at three levels "five,"
+"ten," or "fifteen" seconds. This gave a total of six treatment combinations.
+
+**Comparison: Auditory vs. Visual**
+$$\gamma = \tfrac{1}{3}(\tau_1 + \tau_2 + \tau_3) - \tfrac{1}{3}(\tau_4 + \tau_5 + \tau_6)$$
+
+**Comparison: 5 sec vs. 10 sec Before Cue**
+$$\gamma = \tfrac{1}{2}(\tau_1 + \tau_4) - \tfrac{1}{2}(\tau_2 + \tau_5)$$
+
+**Comparison: 5 sec vs. 15 sec Before Cue**
+$$\gamma = \tfrac{1}{2}(\tau_1 + \tau_4) - \tfrac{1}{2}(\tau_3 + \tau_6)$$
+
+**Comparison: 10 sec vs. 15 sec Before Cue**
+$$\gamma = \tfrac{1}{2}(\tau_2 + \tau_5) - \tfrac{1}{2}(\tau_3 + \tau_6)$$
+
+---
+
+Burt Beiter, Doug Fairchild, Leo Russo, and Jim Wirtley, in 1990, ran an
+experiment to compare the relative strengths of two similarly priced brands
+of paper towel under varying levels of moisture saturation and liquid type.
+The treatment factors were "amount of liquid" (factor A, with levels 5 and 10
+drops coded 1 and 2), "brand of towel" (factor B, with levels coded 1 and 2),
+and "type of liquid" (factor C, with levels "beer" and "water" coded 1 and
+2). A 2 × 2 × 2 factorial experiment with r = 3 was run in a completely
+randomized design.
+
+List all treatment contrasts that are likely to be of primary interest to the
+experimenters.
+
+- Compare levels (two total) of Factor A: $\alpha_1 - \alpha_2$
+- Compare levels (two total) of Factor B: $\beta_1 - \beta_2$
+- Compare levels (two total) of Factor C: $\gamma_1 - \gamma_2$
+- Confirm interaction of Factors A and B: $[(\alpha\beta)_{11.} + (\alpha\beta)_{22.}] - [(\alpha\beta)_{12.} + (\alpha\beta)_{21.}]$
+
+---
+
+Tukey Multiplier:
+$$w_T = q_{v,\,n-v,\,\alpha} / \sqrt{2}$$
+
+Bonferroni Multiplier:
+$$w_B = t_{n-v,\,\alpha/(2m)}$$

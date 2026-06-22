@@ -1,0 +1,50 @@
+---
+title: "Impossible to Interpret (Limited Sample Size)"
+categories: [Experiments, "Impossible to Interpret (limited sample size)"]
+---
+
+```{r}
+#| message: false
+#| warning: false
+pacman::p_load(dplyr, kableExtra)
+
+# paperTowel carried over from the Fit 2-Way Complete Model task
+paperTowel <- read.table("../../data/paper.towel.strength.txt", header = TRUE)
+paperTowel$A <- as.factor(paperTowel$A)
+paperTowel$B <- as.factor(paperTowel$B)
+paperTowel$C <- as.factor(paperTowel$C)
+
+# read data
+towel2 <- filter(paperTowel, order <11)
+
+# fit model
+model7.13 <- aov(strength ~ A + B + C + A*B, data=towel2)
+```
+
+Is it possible to perform an analysis of variance of these data, using a
+model that includes main effects and the AB interaction as required by the
+experimenters? If so, analyze the experiment.
+
+```{r}
+# anova table
+drop1(model7.13, ~., test="F")
+```
+
+With only ten observations, we are not able to conclude any effects belong in
+the model, main effects or interaction.
+
+Use a computer program to fit a three-way complete model. Can all of the main
+effects and interactions be measured? If not, investigate which models could
+have been used in the analysis of such a design with two empty cells and
+unequal numbers of observations in the other cells.
+
+```{r}
+model7.13b <- aov(strength ~ A*B*C, data=towel2)
+
+kable(drop1(model7.13b, ~., test="F")) %>%
+        kable_styling(font_size = 7)
+```
+
+No, not all of the effects can be measured. We can consider models that
+include Factor A, Factor B, both Factors A and B, or both Factor A and B as
+well as their interaction effect.

@@ -1,0 +1,32 @@
+---
+title: "Assign Random Treatments"
+categories: [Experiments, "Assign Random Treatments"]
+---
+
+Suppose that you are planning to run an experiment with one treatment factor
+having four levels and no blocking factors. Suppose that the calculation of
+the required number of observations has given r1 = r2 = r3 = r4 = 5. Assign
+at random 20 experimental units to the v = 4 levels of the treatments, so
+that each treatment is assigned 5 units.
+
+```{r}
+r <- c(5,5,5,5)                                         #set # replicates
+v <- length(r)                                          #set # treatments
+n <- sum(r)                                             #set n
+unsorted_trtmts = rep(1:4, r)                           #create r reps of v treatments
+data = data.frame(unsorted_trtmts=unsorted_trtmts)                    #make data frame
+
+set.seed(12345)                                         #set seed
+unsorted_rand <- runif(n)                               #random deviates of uniform distr.
+data_sort = data.frame(data,                            #add column with random numbers
+                       unsorted.rn = round(unsorted_rand, 3))
+
+sorted_rand = sort(unsorted_rand)                       #sort by random numbers
+ordered_rand = order(unsorted_rand)                     #assign random order
+sort_trtmts = unsorted_trtmts[ordered_rand]             #random order treatments
+data = data.frame(data,
+                  sort_trtmts = sort_trtmts,            #column sorted treatments
+                  sorted_rand = sorted_rand,            #column sorted random numbers
+                  exper_unit = seq(1:20))               #number experimental units
+data
+```

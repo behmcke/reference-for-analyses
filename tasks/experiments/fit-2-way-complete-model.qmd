@@ -1,0 +1,44 @@
+---
+title: "Fit 2-Way Complete Model"
+categories: [Experiments, "Fit 2-Way Complete Model"]
+---
+
+```{r}
+#| message: false
+#| warning: false
+
+# read data
+paperTowel <-
+  read.table(
+    "../../data/paper.towel.strength.txt",
+    header = TRUE
+  )
+
+# consider as factors
+paperTowel$A <- as.factor(paperTowel$A)
+paperTowel$B <- as.factor(paperTowel$B)
+paperTowel$C <- as.factor(paperTowel$C)
+
+# fit model including AB interaction
+model7.8 <- aov(strength ~ A + B + C + A*B, data=paperTowel)
+```
+
+$H_0$: An effect is insignificant to the model
+
+$H_a$: An effect is not insignificant and should be added to the model
+
+I will use the ANOVA table to determine P-values found via F testing.
+
+Decision Rule: Any p-value under 0.01 will suggest that the corresponding
+effect is significant and should be maintained in the model. I will use 0.01,
+so that after the four tests, the end result will have a confidence of 0.04
+as desired in the problem statement.
+
+```{r}
+# create anova table
+drop1(model7.8, ~., test="F")
+```
+
+Only factors B and C should be included in the model, since both have
+p-values < 0.01 via F testing. Factor A and the interaction between factors
+A and B are considered insignificant to this model.

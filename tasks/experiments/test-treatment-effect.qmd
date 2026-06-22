@@ -1,0 +1,58 @@
+---
+title: "Test Treatment Effect"
+categories: [Experiments, "Test Treatment Effect"]
+---
+
+```{r}
+#| message: false
+#| warning: false
+pacman::p_load(dplyr, ggplot2, lsmeans)
+
+# load data
+trout <- read.table("../../data/trout.txt", header=TRUE)
+trout$Sulfa <- as.factor(trout$Sulfa)                   #consider sulfa as treatments
+
+ggplot(trout, aes(x = Sulfa,                            #view boxplots of sulfa groups
+                  y = Hemo,
+                  group=Sulfa)) +
+  geom_boxplot()
+
+model <- lm(Hemo ~ Sulfa, data=trout)                   #fit linear model
+lsmeans(model, "Sulfa")                                 #find least squares means
+
+#mark least squares means on boxplot
+ggplot(trout, aes(x = Sulfa, y = Hemo, group=Sulfa)) +
+  geom_boxplot() +
+  geom_point(aes(x=1, y=7.2, col="red"), pch=8, lwd=3) +
+  geom_point(aes(x=2, y=9.33, col="red"), pch=8, lwd=3) +
+  geom_point(aes(x=3, y=9.03, col="red"), pch=8, lwd=3) +
+  geom_point(aes(x=4, y=8.69, col="red"), pch=8, lwd=3)
+
+#anova table
+anova(model)
+```
+
+## Answers
+
+### Suitable Model
+$$Y_{it} = \mu + \tau_i + \epsilon_{it}$$
+
+for $i=1,2,3,4$ and $t=1,\dots,10$ where $Y_{it}$ = the grams of hemoglobin
+per 100mL, $\mu + \tau_i$ = the mean response for each treatment, and
+$\epsilon_{it}$ = the error terms which are approx. $N(0, \sigma^2)$.
+
+### F Test - Effect of Sulfa
+
+$H_0: \tau_1 = \tau_2 = \tau_3 = \tau_4$
+
+$H_a:$ not all $\tau_i$ are equal
+
+$\alpha = .05$
+
+The p value is 0.002685. Because the p value is less than the significance
+level, I can reject the null hypothesis and conclude that at least two
+treatment groups have unequal tau_i.
+
+I will not keep the model that considers all treatments equal and instead
+adopt a model that suggests sulfamerazine does have an effect on hemoglobin
+content.

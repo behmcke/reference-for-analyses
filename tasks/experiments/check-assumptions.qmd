@@ -1,0 +1,54 @@
+---
+title: "Check Assumptions"
+categories: [Experiments, "Check Assumptions"]
+---
+
+```{r}
+#| message: false
+#| warning: false
+pacman::p_load(dplyr, janitor)
+
+# load data
+reaction <- read.table("../../data/reaction.time.txt") %>%
+  row_to_names(row_number = 1)
+reaction$Trtmt <- as.factor(reaction$Trtmt)             #consider trtmt as treatments
+
+model<- lm(y ~ Trtmt, data=reaction)                    #fit linear model
+anova(model)                                            #anova table
+resid <- residuals(model)                               #residuals
+fit <- fitted(model)                                    #fitted values
+sresid <- resid / sqrt(.0002893)                        #standardized residuals
+
+par(mfrow=c(2,2))                                       #format imaging
+
+plot(fit, sresid, pch=18, col="aquamarine3",            #plot fitted vs. standardized residuals
+     xlab="Fitted Values",
+     ylab="Residuals",
+     main="Check Variance")
+reaction$Trtmt <- as.numeric(reaction$Trtmt)            #convert treatment to numeric for scatterplot
+plot(reaction$Trtmt, sresid, pch=18, col="aquamarine3", #plot treatments vs. standardized residuals
+     xlab="Treatment (coded)", xlim=c(0,3),
+     ylab="Residuals",
+     main="Check Model Fit", type="p")
+abline(h=0)
+plot(reaction$Order, sresid,                            #plot order vs. standardized residuals
+     xlab="Order of Data Sample",
+     ylab="Reaction Time",
+     main="Check Independence", col="aquamarine3", pch=18)
+hist(resid, col="aquamarine3",                          #plot histogram
+     xlab="Residuals",
+     main="Check Normality")
+```
+
+## Answer
+
+Check:
+
+1. Constant Variance
+2. Independence
+3. Normal Distribution
+4. Model Fit
+
+There is an acceptable amount of variance if the following condition is met:
+
+$$\sigma_{max} / \sigma_{min} < 3$$

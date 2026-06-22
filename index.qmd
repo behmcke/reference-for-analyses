@@ -1,0 +1,23 @@
+---
+title: "Reference for Analyses"
+listing:
+  id: tasks
+  contents: tasks
+  type: default
+  sort: "title"
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [title, categories]
+---
+
+A cookbook of applied-statistics code snippets accumulated while completing
+coursework for an applied-statistics degree. Each **task** is its own page,
+tagged with the **course** it came from, so the same content is browsable by
+course *and* by task — and fully searchable.
+
+Use the category tags below to filter by course or by task type, or the search
+box (top right) to find a specific technique.
+
+::: {#tasks}
+:::

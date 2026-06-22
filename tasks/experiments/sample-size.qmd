@@ -1,0 +1,27 @@
+---
+title: "Sample Size"
+categories: [Experiments, "Sample Size"]
+---
+
+```{r}
+#| message: false
+#| warning: false
+pacman::p_load(pwr)
+
+# sigma2 carried over from the Conservative Estimate of Variance task
+chi <- qchisq(.95, 36, lower.tail = FALSE)
+sse <- 56.471
+sigma2 <- sse/chi
+
+delta <- 1.5                                            #given delta
+v <- 4                                                  #treatment groups
+#sigma2 from conservative estimate above
+f <- sqrt((delta^2)/(2*v*sigma2))                       #effect size
+pwr.anova.test(4,
+               sig.level=.05,
+               power = .95,                             #desired power
+               f=f)
+```
+
+The recommended sample size from each treatment group is 39, with a total
+sample size of 156.

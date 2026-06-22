@@ -1,0 +1,26 @@
+---
+title: "Added Variable Plot"
+categories: [Regression, "Added Variable Plot"]
+---
+
+```{r}
+#| message: false
+
+# required package
+library(car)
+
+# patient data carried over from the Multiple Linear Regression task
+patient <- read.table("../../data/CH06PR15.txt", header=TRUE)
+
+# fit linear model
+gfit2 <- lm(Satisfaction ~ Age + Severity + Anxiety, data=patient)
+
+# added variable plot
+avPlots(gfit2)
+```
+
+Upon visual inspection of the added variable plots, it appears that $X_1$,
+which represents age, may have a linear relationship with patient
+satisfaction, while the relationship between $X_2$ and $X_3$ and patient
+satisfaction remains unclear. It is possible these variables do not
+significantly add value to the model.

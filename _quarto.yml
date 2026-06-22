@@ -1,0 +1,51 @@
+project:
+  type: website
+  output-dir: _site
+  # Only the converted cookbook is rendered. The original *.Rmd sources and the
+  # repo's *.md docs are excluded until they are removed in the final step.
+  render:
+    - index.qmd
+    - tasks/
+
+website:
+  title: "Reference for Analyses"
+  description: "A cookbook of applied-statistics code snippets, organized by course and by task."
+  search:
+    location: navbar
+    type: overlay
+  navbar:
+    background: primary
+    search: true
+    left:
+      - text: "Home"
+        href: index.qmd
+    right:
+      - icon: github
+        href: https://github.com/behmcke/reference-for-analyses
+        aria-label: GitHub
+  sidebar:
+    style: floating
+    search: true
+    contents:
+      - text: "All tasks"
+        href: index.qmd
+      - section: "Regression"
+        contents: tasks/regression/*.qmd
+      - section: "Experiments"
+        contents: tasks/experiments/*.qmd
+      - section: "Time Series"
+        contents: tasks/time-series/*.qmd
+      - section: "Multivariate"
+        contents: tasks/multivariate/*.qmd
+      - section: "Statistical Computing"
+        contents: tasks/statistical-computing/*.qmd
+
+format:
+  html:
+    theme: cosmo
+    toc: true
+    code-copy: true
+    code-overflow: wrap
+
+execute:
+  freeze: auto

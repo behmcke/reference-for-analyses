@@ -1,0 +1,33 @@
+---
+title: "Fit Piecewise Linear Model"
+categories: [Regression, "Fit Piecewise Linear Model"]
+---
+
+```{r}
+
+# read data
+properties <- read.table("../../data/CH06PR18-1.txt", header=TRUE)
+
+# center ages variable (square of variable included in model)
+Centered_Ages <- properties$Age-mean(properties$Age)
+Sq_Centered_Ages <- Centered_Ages^2
+
+# create table
+prop <- cbind(properties, Centered_Ages, Sq_Centered_Ages)
+
+# plot scatter with vertical line at break
+plot(prop$Age, prop$Rental_Rates, pch=18, col="red", ylab="Rental Rates", xlab="Property Age", main="Regression on X1")
+abline(v=10, lty=2)
+
+# fit piecewise model
+piecewise.fit <- lm(Rental_Rates ~ Age + pmax(0, Age - 10) + I(Age > 10), data=prop)
+
+# generate x variables for prediction
+a.grid <- seq(0, max(prop$Age), length.out=1000)
+
+# generate piecewise prediction lines
+predictions <- predict(piecewise.fit, newdata=data.frame(Age = a.grid), interval = "confidence")
+
+# add lines to graph (run entire chunk for success)
+lines(x=a.grid, y=predictions[,1], col="gray3")
+```
